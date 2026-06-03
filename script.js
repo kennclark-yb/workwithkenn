@@ -154,7 +154,7 @@ function initHoverProof() {
         trigger.classList.remove('is-locked');
     }, 15000); 
 
-    imgTarget.src = "assets/branding/cyclist-proof-1.png";
+    imgTarget.src = "assets/branding/cyclist-proof-1.webp";
 
     const showImage = () => imageContainer.classList.add('visible');
     const hideImage = () => imageContainer.classList.remove('visible');
@@ -463,7 +463,7 @@ function showWorkflowDetail(node) {
                 </div>
                 <div class="pt-4">
                     <p class="text-[10px] font-bold uppercase opacity-70 mb-2">Replacement Asset</p>
-                    <img src="assets/projects/creative/tokyo-drift/originalCarReference.PNG" class="w-full rounded-2xl border shadow-xl">
+                    <img src="assets/projects/creative/tokyo-drift/originalCarReference.webp" class="w-full rounded-2xl border shadow-xl">
                 </div>
             </div>
         `;
@@ -489,11 +489,11 @@ function showWorkflowDetail(node) {
                     <div class="grid grid-cols-2 gap-8">
                         <div class="space-y-2">
                             <p class="text-[11px] font-mono font-bold opacity-70">Source Vehicle</p>
-                            <img src="assets/projects/creative/tokyo-drift/originalCarReference.PNG" class="rounded-2xl border-2 border-zinc-50 w-full shadow-md">
+                            <img src="assets/projects/creative/tokyo-drift/originalCarReference.webp" class="rounded-2xl border-2 border-zinc-50 w-full shadow-md">
                         </div>
                         <div class="space-y-2">
                             <p class="text-[11px] font-mono font-bold opacity-70">Scene Reference Frame</p>
-                            <img src="assets/projects/creative/tokyo-drift/input_hanOnCarReference.PNG" class="rounded-2xl border-2 border-zinc-50 w-full shadow-md">
+                            <img src="assets/projects/creative/tokyo-drift/input_hanOnCarReference.webp" class="rounded-2xl border-2 border-zinc-50 w-full shadow-md">
                         </div>
                     </div>
                 </div>
@@ -526,7 +526,7 @@ function showWorkflowDetail(node) {
                         </div>
                         <div class="pt-4">
                             <p class="text-[11px] font-mono font-bold opacity-70 mb-2 uppercase text-left">AI Reconstructed Frame</p>
-                            <img src="assets/projects/creative/tokyo-drift/output_carReplaced.PNG" class="rounded-2xl border-2 border-zinc-50 w-full shadow-lg">
+                            <img src="assets/projects/creative/tokyo-drift/output_carReplaced.webp" class="rounded-2xl border-2 border-zinc-50 w-full shadow-lg">
                         </div>
                     </div>
                 </div>
@@ -587,7 +587,7 @@ function showWorkflowDetail(node) {
                     
                     <div class="relative group">
                         <div class="w-64 h-64 rounded-full border-2 border-zinc-200 bg-white p-2 overflow-hidden shadow-md flex flex-col items-center justify-center text-center">
-                            <img src="assets/projects/creative/tokyo-drift/output_carReplaced.PNG" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-[4px] scale-110">
+                            <img src="assets/projects/creative/tokyo-drift/output_carReplaced.webp" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-[4px] scale-110">
                             
                             <div class="relative z-10 p-4">
                                 <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest block mb-2">Base Clip</span>
@@ -618,7 +618,7 @@ function showWorkflowDetail(node) {
                         <div class="absolute inset-0 -m-4 border-2 border-dashed border-blue-100 rounded-full animate-[spin_30s_linear_infinite] opacity-70"></div>
                         <div class="relative p-1.5 bg-gradient-to-tr from-blue-600 via-purple-500 to-blue-400 rounded-full shadow-2xl scale-105">
                             <div class="bg-white w-72 h-72 rounded-full flex flex-col items-center justify-center shadow-inner border border-white/20">
-                                <img src="assets/projects/creative/tokyo-drift/DaVinciResolve_logo.png" class="w-24 h-24 object-contain drop-shadow-xl">
+                                <img src="assets/projects/creative/tokyo-drift/DaVinciResolve_logo.webp" class="w-24 h-24 object-contain drop-shadow-xl">
                                 <div class="text-center mt-4">
                                     <h3 class="text-xs font-black uppercase tracking-[0.2em]">Da Vinci Resolve</h3>
                                     <div class="flex gap-1.5 mt-3 justify-center">
@@ -701,7 +701,7 @@ function showWorkflowDetail(node) {
                     <div class="lg:col-span-7 bg-zinc-900 p-8 rounded-[2.5rem] border border-white/10 flex flex-col">
                         <h4 class="text-[11px] font-mono text-blue-400 tracking-[0.4em] uppercase mb-6">Where Views Came From</h4>
                         <div class="rounded-2xl border border-white/10 overflow-hidden shadow-2xl flex-1">
-                            <img src="assets/projects/creative/tokyo-drift/metrics/top-views-srcs.PNG" 
+                            <img src="assets/projects/creative/tokyo-drift/metrics/top-views-srcs.webp" 
                                  class="w-full opacity-90 hover:opacity-100 transition-all duration-500 metrics-img-glow">
                         </div>
                         <p class="text-[11px] text-white/40 mt-6 italic font-mono leading-relaxed border-t border-white/5 pt-4">
@@ -712,7 +712,7 @@ function showWorkflowDetail(node) {
                     <div class="lg:col-span-5 bg-white border-2 border-zinc-200 p-8 rounded-[2.5rem] shadow-sm flex flex-col">
                         <h3 class="text-[12px] font-mono text-zinc-700 tracking-[0.4em] uppercase mb-4">What Made <br>People Watch</h3>
                         <div class="rounded-xl overflow-hidden border border-zinc-200 mb-4">
-                            <img src="assets/projects/creative/tokyo-drift/metrics/what-impcts-ur-views.PNG" 
+                            <img src="assets/projects/creative/tokyo-drift/metrics/what-impcts-ur-views.webp" 
                                  class="w-full opacity-90 hover:opacity-100 transition-all duration-500 metrics-img-glow">
                         </div>
                         <div class="space-y-3 flex-1 font-medium">
@@ -739,7 +739,7 @@ function showWorkflowDetail(node) {
                     <div class="lg:col-span-6 bg-zinc-200 border-2 border-zinc-200 p-8 rounded-[2.5rem] flex flex-col">
                          <h4 class="text-[12px] font-mono text-zinc-700 tracking-[0.4em] uppercase mb-6">Viewer Retention</h4>
                          <div class="rounded-2xl overflow-hidden shadow-lg border-2 border-white flex-1">
-                            <img src="assets/projects/creative/tokyo-drift/metrics/how-long-ppl-watchd.PNG" 
+                            <img src="assets/projects/creative/tokyo-drift/metrics/how-long-ppl-watchd.webp" 
                                  class="w-full opacity-90 hover:opacity-100 transition-all duration-500 metrics-img-glow">
                         </div>
                         <p class="text-[11px] text-zinc-700 mt-6 italic font-mono border-t border-zinc-200 pt-4">
@@ -783,13 +783,13 @@ function showWorkflowDetail(node) {
                     <div class="lg:col-span-7 space-y-6">
                         <div class="bg-zinc-900 p-6 rounded-[2rem] border border-white/10">
                             <h4 class="text-[12px] font-mono font-black text-blue-400 tracking-[0.4em] uppercase mb-4 text-center">Discovery Sources</h4>
-                            <img src="assets/projects/creative/feb-14-cycling/cycling-top-srcs-views.PNG" class="w-full rounded-xl opacity-90">
+                            <img src="assets/projects/creative/feb-14-cycling/cycling-top-srcs-views.webp" class="w-full rounded-xl opacity-90">
                             <p class="text-[12px] text-white/60 mt-4 italic text-center">84.4% Reels Tab success indicates strong algorithmic distribution</p>
                         </div>
 
                         <div class="bg-white border-2 border-zinc-200 p-6 rounded-[2rem]">
                             <h4 class="text-[12px] font-mono font-black text-blue-700 tracking-[0.4em] uppercase mb-4 text-center">Skip Rate Comparison</h4>
-                            <img src="assets/projects/creative/feb-14-cycling/cycling-skip-rate.PNG" class="w-full rounded-xl">
+                            <img src="assets/projects/creative/feb-14-cycling/cycling-skip-rate.webp" class="w-full rounded-xl">
                             <p class="text-[12px] text-zinc-700 mt-4 italic text-center">Lower skip rate compared to baseline indicates a stronger opening hook</p>
                         </div>
                     </div>
@@ -797,7 +797,7 @@ function showWorkflowDetail(node) {
                     <div class="lg:col-span-5 flex flex-col gap-6">
                         <div class="bg-zinc-200 border-2 border-zinc-200 p-6 rounded-[2rem] flex-1">
                             <h4 class="text-[12px] font-mono font-black text-blue-500 tracking-[0.4em] uppercase mb-12 text-center">Retention Curve</h4>
-                            <img src="assets/projects/creative/feb-14-cycling/cycling-retention.PNG" class="w-full rounded-xl shadow-md">
+                            <img src="assets/projects/creative/feb-14-cycling/cycling-retention.webp" class="w-full rounded-xl shadow-md">
                             <p class="text-[12px] text-zinc-800 mt-12 italic text-center text-balance">Retention remained consistent across most of the clip duration 11 seconds out of 14 seconds duration</p>
                         </div>
 
@@ -855,13 +855,13 @@ function showWorkflowDetail(node) {
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="space-y-3">
-                        <img src="assets/projects/creative/day-trip/day-trip-thumbnail.png" class="rounded-2xl shadow-lg border border-zinc-200">
+                        <img src="assets/projects/creative/day-trip/day-trip-thumbnail.webp" class="rounded-2xl shadow-lg border border-zinc-200">
                         <p class="text-[13px] leading-relaxed text-zinc-600 font-medium">
                             <strong class="text-black">Visual Hook Strategy:</strong> High-contrast typography used to establish immediate context and attract the right audience.
                         </p>
                     </div>
                     <div class="space-y-3">
-                        <img src="assets/projects/creative/day-trip/gender-distribution.PNG" class="rounded-2xl shadow-lg border border-zinc-200">
+                        <img src="assets/projects/creative/day-trip/gender-distribution.webp" class="rounded-2xl shadow-lg border border-zinc-200">
                         <p class="text-[13px] leading-relaxed text-zinc-600 font-medium">
                             <strong class="text-black">Balanced Audience:</strong> 49.2% men and 50.8% women, indicating strong broad appeal.
                         </p>
@@ -869,7 +869,7 @@ function showWorkflowDetail(node) {
                 </div>
 
                 <div class="max-w-2xl mx-auto space-y-3">
-                    <img src="assets/projects/creative/day-trip/intent-overview.PNG" class="rounded-2xl shadow-lg border border-zinc-200 w-full">
+                    <img src="assets/projects/creative/day-trip/intent-overview.webp" class="rounded-2xl shadow-lg border border-zinc-200 w-full">
                     <p class="text-[13px] leading-relaxed text-zinc-600 font-medium text-center">
                         <strong class="text-black">Stakeholder Validation:</strong> 7.6% engagement rate, indicating strong audience connection and narrative resonance.
                     </p>
