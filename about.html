@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <title>About | KC.</title>
+    <!-- Tailwind/CSS links here -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Force visibility on standalone pages if script hasn't loaded */
+        .reveal {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-blue-100 bg-[#fafafa] text-[#1a1a1a]">
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] flex justify-between items-center px-6 py-2 bg-blue-50/90 backdrop-blur-xl border border-blue-200/50 rounded-full shadow-2xl shadow-blue-900/5 w-[90%] max-w-[500px] transition-all duration-500"
+        id="main-nav">
+        <div class="text-lg font-bold tracking-tighter uppercase ml-2">
+            <!-- FIXED: Changed href="#" to "index.html" so it always goes home from any page -->
+            <a href="index.html"
+                class="text-lg font-bold tracking-tighter uppercase ml-2 hover:text-blue-600 transition-colors duration-300">
+                KC.
+            </a>
+        </div>
+        <div class="flex space-x-1 text-[11px] uppercase tracking-widest font-bold">
+            <a href="index.html#work" id="nav-work" class="nav-pill">
+                <span class="relative z-10">Work</span>
+                <div class="nav-pill-bg"></div>
+            </a>
+            <a href="about.html" id="nav-about" class="nav-pill active-nav">
+                <span class="relative z-10">About</span>
+                <div class="nav-pill-bg"></div>
+            </a>
+            <a href="contact.html" id="nav-contact" class="nav-pill">
+                <span class="relative z-10">Contact</span>
+                <div class="nav-pill-bg"></div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Background updated to a cleaner cinematic off-white -->
+    <main class="pt-32 pb-24 bg-[#fcfcfc] font-helvetica">
+        <section id="about" class="reveal px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-start">
+
+                <!-- LEFT COLUMN: Continuous Story -->
+                <div class="space-y-16">
+                    <!-- Header & Intro -->
+                    <div class="space-y-6">
+                        <h1
+                            class="reveal-fade text-6xl md:text-7xl font-bold tracking-tighter text-[#0265BAff] leading-[1.1]">
+                            Hey! I’m Kenn.
+                        </h1>
+                        <div class="reveal-slide-up space-y-4 text-[16px] text-zinc-600 leading-relaxed max-w-2xl">
+                            <p>I’m a Virtual Assistant based in Philippines who works behind the scenes to make things
+                                run the way they’re supposed to. Or better.</p>
+                            <p>I didn’t start out as a VA in the traditional sense. I came from systems, development,
+                                and operations—where repetitive work isn’t just annoying, it's a problem waiting to be
+                                solved. So I solved it.</p>
+                        </div>
+                    </div>
+
+                    <!-- Efficiency -->
+                    <div class="space-y-6">
+                        <h2 class="text-5xl font-bold tracking-tight text-[#8AA3C4ff]">
+                            <span id="type-part-1"></span>
+                            <span class="relative inline-block">
+                                <span class="relative inline-block">
+                                    <span id="type-lazy"></span>
+                                    <!-- Note: left is set to 'auto' or '100%' via JS, height/bg color updated -->
+                                    <span id="strike-line"
+                                        class="absolute top-[55%] h-[3px] bg-[#2F4662ff] opacity-80"></span>
+                                </span>
+                            </span>
+                            <span id="type-part-2"></span>
+                            <span id="cursor" class="border-r-2 border-[#8AA3C4ff] ml-1"></span>
+                        </h2>
+                        <div class="reveal-slide-up space-y-4 text-[16px] text-zinc-600 leading-relaxed max-w-2xl">
+                            <p>Some might call it laziness, but I think it's a refusal to waste time on repetitive work.
+                                I specialize in executive operations and workflow automation that quietly remove
+                                friction from your day.</p>
+                            <p class="italic text-zinc-500">And a few creative things in between when it makes sense.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Organization -->
+                    <div class="space-y-6 pt-4">
+                        <h2 class="reveal-fade text-5xl font-bold tracking-tight text-[#2F4662ff] leading-tight">
+                            Organization isn't my only thing.
+                        </h2>
+                        <div class="reveal-slide-up space-y-4 text-[16px] text-zinc-500 leading-relaxed max-w-2xl">
+                            <p>
+                                I’m an endurance cyclist (I may not look like one, but I am—I
+                                <span class="hover-trigger relative cursor-pointer">
+                                    swear
+                                </span>). The kind that wakes
+                                up early and rides 200km for fun. Still questioning that life choice sometimes.
+                            </p>
+                            <p>Long rides keep me sharp. They teach pacing, discipline, and how to stay consistent when
+                                things get uncomfortable. Turns out, that translates pretty well to work.</p>
+                            <p>I don’t just "do" tasks—I build solutions that run in the background. If you're fighting
+                                your own workflow, I’ll bend it until it adapts to you—not the other way around.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Image & Anchored Philosophy -->
+                <div class="space-y-12">
+                    <!-- Portrait -->
+                    <div class="reveal-wipe-right rounded-2xl overflow-hidden shadow-xl shadow-zinc-200/50">
+                        <img src="assets/branding/aboutMe.webp" alt="Kenn Clark"
+                            class="w-full h-auto object-cover scale-110 origin-top">
+                    </div>
+
+                    <!-- Philosophy -->
+                    <div class="space-y-6">
+                        <h3 class="reveal-fade text-5xl font-bold tracking-tight text-[#091014ff]">Systems with intent.
+                        </h3>
+
+                        <div class="reveal-slide-up text-[15px] text-zinc-600 leading-relaxed max-w-xl">
+                            <p>I believe good systems should feel invisible; they should feel normal and something
+                                that’s “just there.” They should make things easier without getting in the way.</p>
+                            <p class="mt-4">There’s a certain satisfaction in seeing something you built actually get
+                                used—when a workflow just works, and everything moves the way it should.</p>
+                            <p class="mt-4">That’s the kind of work I build and care about.</p>
+
+                            <!-- The Soft Divider & Closing Note -->
+                            <div class="mt-12">
+
+                                <p class="text-[16px] text-zinc-500 font-medium italic text-right">
+                                    If this sounds like what you need, please feel free to
+                                    <a href="contact.html"
+                                        class="cta-link block mt-2 text-lg font-bold text-[#091014ff] underline decoration-2 underline-offset-8 decoration-zinc-300 hover:decoration-[#0265BAff] transition-all duration-300">
+                                        contact me.
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="hover-image-container">
+            <img id="hover-img-target" src="assets/branding/cyclist-proof-1.png" alt="Cyclist Proof">
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

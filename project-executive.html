@@ -1,0 +1,1807 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <title>Executive Strategy | KC.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+
+    <style>
+      .nav-pos-center {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .nav-pos-center.nav-hidden {
+        transform: translate(-50%, -150%) !important;
+        opacity: 0;
+      }
+
+      .nav-pos-right {
+        right: 2rem;
+        left: auto;
+        transform: none;
+      }
+
+      .nav-pos-right.nav-hidden {
+        transform: translateY(-150%) !important;
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#fafafa] text-[#1a1a1a]">
+    <!-- Sidebar Navigation -->
+    <aside
+      class="fixed left-0 top-[40%] -translate-y-1/2 z-[90] hidden xl:flex group/sidebar"
+    >
+      <div
+        class="relative flex flex-col gap-4 bg-white/90 backdrop-blur-md border-y border-r border-zinc-200 p-5 pl-6 rounded-r-[2rem] shadow-2xl -translate-x-full group-hover/sidebar:translate-x-0 transition-transform duration-500 ease-out pointer-events-none group-hover/sidebar:pointer-events-auto"
+      >
+        <a
+          href="#system-architecture"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+          >
+            [ Calendar Architecture ]
+          </span>
+        </a>
+
+        <a
+          href="#inbox-architecture"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+          >
+            [ Inbox Management ]
+          </span>
+        </a>
+
+        <a
+          href="#operations-systems"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+          >
+            [ Operations Systems ]
+          </span>
+        </a>
+
+        <a
+          href="#init-connect"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+          >
+            [ Initiate Connection ]
+          </span>
+        </a>
+
+        <div
+          class="absolute left-full top-1/2 -translate-y-1/2 flex items-center py-10 pr-12 cursor-pointer pointer-events-auto"
+        >
+          <div
+            class="w-3 h-16 bg-zinc-400 group-hover/sidebar:bg-blue-600 transition-all duration-500 rounded-r-full shadow-sm"
+          ></div>
+
+          <div
+            class="ml-4 flex items-center gap-2 pointer-events-none transition-opacity duration-500 group-hover/sidebar:opacity-0 whitespace-nowrap"
+          >
+            <span class="text-[9px] font-mono font-bold text-blue-600">←</span>
+            <p
+              class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-blue-600 leading-tight text-center"
+            >
+              Navigate<br />to<br />sections
+            </p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Appear/Disappear Back Button -->
+    <nav
+      id="project-back-nav"
+      class="fixed top-6 z-[100] transition-all duration-500 nav-pos-center"
+    >
+      <a
+        href="index.html#work"
+        class="group relative inline-flex items-center gap-2 px-6 py-2 bg-[#0a0a0a] border border-white/10 rounded-full shadow-2xl text-xs uppercase tracking-widest font-bold text-white overflow-hidden hover:scale-105 transition-all"
+      >
+        <span
+          class="relative z-10 group-hover:-translate-x-1 transition-transform"
+          >←</span
+        >
+        <span class="relative z-10">Back to Selected Work</span>
+      </a>
+    </nav>
+
+    <main class="repx-8 pb-32 max-w-7xl mx-auto">
+      <header class="pt-20 pb-12 border-b border-zinc-200">
+        <span
+          class="text-blue-600 font-mono text-xs uppercase tracking-[0.5em] italic underline underline-offset-8 decoration-blue-600/30 font-black"
+        >
+          [ Make the day-to-day easier to manage ]
+        </span>
+        <h1
+          class="text-6xl md:text-8xl font-black tracking-tighter mt-6 mb-6 leading-[0.9] text-black"
+        >
+          Executive <br />Operations
+        </h1>
+        <p class="mt-4 text-zinc-500 font-mono text-sm tracking-widest">
+          When everything depends on you, even small tasks start piling up fast.
+          <br />
+          I step in to help organize the moving parts, reduce friction, <br />
+          and keep things running consistently behind the scenes.
+        </p>
+      </header>
+      <!-- Calendar -->
+      <section id="system-architecture" class="py-14 border-b border-zinc-100">
+        <div class="max-w-4xl mx-auto text-center px-6">
+          <h2
+            class="text-xs font-mono font-black text-blue-600 uppercase tracking-[0.4em] mb-8"
+          >
+            [ Calendar Architecture ]
+          </h2>
+
+          <h3
+            class="text-5xl font-bold tracking-tight text-black leading-tight mb-6"
+          >
+            Design your week strategically,<br />not reactively.
+          </h3>
+          <p class="text-lg text-zinc-500 max-w-2xl mx-auto mb-16 font-medium">
+            Your calendar is your most valuable asset. I shape it to protect
+            your deep work while ensuring collaborative momentum doesn't stall.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-12 mb-20 text-left">
+            <div
+              class="space-y-4 p-8 bg-zinc-50 rounded-2xl border border-zinc-100"
+            >
+              <h4
+                class="text-sm font-mono font-bold uppercase tracking-widest text-zinc-400"
+              >
+                [ The Problem ]
+              </h4>
+              <p class="text-zinc-600 leading-relaxed text-sm">
+                Most executive calendars are a patchwork of urgency. Meetings
+                are scattered, creating "Swiss cheese" gaps too small for deep
+                work. By Friday, zero strategic progress has been made.
+              </p>
+            </div>
+            <div
+              class="space-y-4 p-8 bg-blue-50/50 rounded-2xl border border-blue-100/50"
+            >
+              <h4
+                class="text-sm font-mono font-bold uppercase tracking-widest text-blue-600"
+              >
+                [ The Solution ]
+              </h4>
+              <p class="text-zinc-600 leading-relaxed text-sm">
+                An optimized architecture that separates work by
+                <strong>cognitive load</strong>. We protect focus blocks, batch
+                administrative friction, and align meetings with your energy
+                peaks.
+              </p>
+            </div>
+          </div>
+
+          <div class="mb-20">
+            <div class="flex flex-col items-center gap-6 mb-8">
+              <div
+                class="flex gap-4 p-2 bg-zinc-50 rounded-2xl w-fit border border-zinc-100"
+              >
+                <button
+                  id="cal-before-btn"
+                  class="px-8 py-3 text-[11px] font-mono font-black uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer bg-slate-700/40 text-white shadow-md border border-zinc-900"
+                >
+                  Current State
+                </button>
+
+                <button
+                  id="cal-after-btn"
+                  class="px-8 py-3 text-[11px] font-mono font-black uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer bg-white text-zinc-400 border border-zinc-200 hover:border-blue-400 hover:text-blue-500"
+                >
+                  Optimized Week
+                </button>
+              </div>
+
+              <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-blue-500"></span
+                  ><span class="text-[9px] font-mono uppercase text-zinc-400"
+                    >Deep Work</span
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-slate-400"></span
+                  ><span class="text-[9px] font-mono uppercase text-zinc-400"
+                    >Collaborative</span
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span
+                  ><span class="text-[9px] font-mono uppercase text-zinc-400"
+                    >Revenue</span
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span
+                  ><span class="text-[9px] font-mono uppercase text-zinc-400"
+                    >Admin</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white border border-zinc-200 rounded-3xl shadow-2xl overflow-hidden p-4 md:p-8"
+            >
+              <div
+                class="grid grid-cols-5 gap-2 md:gap-4 mb-4 border-b border-zinc-100 pb-4"
+              >
+                <div
+                  class="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest"
+                >
+                  Mon
+                </div>
+                <div
+                  class="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest"
+                >
+                  Tue
+                </div>
+                <div
+                  class="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest"
+                >
+                  Wed
+                </div>
+                <div
+                  class="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest"
+                >
+                  Thu
+                </div>
+                <div
+                  class="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest"
+                >
+                  Fri
+                </div>
+              </div>
+
+              <div
+                id="calendar-grid"
+                class="grid grid-cols-5 gap-2 md:gap-4 min-h-[400px]"
+              ></div>
+
+              <div
+                class="mt-8 bg-zinc-900 p-6 rounded-2xl border border-white/10 text-center"
+              >
+                <p
+                  id="cal-insight"
+                  class="text-white text-[11px] font-mono leading-relaxed tracking-wide"
+                >
+                  [ SELECT A STATE TO VIEW ARCHITECTURE ]
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-24">
+            <h4
+              class="text-[11px] font-mono font-black italic text-blue-500 uppercase tracking-[0.3em] mb-12 text-center"
+            >
+              How It's Designed
+            </h4>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+              <div class="space-y-3 text-center">
+                <h4
+                  class="font-black text-black uppercase tracking-tighter text-lg"
+                >
+                  01. Energy Alignment
+                </h4>
+                <p
+                  class="text-zinc-500 text-sm leading-relaxed mx-auto max-w-xs"
+                >
+                  Collaborative tasks in social mornings. Deep focus when your
+                  brain is sharpest.
+                </p>
+              </div>
+              <div class="space-y-3 text-center">
+                <h4
+                  class="font-black text-black uppercase tracking-tighter text-lg"
+                >
+                  02. Invisible Buffers
+                </h4>
+                <p
+                  class="text-zinc-500 text-sm leading-relaxed mx-auto max-w-xs"
+                >
+                  Mandatory 15m context-switch windows between calls and 30m
+                  decompression blocks.
+                </p>
+              </div>
+              <div class="space-y-3 text-center">
+                <h4
+                  class="font-black text-black uppercase tracking-tighter text-lg"
+                >
+                  03. Sacred Deep Work
+                </h4>
+                <p
+                  class="text-zinc-500 text-sm leading-relaxed mx-auto max-w-xs"
+                >
+                  Non-negotiable blocks for strategy defended by automation and
+                  DND protocols.
+                </p>
+              </div>
+              <div class="space-y-3 text-center">
+                <h4
+                  class="font-black text-black uppercase tracking-tighter text-lg"
+                >
+                  04. The Friday Ritual
+                </h4>
+                <p
+                  class="text-zinc-500 text-sm leading-relaxed mx-auto max-w-xs"
+                >
+                  A 60-minute weekly review to audit the past 5 days and
+                  architect the next 7.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-3xl p-12 grid md:grid-cols-2 gap-12 border border-zinc-100 shadow-sm text-center"
+          >
+            <div class="space-y-6 md:border-r border-zinc-100 md:pr-8">
+              <h4
+                class="text-[11px] font-mono font-black uppercase tracking-[0.3em] text-blue-600"
+              >
+                Tools I'd use
+              </h4>
+              <ul class="space-y-4 inline-block text-left">
+                <li
+                  class="flex items-center gap-3 text-sm font-bold text-zinc-800"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  Google Calendar
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm font-bold text-zinc-800"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  Cal.com / Calendly
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm font-bold text-zinc-800"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  Slack Automation
+                </li>
+              </ul>
+            </div>
+
+            <div class="space-y-6">
+              <h4
+                class="text-[11px] font-mono font-black uppercase tracking-[0.3em] text-emerald-500"
+              >
+                What this solves
+              </h4>
+              <ul class="space-y-4 inline-block text-left">
+                <li
+                  class="flex items-center gap-3 text-sm font-bold text-zinc-800"
+                >
+                  <span class="text-green-500">✓</span> 40% Admin Reduction
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm font-bold text-zinc-800"
+                >
+                  <span class="text-green-500">✓</span> Zero Decision Fatigue
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm font-bold text-zinc-800"
+                >
+                  <span class="text-green-500">✓</span> 4hr Weekly Strategy Time
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CALENDAR END -->
+      <!-- EMAIL SECTION -->
+      <section id="inbox-architecture" class="py-10 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+          <h2
+            class="text-xs font-mono font-black text-blue-600 uppercase tracking-[0.4em] mb-8"
+          >
+            [ Inbox Management ]
+          </h2>
+          <h3
+            class="text-5xl font-bold tracking-tight text-black leading-tight mb-6"
+          >
+            Zero Inbox is a <br />system, not a habit.
+          </h3>
+          <p class="text-lg text-zinc-500 max-w-2xl mx-auto mb-16 font-medium">
+            Email is a decision-making bottleneck. I engineer the flow to ensure
+            you only see what moves the needle, reducing inbox volume by 70%.
+          </p>
+          <div class="grid md:grid-cols-2 gap-12 mb-2 text-left">
+            <div
+              class="space-y-4 p-8 bg-zinc-50 rounded-2xl border border-zinc-100"
+            >
+              <h4
+                class="text-sm font-mono font-bold uppercase tracking-widest text-zinc-400"
+              >
+                [ The Problem ]
+              </h4>
+              <p class="text-zinc-600 leading-relaxed text-sm">
+                Email is a distraction by design. Most inboxes are
+                reactive—everything lands in one place, and nothing is
+                prioritized. You're checking email 30+ times a day. Important
+                decisions get buried. Urgent distracts from important.
+              </p>
+            </div>
+            <div
+              class="space-y-4 p-8 bg-blue-50/50 rounded-2xl border border-blue-100/50"
+            >
+              <h4
+                class="text-sm font-mono font-bold uppercase tracking-widest text-blue-600"
+              >
+                [ The Solution ]
+              </h4>
+              <p class="text-zinc-600 leading-relaxed text-sm">
+                I'd architect your inbox so only
+                <strong>decision-critical emails stay active</strong>.
+                Everything else auto-routes: <u>archive</u>, <u>delegate</u>,
+                <u>digest</u>, <u>decide</u>. The result: 90% of your email
+                never touches your inbox.
+              </p>
+            </div>
+          </div>
+          <!--DECISION TREE-->
+          <section class="max-w-5xl mx-auto py-24 px-6">
+            <!-- LABEL -->
+            <div class="mb-8 text-center">
+              <span
+                class="text-[11px] tracking-[0.28em] uppercase text-blue-500 font-semibold"
+              >
+                Decision Logic
+              </span>
+            </div>
+
+            <!-- CONTAINER -->
+            <div
+              class="bg-[#0c0c11] rounded-[32px] border border-white/5 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.35)]"
+            >
+              <!-- TOP -->
+              <div
+                class="px-8 py-6 border-b border-white/5 flex items-center justify-between"
+              >
+                <h3
+                  class="text-white text-[20px] font-semibold tracking-[-0.03em]"
+                >
+                  Strategic Inbox Flow
+                </h3>
+
+                <span
+                  class="text-white/30 text-[11px] uppercase tracking-[0.25em]"
+                >
+                  Email Routing
+                </span>
+              </div>
+
+              <!-- FLOW -->
+              <div class="p-8 md:p-12 space-y-6">
+                <!-- STEP -->
+                <div
+                  class="bg-[#17171f] rounded-[24px] p-6 border border-white/5"
+                >
+                  <div class="flex items-start justify-between gap-6">
+                    <div>
+                      <p class="text-white text-[18px] font-semibold mb-2">
+                        Is it automated?
+                      </p>
+
+                      <p
+                        class="text-white/50 text-[15px] leading-[1.7] max-w-md"
+                      >
+                        Repetitive or low-priority emails are filtered
+                        automatically to reduce manual sorting and clutter.
+                      </p>
+                    </div>
+
+                    <div class="relative shrink-0">
+                      <!-- YES LABEL -->
+                      <div
+                        class="absolute -left-14 top-1/2 -translate-y-1/2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-emerald-400 font-semibold"
+                      >
+                        <span>Yes</span>
+                        <span class="text-white/20">→</span>
+                      </div>
+
+                      <span
+                        class="bg-blue-500 text-white text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full font-semibold"
+                      >
+                        Auto-Archive
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CONNECTOR -->
+                <div class="relative flex justify-center h-10">
+                  <!-- line -->
+                  <div class="w-[2px] h-full bg-white/10"></div>
+
+                  <!-- NO -->
+                  <div
+                    class="absolute right-[38%] top-1/2 -translate-y-1/2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-blue-400 font-semibold"
+                  >
+                    <span>No</span>
+                    <span class="text-white/20">↓</span>
+                  </div>
+                </div>
+
+                <!-- STEP -->
+                <div
+                  class="bg-[#17171f] rounded-[24px] p-6 border border-white/5"
+                >
+                  <div class="flex items-start justify-between gap-6">
+                    <div>
+                      <p class="text-white text-[18px] font-semibold mb-2">
+                        Can someone else handle it?
+                      </p>
+
+                      <p
+                        class="text-white/50 text-[15px] leading-[1.7] max-w-md"
+                      >
+                        Delegatable requests are routed immediately to reduce
+                        bottlenecks and protect executive focus.
+                      </p>
+                    </div>
+
+                    <div class="relative shrink-0">
+                      <!-- YES LABEL -->
+                      <div
+                        class="absolute -left-14 top-1/2 -translate-y-1/2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-emerald-400 font-semibold"
+                      >
+                        <span>Yes</span>
+                        <span class="text-white/20">→</span>
+                      </div>
+
+                      <span
+                        class="bg-emerald-500 text-white text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full font-semibold"
+                      >
+                        Delegate
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CONNECTOR -->
+                <div class="relative flex justify-center h-10">
+                  <!-- line -->
+                  <div class="w-[2px] h-full bg-white/10"></div>
+
+                  <!-- NO -->
+                  <div
+                    class="absolute right-[38%] top-1/2 -translate-y-1/2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-blue-400 font-semibold"
+                  >
+                    <span>No</span>
+                    <span class="text-white/20">↓</span>
+                  </div>
+                </div>
+
+                <!-- STEP -->
+                <div
+                  class="bg-[#17171f] rounded-[24px] p-6 border border-white/5"
+                >
+                  <div class="flex items-start justify-between gap-6">
+                    <div>
+                      <p class="text-white text-[18px] font-semibold mb-2">
+                        Is information needed only?
+                      </p>
+
+                      <p
+                        class="text-white/50 text-[15px] leading-[1.7] max-w-md"
+                      >
+                        Non-actionable messages are condensed into summaries to
+                        minimize unnecessary context switching.
+                      </p>
+                    </div>
+
+                    <div class="relative shrink-0">
+                      <!-- YES LABEL -->
+                      <div
+                        class="absolute -left-14 top-1/2 -translate-y-1/2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-amber-400 font-semibold"
+                      >
+                        <span>Yes</span>
+                        <span class="text-white/20">→</span>
+                      </div>
+
+                      <span
+                        class="bg-amber-500 text-black text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full font-semibold"
+                      >
+                        Digest
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CONNECTOR -->
+                <div class="relative flex justify-center h-10">
+                  <!-- line -->
+                  <div class="w-[2px] h-full bg-white/10"></div>
+
+                  <!-- NO -->
+                  <div
+                    class="absolute right-[38%] top-1/2 -translate-y-1/2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-blue-400 font-semibold"
+                  >
+                    <span>No</span>
+                    <span class="text-white/20">↓</span>
+                  </div>
+                </div>
+
+                <!-- FINAL -->
+                <div class="bg-white rounded-[24px] p-8 text-center">
+                  <span
+                    class="text-[11px] uppercase tracking-[0.24em] text-blue-500 font-semibold"
+                  >
+                    Final Destination
+                  </span>
+
+                  <h4
+                    class="text-[28px] leading-[1.1] tracking-[-0.03em] font-semibold text-black mt-4"
+                  >
+                    Strategic Inbox
+                  </h4>
+
+                  <p
+                    class="text-[15px] text-black/60 leading-[1.8] max-w-lg mx-auto mt-4"
+                  >
+                    Only the emails requiring direct attention remain visible —
+                    reducing noise while preserving operational awareness.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--DECISION TREE END-->
+          <!--HOT IT WORKS GRID-->
+          <div class="mb-24">
+            <h4
+              class="text-[11px] font-mono font-black italic text-blue-500 uppercase tracking-[0.3em] mb-4 text-center"
+            >
+              How It Works
+            </h4>
+
+            <div class="grid md:grid-cols-2 gap-6 text-left">
+              <div
+                class="p-8 bg-zinc-50 border border-zinc-100 rounded-3xl group hover:border-blue-500 transition-all"
+              >
+                <div class="flex items-center gap-4 mb-4">
+                  <span
+                    class="text-[10px] font-mono font-black px-2 py-1 bg-blue-600 text-white rounded"
+                    >01</span
+                  >
+                  <h4 class="font-black uppercase tracking-tight text-zinc-900">
+                    Auto-Archive
+                  </h4>
+                </div>
+                <p class="text-sm text-zinc-500 leading-relaxed">
+                  Receipts, confirmations, and notifications. Useful for
+                  reference, but noise in the present. They skip the inbox and
+                  go straight to [Searchable Reference].
+                </p>
+              </div>
+
+              <div
+                class="p-8 bg-zinc-50 border border-zinc-100 rounded-3xl group hover:border-emerald-500 transition-all"
+              >
+                <div class="flex items-center gap-4 mb-4">
+                  <span
+                    class="text-[10px] font-mono font-black px-2 py-1 bg-emerald-500 text-white rounded"
+                    >02</span
+                  >
+                  <h4 class="font-black uppercase tracking-tight text-zinc-900">
+                    Delegate
+                  </h4>
+                </div>
+                <p class="text-sm text-zinc-500 leading-relaxed">
+                  Scheduling, vendor queries, and FYI threads. These are
+                  auto-routed to the VA or team leads. You receive a curated
+                  [Executive Summary] on Friday.
+                </p>
+              </div>
+
+              <div
+                class="p-8 bg-zinc-50 border border-zinc-100 rounded-3xl group hover:border-amber-400 transition-all"
+              >
+                <div class="flex items-center gap-4 mb-4">
+                  <span
+                    class="text-[10px] font-mono font-black px-2 py-1 bg-amber-400 text-white rounded"
+                    >03</span
+                  >
+                  <h4 class="font-black uppercase tracking-tight text-zinc-900">
+                    The Digest
+                  </h4>
+                </div>
+                <p class="text-sm text-zinc-500 leading-relaxed">
+                  Newsletters, industry reports, and status updates. These are
+                  batched and labeled, to be consumed during designated
+                  [Low-Cognitive Windows].
+                </p>
+              </div>
+
+              <div
+                class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl group hover:border-white transition-all shadow-2xl"
+              >
+                <div class="flex items-center gap-4 mb-4">
+                  <span
+                    class="text-[10px] font-mono font-black px-2 py-1 bg-white text-black rounded"
+                    >04</span
+                  >
+                  <h4 class="font-black uppercase tracking-tight text-white">
+                    Strategic Inbox
+                  </h4>
+                </div>
+                <p class="text-sm text-zinc-400 leading-relaxed">
+                  Critical decisions, investor relations, and direct leadership
+                  asks. This is the only folder that triggers a notification.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--HOT IT WORKS GRID END-->
+          <!--Taxonomy Table-->
+          <div
+            class="mb-24 overflow-hidden rounded-3xl border border-zinc-100 shadow-sm"
+          >
+            <h4
+              class="text-[11px] font-mono font-black italic text-blue-500 uppercase tracking-[0.3em] mb-4 text-center"
+            >
+              Category Reference
+            </h4>
+            <table class="w-full text-left text-sm border-collapse bg-white">
+              <thead>
+                <tr class="bg-zinc-50 border-b border-zinc-100">
+                  <th
+                    class="px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-zinc-400"
+                  >
+                    Category
+                  </th>
+                  <th
+                    class="px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-zinc-400"
+                  >
+                    Type of Email
+                  </th>
+                  <th
+                    class="px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-zinc-400"
+                  >
+                    Action
+                  </th>
+                  <th
+                    class="px-6 py-4 font-mono text-[10px] uppercase tracking-widest text-zinc-400"
+                  >
+                    Tool/Label
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-zinc-50">
+                <tr>
+                  <td class="px-6 py-4 font-bold text-blue-600">
+                    Auto-Archive
+                  </td>
+                  <td class="px-6 py-4 text-zinc-500">
+                    Receipts, confirmations, invoices
+                  </td>
+                  <td class="px-6 py-4 text-zinc-700">
+                    Skip inbox, label & archive
+                  </td>
+                  <td class="px-6 py-4 font-mono text-[11px]">
+                    Gmail: "Receipts" filter
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-bold text-emerald-500">Delegate</td>
+                  <td class="px-6 py-4 text-zinc-500">
+                    Scheduling, vendor queries, FYI
+                  </td>
+                  <td class="px-6 py-4 text-zinc-700">
+                    Auto-forward to VA/Team
+                  </td>
+                  <td class="px-6 py-4 font-mono text-[11px]">
+                    Gmail: Forwarding rule
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-bold text-amber-500">Digest</td>
+                  <td class="px-6 py-4 text-zinc-500">
+                    Team updates, reports, newsletters
+                  </td>
+                  <td class="px-6 py-4 text-zinc-700">
+                    Batch for weekly review
+                  </td>
+                  <td class="px-6 py-4 font-mono text-[11px]">
+                    Gmail: "Digest" label
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-bold text-zinc-900">
+                    Strategic Inbox
+                  </td>
+                  <td class="px-6 py-4 text-zinc-500">
+                    Strategic asks, client decisions
+                  </td>
+                  <td class="px-6 py-4 text-zinc-700">
+                    Batch 2x daily (9am / 4pm)
+                  </td>
+                  <td class="px-6 py-4 font-mono text-[11px]">Default Inbox</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Taxonomy Table End-->
+          <!--EMAIL RULES SNIPPET-->
+          <h4
+            class="text-[11px] font-mono font-black italic text-blue-500 uppercase tracking-[0.3em] mb-4 text-center"
+          >
+            Filter Rules
+          </h4>
+          <div
+            class="bg-zinc-950 rounded-3xl p-8 md:p-12 text-left relative overflow-hidden shadow-2xl border border-zinc-900"
+          >
+            <div
+              class="absolute top-0 right-0 p-8 opacity-5 text-white text-7xl font-black font-mono select-none"
+            >
+              JSON
+            </div>
+
+            <h4
+              class="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-emerald-500 mb-8"
+            >
+              // Email Protocol Snippets
+            </h4>
+
+            <div class="space-y-12 font-mono text-xs md:text-sm">
+              <div class="border-l-2 border-blue-500 pl-6">
+                <p class="text-blue-400 mb-2 font-bold">
+                  // Rule: Transactional Silence
+                </p>
+                <div class="text-zinc-500 mb-4 leading-relaxed">
+                  // Receipts and confirmations are useful but don't need to be
+                  in your active inbox.<br />
+                  // We catch them early, label them for later reference, and
+                  keep your focus on what matters.
+                </div>
+                <p class="text-zinc-400">
+                  Filter:
+                  <span class="text-zinc-100"
+                    >from:(noreply | no-reply) OR subject:(Receipt |
+                    Confirmation)</span
+                  >
+                </p>
+                <p class="text-zinc-400">
+                  Action:
+                  <span class="text-blue-400"
+                    >Skip inbox, apply label "Reference"</span
+                  >
+                </p>
+              </div>
+
+              <div class="border-l-2 border-emerald-500 pl-6">
+                <p class="text-emerald-400 mb-2 font-bold">
+                  // Rule: Operational Delegation
+                </p>
+                <div class="text-zinc-500 mb-4 leading-relaxed">
+                  // Scheduling requests, vendor questions, invoices—these don't
+                  need your immediate attention.<br />
+                  // We route them to your VA or team, you get a summary on
+                  Friday.
+                </div>
+                <p class="text-zinc-400">
+                  Filter:
+                  <span class="text-zinc-100"
+                    >subject:(Schedule | Booking | Invoice | Vendor)</span
+                  >
+                </p>
+                <p class="text-zinc-400">
+                  Action:
+                  <span class="text-emerald-400"
+                    >Forward to va@system.com, archive</span
+                  >
+                </p>
+              </div>
+
+              <div class="pt-6 border-t border-zinc-900">
+                <div class="text-zinc-400 italic leading-relaxed">
+                  // Additional rules are customized based on your actual email
+                  patterns.<br />
+                  // We'll audit your inbox, identify what's noisy, and build
+                  rules around your workflow.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--EMAIL RULES SNIPPET END-->
+          <!--CLOSING-->
+          <div
+            class="mt-16 py-12 border-t border-zinc-100 flex flex-col items-center text-center"
+          >
+            <h4
+              class="text-[11px] font-mono font-black italic text-blue-500 uppercase tracking-[0.3em] mb-2 text-center"
+            >
+              Integration
+            </h4>
+            <h3 class="text-2xl font-bold text-black mb-4">
+              How This Ties to Your Calendar
+            </h3>
+            <p class="text-zinc-500 text-sm max-w-xl mx-auto leading-relaxed">
+              Your email processing is strictly batched into the
+              <strong>[Admin Windows]</strong> defined in the Calendar
+              Architecture. <br /><br />
+              By processing the <strong>Strategic Inbox</strong> only during
+              your scheduled Tuesday (1–2pm) and Friday (10–11am) blocks, we
+              decouple communication from production, protecting your deep work
+              from fragmentation.
+            </p>
+          </div>
+          <!--CLOSING END-->
+        </div>
+      </section>
+      <!-- EMAIL END -->
+      <section
+        id="operations-systems"
+        class="w-full bg-[#f5f5f3] py-32 px-6 border-t border-zinc-100"
+      >
+        <div class="max-w-6xl mx-auto">
+          <!-- SECTION LABEL -->
+          <div class="mb-6">
+            <span
+              class="text-[11px] tracking-[0.28em] uppercase text-[#2f6df6] font-semibold"
+            >
+              Operations Systems
+            </span>
+          </div>
+
+          <!-- MAIN GRID -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- LEFT CONTENT -->
+            <div>
+              <h2
+                class="text-[52px] leading-[0.95] tracking-[-0.04em] font-semibold text-black mb-8"
+              >
+                Build clarity across <br />
+                projects, tasks, and operations.
+              </h2>
+
+              <div
+                class="space-y-6 text-[17px] leading-[1.9] text-[#4d4d4d] max-w-xl"
+              >
+                <p>
+                  Projects, tasks, requests, and priorities can quickly become
+                  scattered across emails, chats, meetings, and mental notes.
+                </p>
+
+                <p>
+                  I build lightweight operational systems that bring the moving
+                  parts into one place — helping teams track work, maintain
+                  visibility, and make better decisions with less manual effort.
+                </p>
+
+                <p>
+                  Your calendar and inbox can also feed into the same workflow
+                  through automation or through me as the main workflow
+                  organizer, so you only see the action items while still
+                  staying informed on the important nuances.
+                </p>
+              </div>
+
+              <!-- FEATURE PILLS -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-10 max-w-xl">
+                <div
+                  class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"
+                >
+                  <p
+                    class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2"
+                  >
+                    Track
+                  </p>
+                  <p class="text-sm font-semibold text-black">
+                    Tasks, tickets, and action items
+                  </p>
+                </div>
+
+                <div
+                  class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"
+                >
+                  <p
+                    class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2"
+                  >
+                    Manage
+                  </p>
+                  <p class="text-sm font-semibold text-black">
+                    Projects, deadlines, and priorities
+                  </p>
+                </div>
+
+                <div
+                  class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"
+                >
+                  <p
+                    class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2"
+                  >
+                    Centralize
+                  </p>
+                  <p class="text-sm font-semibold text-black">
+                    Quick notes, meeting notes, and minutes
+                  </p>
+                </div>
+
+                <div
+                  class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"
+                >
+                  <p
+                    class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2"
+                  >
+                    Report
+                  </p>
+                  <p class="text-sm font-semibold text-black">
+                    Dashboards, progress, and statistics
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- MAIN CARD -->
+            <div
+              class="bg-[#0c0c11] rounded-[28px] shadow-2xl overflow-hidden border border-black/5"
+            >
+              <!-- TOP BAR -->
+              <div
+                class="flex items-center gap-2 px-6 py-4 border-b border-white/5"
+              >
+                <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+
+                <div class="mx-auto">
+                  <span
+                    class="text-[#6b7280] text-[11px] tracking-[0.25em] uppercase"
+                  >
+                    Command Center Dashboard
+                  </span>
+                </div>
+              </div>
+
+              <!-- SCREEN -->
+              <div
+                class="relative group h-[700px] overflow-hidden cursor-zoom-in"
+                onclick="openDashboardModal()"
+              >
+                <!-- SCROLLABLE IMAGE ONLY -->
+                <div class="h-full overflow-y-auto overflow-x-hidden">
+                  <div class="origin-top scale-[1.45]">
+                    <img
+                      src="assets/projects/executive/command-center-dashboard.png"
+                      alt="Command Center Dashboard"
+                      class="w-full h-auto block"
+                    />
+                  </div>
+                </div>
+
+                <!-- FIXED HOVER OVERLAY -->
+                <div
+                  class="absolute inset-0 z-20 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none"
+                >
+                  <div
+                    class="w-24 h-24 rounded-full bg-white/95 text-black flex items-center justify-center text-4xl shadow-2xl"
+                  >
+                    🔍
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LOWER CARDS -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
+            <!-- CARD -->
+            <div
+              class="bg-white rounded-[24px] p-8 border border-black/[0.04] shadow-sm"
+            >
+              <span
+                class="text-[11px] tracking-[0.24em] uppercase text-[#2f6df6] font-semibold"
+              >
+                Task & Ticket Flow
+              </span>
+
+              <h3
+                class="text-[28px] leading-[1.1] font-semibold text-black mt-5 mb-4"
+              >
+                Track requests from capture to completion.
+              </h3>
+
+              <p class="text-[15px] leading-[1.8] text-[#666]">
+                Requests, follow-ups, and action items are turned into visible
+                tasks with clear status, priority, and next steps instead of
+                disappearing into chat or email threads.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="bg-white rounded-[24px] p-8 border border-black/[0.04] shadow-sm"
+            >
+              <span
+                class="text-[11px] tracking-[0.24em] uppercase text-[#2f6df6] font-semibold"
+              >
+                Project Visibility
+              </span>
+
+              <h3
+                class="text-[28px] leading-[1.1] font-semibold text-black mt-5 mb-4"
+              >
+                See progress at a glance.
+              </h3>
+
+              <p class="text-[15px] leading-[1.8] text-[#666]">
+                Projects, priorities, blockers, and next actions stay organized
+                in one place so progress is easier to review, update, and
+                communicate.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="bg-white rounded-[24px] p-8 border border-black/[0.04] shadow-sm"
+            >
+              <span
+                class="text-[11px] tracking-[0.24em] uppercase text-[#2f6df6] font-semibold"
+              >
+                Operational Reporting
+              </span>
+
+              <h3
+                class="text-[28px] leading-[1.1] font-semibold text-black mt-5 mb-4"
+              >
+                Turn activity into insight.
+              </h3>
+
+              <p class="text-[15px] leading-[1.8] text-[#666]">
+                Dashboards and statistics help show workload, completed work,
+                active items, and operational trends without constant manual
+                checking.
+              </p>
+            </div>
+          </div>
+
+          <!-- ADAPTABILITY NOTE -->
+          <div
+            class="mt-16 bg-[#0c0c11] rounded-[28px] p-8 md:p-10 border border-white/5 shadow-2xl"
+          >
+            <div
+              class="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-8 items-center"
+            >
+              <div>
+                <span
+                  class="text-[11px] tracking-[0.24em] uppercase text-[#2f6df6] font-semibold"
+                >
+                  Flexible by Design
+                </span>
+                <h3
+                  class="text-3xl font-semibold tracking-[-0.03em] text-white mt-4"
+                >
+                  Not locked to one tool.
+                </h3>
+              </div>
+
+              <p class="text-[15px] md:text-[16px] leading-[1.9] text-white/60">
+                This Command Center is a concept and methodology I adapted into
+                Notion, but the system does not have to stay there. Depending on
+                your existing workflow, tools, and team habits, I can adapt the
+                same structure into other project management or operations tools
+                so the system fits how you already work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- DASHBOARD MODAL -->
+    <div
+      id="dashboard-modal"
+      class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-6"
+      onclick="closeDashboardModal(event)"
+    >
+      <button
+        type="button"
+        onclick="closeDashboardModal()"
+        class="absolute top-6 right-6 text-white text-3xl font-bold z-[210] hover:scale-110 transition-transform"
+        aria-label="Close enlarged dashboard preview"
+      >
+        ×
+      </button>
+
+      <div
+        class="w-full max-w-6xl h-[90vh] bg-[#0c0c11] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+        onclick="event.stopPropagation()"
+      >
+        <div class="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+          <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+
+          <span
+            class="mx-auto text-white/50 text-[11px] tracking-[0.25em] uppercase"
+          >
+            Command Center Dashboard
+          </span>
+        </div>
+
+        <div class="h-[calc(90vh-57px)] overflow-y-auto overflow-x-hidden">
+          <div class="origin-top scale-[1.4]">
+            <img
+              src="assets/projects/executive/command-center-dashboard.png"
+              alt="Expanded Command Center Dashboard"
+              class="w-full h-auto block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-32 pb-12 bg-white border-t border-zinc-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- 1. Primary CTA Block -->
+        <div
+          id="init-connect"
+          class="flex flex-col items-center text-center space-y-8 mb-24"
+          data-aos="fade-up"
+        >
+          <div class="space-y-4">
+            <span
+              class="text-blue-600 font-mono text-[10px] md:text-[12px] font-black uppercase tracking-[0.5em] block mb-2 ml-[0.5em]"
+            >
+              [ Initiate Connection ]
+            </span>
+            <h2
+              class="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.9]"
+            >
+              Ready for fewer <br />moving parts?
+            </h2>
+            <p
+              class="text-zinc-600 text-xl max-w-2xl mx-auto leading-relaxed font-medium antialiased"
+            >
+              Whether you need day-to-day support or better systems,<br />
+              I can help keep things moving without adding more complexity.
+            </p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col md:flex-row items-center gap-4 pt-4">
+            <!-- Ensure YOUR_FORM_ID is replaced with your actual Tally ID -->
+            <button
+              data-tally-open="pbvJvq"
+              data-tally-layout="modal"
+              class="px-10 py-5 bg-blue-600 text-white font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:-translate-y-1 cursor-pointer"
+            >
+              START HERE
+            </button>
+            <button
+              data-tally-open="81M6MO"
+              data-tally-layout="modal"
+              class="px-10 py-5 border-2 border-zinc-900 text-zinc-900 font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-zinc-900 hover:text-white transition-all hover:-translate-y-1 cursor-pointer"
+            >
+              Contact Me
+            </button>
+          </div>
+
+          <!-- Micro-Proof -->
+          <p
+            class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-zinc-400"
+          >
+            Based in Philippines • Available worldwide
+          </p>
+        </div>
+
+        <script>
+          (function () {
+            let lastScroll = window.scrollY;
+            const backNav = document.getElementById("project-back-nav");
+
+            window.addEventListener(
+              "scroll",
+              () => {
+                const currentScroll = window.scrollY;
+
+                if (currentScroll <= 50) {
+                  backNav.classList.remove("nav-hidden");
+                  backNav.style.pointerEvents = "auto";
+                  return;
+                }
+
+                if (currentScroll > lastScroll && currentScroll > 150) {
+                  backNav.classList.add("nav-hidden");
+                  backNav.style.pointerEvents = "none";
+                } else if (currentScroll < lastScroll) {
+                  backNav.classList.remove("nav-hidden");
+                  backNav.style.pointerEvents = "auto";
+                }
+
+                lastScroll = currentScroll;
+              },
+              { passive: true },
+            );
+          })();
+        </script>
+
+        <!-- 2. Soft Divider -->
+        <hr class="border-zinc-100 mb-16" />
+
+        <!-- 3. Redesigned Minimal Footer Content -->
+        <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+          <!-- Left: Brand & Integrated Nav -->
+          <div class="text-center md:text-left space-y-3">
+            <div
+              class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4"
+            >
+              <!-- Name -->
+              <p
+                class="text-black font-black uppercase tracking-widest text-sm"
+              >
+                Kenn Clark
+              </p>
+
+              <!-- Vertical Divider (Hidden on Mobile) -->
+              <span class="hidden md:block text-zinc-200">|</span>
+
+              <!-- Inline Links -->
+              <div
+                class="flex items-center justify-center md:justify-start gap-3"
+              >
+                <button
+                  onclick="toggleEmailModal()"
+                  class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer"
+                >
+                  email
+                </button>
+                <span class="text-zinc-200 text-[10px]">•</span>
+                <button
+                  onclick="toggleLinkedInModal()"
+                  class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer"
+                >
+                  linkedin
+                </button>
+              </div>
+
+              <!-- Email Modal -->
+              <div
+                id="email-modal"
+                class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+              >
+                <!-- Dark Cinematic Overlay -->
+                <div
+                  class="absolute inset-0 bg-zinc-950/60"
+                  onclick="toggleEmailModal()"
+                ></div>
+
+                <div
+                  id="email-modal-content"
+                  class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out"
+                >
+                  <button
+                    onclick="toggleEmailModal()"
+                    class="absolute top-6 right-6 text-zinc-400 hover:text-black text-xl"
+                  >
+                    ✕
+                  </button>
+
+                  <h3
+                    class="text-2xl text-center font-bold tracking-tighter mb-2"
+                  >
+                    Contact Me Directly
+                  </h3>
+
+                  <div class="flex flex-col gap-4">
+                    <p
+                      id="email-text"
+                      class="font-mono text-xs text-zinc-600 bg-zinc-50 p-4 border border-zinc-100 rounded-2xl text-center select-all"
+                    >
+                      kennclark.yb@gmail.com
+                    </p>
+
+                    <button
+                      id="copy-btn"
+                      onclick="copyEmail()"
+                      class="bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl transition-all duration-300 hover:bg-zinc-700"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- LinkedIn Modal -->
+              <div
+                id="linkedin-modal"
+                class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+              >
+                <!-- Dark Cinematic Overlay -->
+                <div
+                  class="absolute inset-0 bg-zinc-950/60"
+                  onclick="toggleLinkedInModal()"
+                ></div>
+
+                <div
+                  id="linkedin-modal-content"
+                  class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out"
+                >
+                  <div class="flex flex-col gap-6 text-center">
+                    <div class="space-y-2">
+                      <h3 class="text-2xl font-bold tracking-tighter">
+                        Exit System
+                      </h3>
+                      <p class="text-zinc-500 text-sm leading-relaxed">
+                        Redirecting to LinkedIn profile. This will open in a new
+                        terminal window.
+                      </p>
+                    </div>
+
+                    <div class="flex gap-3">
+                      <button
+                        onclick="toggleLinkedInModal()"
+                        class="flex-1 border border-zinc-200 text-zinc-500 font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-50 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                      <a
+                        href="https://linkedin.com/in/engrkenn"
+                        target="_blank"
+                        onclick="toggleLinkedInModal()"
+                        class="flex-1 bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-700 transition-colors text-center flex items-center justify-center"
+                      >
+                        Proceed
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subtext -->
+            <p
+              class="text-zinc-500 font-mono text-[10px] uppercase tracking-widest"
+            >
+              Management & System Operations
+            </p>
+          </div>
+
+          <!-- Footer Nav in project-creative.html -->
+          <div class="flex items-center gap-6">
+            <a
+              href="index.html#"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >Home</a
+            >
+            <span class="text-zinc-300 text-[10px]">•</span>
+            <a
+              href="index.html#work"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >Work</a
+            >
+            <span class="text-zinc-200 text-[10px]">•</span>
+            <a
+              href="about.html"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >About</a
+            >
+            <span class="text-zinc-200 text-[10px]">•</span>
+            <a
+              href="contact.html"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <!-- Bottom Metadata -->
+        <div
+          class="mt-16 pt-8 border-t border-zinc-50 flex flex-col md:flex-row justify-center items-center gap-4"
+        >
+          <p
+            class="text-zinc-500 text-[11px] font-mono uppercase tracking-[0.2em]"
+          >
+            © 2026 Kenn Clark Belnas
+          </p>
+          <p
+            class="text-zinc-400 text-[11px] font-mono uppercase tracking-[0.2em] italic"
+          >
+            Built with Intent
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // CALENDAR STUFF
+      document.addEventListener("DOMContentLoaded", () => {
+        const beforeBtn = document.getElementById("cal-before-btn");
+        const afterBtn = document.getElementById("cal-after-btn");
+        const grid = document.getElementById("calendar-grid");
+        const insight = document.getElementById("cal-insight");
+
+        const typeColors = {
+          collab: "bg-slate-100 text-slate-600 border-slate-200",
+          revenue: "bg-emerald-50 text-emerald-700 border-emerald-100",
+          admin: "bg-amber-50 text-amber-700 border-amber-100",
+          deep: "bg-blue-600 text-white border-blue-700",
+          flex: "bg-zinc-100 text-zinc-500 border-zinc-200",
+          break: "bg-white text-zinc-400 border-zinc-100 italic",
+        };
+
+        const beforeState = [
+          {
+            day: "Mon",
+            blocks: [
+              { time: "9–10", activity: "Team sync", type: "collab" },
+              { time: "10–11", activity: "Client call", type: "revenue" },
+              { time: "11–12", activity: "Email & admin", type: "admin" },
+              { time: "12–1", activity: "Lunch", type: "break" },
+              { time: "1–2", activity: "1:1s", type: "collab" },
+              { time: "2–3", activity: "Investor call", type: "revenue" },
+              { time: "3–5", activity: "Misc meetings", type: "collab" },
+            ],
+          },
+          {
+            day: "Tue",
+            blocks: [
+              { time: "9–10", activity: "Email review", type: "admin" },
+              { time: "10–11", activity: "Demo prep", type: "revenue" },
+              { time: "11–12", activity: "Demo call", type: "revenue" },
+              { time: "12–1", activity: "Lunch", type: "break" },
+              { time: "1–2", activity: "1:1s", type: "collab" },
+              { time: "2–4", activity: "All-hands meeting", type: "collab" },
+              { time: "4–5", activity: "Catch-up emails", type: "admin" },
+            ],
+          },
+          {
+            day: "Wed",
+            blocks: [
+              {
+                time: "9–12",
+                activity: "Back-to-back meetings",
+                type: "collab",
+              },
+              { time: "12–1", activity: "Lunch", type: "break" },
+              { time: "1–2", activity: "Email & tasks", type: "admin" },
+              { time: "2–4", activity: "More meetings", type: "collab" },
+              { time: "4–5", activity: "Admin", type: "admin" },
+            ],
+          },
+          {
+            day: "Thu",
+            blocks: [
+              { time: "9–10", activity: "Calendar fill-in", type: "admin" },
+              { time: "10–12", activity: "Board prep calls", type: "revenue" },
+              { time: "12–1", activity: "Lunch", type: "break" },
+              { time: "1–3", activity: "Urgent meetings", type: "collab" },
+              { time: "3–5", activity: "Email recovery", type: "admin" },
+            ],
+          },
+          {
+            day: "Fri",
+            blocks: [
+              { time: "9–10", activity: "Inbox audit", type: "admin" },
+              { time: "10–11", activity: "Hiring interviews", type: "collab" },
+              { time: "11–12", activity: "Team feedback", type: "collab" },
+              { time: "12–1", activity: "Lunch", type: "break" },
+              { time: "1–5", activity: "Random tasks & emails", type: "admin" },
+            ],
+          },
+        ];
+        const afterState = [
+          {
+            day: "Mon",
+            blocks: [
+              { time: "9–10", activity: "Team standup", type: "collab" },
+              { time: "10–12", activity: "1:1s (strategic)", type: "collab" },
+              { time: "12–1", activity: "Lunch & reset", type: "break" },
+              { time: "1–2", activity: "Email batch", type: "admin" },
+              { time: "2–3:30", activity: "Deep work", type: "deep" },
+              { time: "3:30–5", activity: "Flex / overflow", type: "flex" },
+            ],
+          },
+          {
+            day: "Tue",
+            blocks: [
+              { time: "9–10", activity: "Deep work start", type: "deep" },
+              { time: "10–12", activity: "Deep work continues", type: "deep" },
+              { time: "12–1", activity: "Lunch & reset", type: "break" },
+              { time: "1–2", activity: "Client meeting", type: "revenue" },
+              { time: "2–5", activity: "Deep work block", type: "deep" },
+            ],
+          },
+          {
+            day: "Wed",
+            blocks: [
+              { time: "9–10", activity: "Client call", type: "revenue" },
+              { time: "10–12", activity: "Deep work", type: "deep" },
+              { time: "12–1", activity: "Lunch & reset", type: "break" },
+              { time: "1–2", activity: "1:1s", type: "collab" },
+              { time: "2–3:30", activity: "Admin & planning", type: "admin" },
+              { time: "3:30–5", activity: "Flex time", type: "flex" },
+            ],
+          },
+          {
+            day: "Thu",
+            blocks: [
+              { time: "9–10", activity: "1:1 batch", type: "collab" },
+              { time: "10–12", activity: "Deep work", type: "deep" },
+              { time: "12–1", activity: "Lunch & reset", type: "break" },
+              {
+                time: "1–3:30",
+                activity: "Client calls (strategic)",
+                type: "revenue",
+              },
+              { time: "3:30–5", activity: "Flex / catch-up", type: "flex" },
+            ],
+          },
+          {
+            day: "Fri",
+            blocks: [
+              { time: "9–10", activity: "Weekly planning", type: "admin" },
+              { time: "10–12", activity: "Admin & approvals", type: "admin" },
+              { time: "12–1", activity: "Lunch", type: "break" },
+              {
+                time: "1–5",
+                activity: "No meetings (focus/flex)",
+                type: "flex",
+              },
+            ],
+          },
+        ];
+
+        function updateButtonStyles(activeState) {
+          if (activeState === "before") {
+            // Current State becomes "Dull/Dark" active
+            beforeBtn.className =
+              "px-8 py-3 text-[11px] font-mono font-black uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer bg-slate-700/40 text-white shadow-md border border-zinc-900";
+
+            // Optimized becomes "Clear/Ghost" inactive
+            afterBtn.className =
+              "px-8 py-3 text-[11px] font-mono font-black uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer bg-white text-zinc-400 border border-zinc-200 hover:border-blue-400 hover:text-blue-500";
+          } else {
+            // Current becomes "Clear/Ghost" inactive
+            beforeBtn.className =
+              "px-8 py-3 text-[11px] font-mono font-black uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer bg-white text-zinc-400 border border-zinc-200 hover:border-zinc-400 hover:text-zinc-600";
+
+            // Optimized becomes "Vibrant Blue" active
+            afterBtn.className =
+              "px-8 py-3 text-[11px] font-mono font-black uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer bg-emerald-500 text-white shadow-lg border border-emerald-700";
+          }
+        }
+
+        function renderCalendar(data, insightText) {
+          // Clear previous grid
+          grid.innerHTML = "";
+
+          // Loop through days (assuming 5 days)
+          for (let i = 0; i < 5; i++) {
+            const dayColumn = document.createElement("div");
+            dayColumn.className = "flex flex-col gap-2";
+
+            data[i].blocks.forEach((block) => {
+              const blockEl = document.createElement("div");
+              const colorClass = typeColors[block.type] || "bg-zinc-50";
+
+              blockEl.className = `${colorClass} p-2 rounded-lg border text-[9px] leading-tight transition-all duration-500 opacity-0 transform translate-y-2`;
+              blockEl.innerHTML = `
+                    <div class="font-bold opacity-70">${block.time}</div>
+                    <div class="font-medium">${block.activity}</div>
+                `;
+              dayColumn.appendChild(blockEl);
+            });
+
+            grid.appendChild(dayColumn);
+          }
+
+          // Animate in the blocks
+          gsap.to("#calendar-grid div", {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            stagger: 0.02,
+            ease: "power2.out",
+          });
+
+          insight.textContent = insightText;
+        }
+
+        beforeBtn.addEventListener("click", () => {
+          updateButtonStyles("before");
+          renderCalendar(
+            beforeState,
+            "[ INSIGHT ]: Fragmented blocks create high context-switching costs, draining 30% of total output.",
+          );
+        });
+
+        afterBtn.addEventListener("click", () => {
+          updateButtonStyles("after");
+          renderCalendar(
+            afterState,
+            "[ OPTIMIZED ]: Strategic grouping protects deep work blocks and aligns social energy with collaborative tasks.",
+          );
+        });
+
+        // Default Load
+        renderCalendar(
+          beforeState,
+          "[ INSIGHT ]: Fragmented blocks create high context-switching costs, draining 30% of total output.",
+        );
+      });
+    </script>
+
+    <script>
+      function openDashboardModal() {
+        const modal = document.getElementById("dashboard-modal");
+        if (!modal) return;
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDashboardModal(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+
+        const modal = document.getElementById("dashboard-modal");
+        if (!modal) return;
+
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "";
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeDashboardModal();
+        }
+      });
+    </script>
+  </body>
+</html>

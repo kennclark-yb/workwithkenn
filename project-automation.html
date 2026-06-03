@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <title>Automation Systems | KC.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+      }
+      .section-label {
+        display: inline-block;
+        color: #2563eb;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.42em;
+        font-weight: 900;
+        font-style: italic;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        text-decoration-color: rgba(37, 99, 235, 0.35);
+      }
+      .section-label-simple {
+        display: inline-block;
+        color: #2563eb;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.36em;
+        font-weight: 900;
+      }
+
+      .nav-pos-center {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .nav-pos-center.nav-hidden {
+        transform: translate(-50%, -150%) !important;
+        opacity: 0;
+      }
+      .nav-pos-right {
+        right: 2rem;
+        left: auto;
+        transform: none;
+      }
+      .nav-pos-right.nav-hidden {
+        transform: translateY(-150%) !important;
+        opacity: 0;
+      }
+
+      .automation-grid {
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          );
+        background-size: 28px 28px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#fafafa] text-[#1a1a1a]">
+    <!-- Vertical Sticky Nav -->
+    <aside
+      class="fixed left-0 top-[40%] -translate-y-1/2 z-[90] hidden xl:flex group/sidebar"
+    >
+      <div
+        class="relative flex flex-col gap-2 bg-white/90 backdrop-blur-md border-y border-r border-zinc-200 p-5 pl-6 rounded-r-[2rem] shadow-2xl -translate-x-full group-hover/sidebar:translate-x-0 transition-transform duration-500 ease-out pointer-events-none group-hover/sidebar:pointer-events-auto"
+      >
+        <a
+          href="#automation-mindset"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+            >[ Automation Mindset ]</span
+          >
+        </a>
+        <a
+          href="#custom-automation"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+            >[ Custom Automation ]</span
+          >
+        </a>
+        <a
+          href="#workflow-integration"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+            >[ Workflow Integration ]</span
+          >
+        </a>
+        <a
+          href="#tool-stack"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+            >[ Tool Stack ]</span
+          >
+        </a>
+        <a
+          href="#capabilities"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+            >[ Capabilities ]</span
+          >
+        </a>
+        <a
+          href="#init-connect"
+          class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link"
+        >
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"
+          ></span>
+          <span
+            class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors"
+            >[ Initiate Connection ]</span
+          >
+        </a>
+
+        <div
+          class="absolute left-full top-1/2 -translate-y-1/2 flex items-center py-10 pr-12 cursor-pointer pointer-events-auto"
+        >
+          <div
+            class="w-3 h-[120px] bg-zinc-400 group-hover/sidebar:bg-blue-600 transition-all duration-500 rounded-r-full shadow-sm"
+          ></div>
+          <div
+            class="ml-4 flex items-center gap-2 pointer-events-none transition-opacity duration-500 group-hover/sidebar:opacity-0 whitespace-nowrap"
+          >
+            <span class="text-[9px] font-mono font-bold text-blue-600">←</span>
+            <p
+              class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-blue-600 leading-tight text-center"
+            >
+              Navigate<br />to<br />sections
+            </p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Appear/Disappear Back Button -->
+    <nav
+      id="project-back-nav"
+      class="fixed top-6 z-[100] transition-all duration-500 nav-pos-center"
+    >
+      <a
+        href="index.html#work"
+        class="group relative inline-flex items-center gap-2 px-6 py-2 bg-[#0a0a0a] border border-white/10 rounded-full shadow-2xl text-xs uppercase tracking-widest font-bold text-white overflow-hidden hover:scale-105 transition-all"
+      >
+        <span
+          class="relative z-10 group-hover:-translate-x-1 transition-transform"
+          >←</span
+        >
+        <span class="relative z-10">Back to Selected Work</span>
+      </a>
+    </nav>
+
+    <main class="pb-32 max-w-7xl mx-auto">
+      <!-- HERO -->
+      <header class="pt-24 pb-20 px-4 md:px-6 border-b border-zinc-200">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center"
+        >
+          <div class="lg:col-span-7">
+            <span class="section-label text-[10px] tracking-[0.35em]"
+              >[ Automation Systems ]</span
+            >
+
+            <h1
+              class="text-6xl md:text-8xl font-black tracking-tighter mt-6 mb-8 leading-[0.88] text-black"
+            >
+              Automate the<br />repetitive.<br />Keep the important.
+            </h1>
+
+            <p
+              class="text-zinc-500 font-mono text-sm tracking-widest leading-relaxed max-w-xl"
+            >
+              From simple process automation to connected workflows,<br />
+              I help reduce repetitive work and move information where it needs
+              to go.
+            </p>
+          </div>
+
+          <!-- Hero Workflow Mockup -->
+          <div class="lg:col-span-5 lg:-mr-10 overflow-visible">
+            <div
+              class="bg-[#0c0c11] rounded-[32px] border border-white/5 shadow-2xl overflow-hidden w-full lg:w-[115%] max-w-full lg:max-w-none"
+            >
+              <div
+                class="flex items-center gap-2 px-6 py-4 border-b border-white/10"
+              >
+                <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+                <span
+                  class="mx-auto text-white/40 text-[10px] font-mono uppercase tracking-[0.28em]"
+                  >Workflow Snapshot</span
+                >
+              </div>
+
+              <div class="p-6 md:p-7 relative overflow-hidden">
+                <div class="absolute inset-0 automation-grid opacity-50"></div>
+                <div class="relative z-10">
+                  <div
+                    class="grid grid-cols-1 lg:grid-cols-3 gap-3 items-stretch"
+                  >
+                    <div class="bg-white rounded-3xl p-5">
+                      <p
+                        class="text-[10px] font-mono uppercase tracking-[0.25em] text-blue-600 font-black mb-3"
+                      >
+                        01 Input
+                      </p>
+                      <p
+                        class="text-[20px] leading-tight font-black text-black"
+                      >
+                        Form
+                      </p>
+                      <p class="text-xs text-zinc-400 mt-2">
+                        New request received
+                      </p>
+                    </div>
+                    <div
+                      class="bg-[#17171f] rounded-3xl p-5 border border-white/10"
+                    >
+                      <p
+                        class="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 font-black mb-3"
+                      >
+                        02 Logic
+                      </p>
+                      <p
+                        class="text-[20px] leading-tight font-black text-white"
+                      >
+                        Automation
+                      </p>
+                      <p class="text-xs text-white/30 mt-2">Rules apply</p>
+                    </div>
+                    <div
+                      class="bg-[#17171f] rounded-3xl p-5 border border-white/10"
+                    >
+                      <p
+                        class="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 font-black mb-3"
+                      >
+                        03 Output
+                      </p>
+                      <p
+                        class="text-[20px] leading-tight font-black text-white"
+                      >
+                        Notification
+                      </p>
+                      <p class="text-xs text-white/30 mt-2">Team informed</p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="mt-6 bg-white/5 rounded-3xl p-6 border border-white/10"
+                  >
+                    <p
+                      class="text-[10px] font-mono uppercase tracking-[0.25em] text-blue-400 font-black mb-5"
+                    >
+                      Automation Run
+                    </p>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between text-sm">
+                        <span class="text-white/70">Capture incoming data</span
+                        ><span class="text-blue-400 font-mono text-[10px]"
+                          >INPUT</span
+                        >
+                      </div>
+                      <div class="flex items-center justify-between text-sm">
+                        <span class="text-white/70">Apply routing logic</span
+                        ><span class="text-emerald-400 font-mono text-[10px]"
+                          >READY</span
+                        >
+                      </div>
+                      <div class="flex items-center justify-between text-sm">
+                        <span class="text-white/70"
+                          >Send update to destination</span
+                        ><span class="text-amber-400 font-mono text-[10px]"
+                          >SENT</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECTION 1: AUTOMATION MINDSET -->
+      <section
+        id="automation-mindset"
+        class="py-28 px-6 border-b border-zinc-100 bg-white"
+      >
+        <div class="max-w-5xl mx-auto text-center">
+          <h2
+            class="text-5xl md:text-6xl font-black tracking-tighter text-black mb-8"
+          >
+            Most repetitive work follows a pattern.
+          </h2>
+          <div
+            class="text-zinc-500 text-lg leading-relaxed max-w-2xl mx-auto mb-16 space-y-6"
+          >
+            <p>
+              If something happens the same way every time, there's usually an
+              opportunity to automate part of it.
+            </p>
+            <p>
+              The goal isn't replacing people. It's removing repetitive work so
+              time can be spent where it matters.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-7 gap-4 items-stretch">
+            <div
+              class="bg-zinc-500/30 rounded-3xl p-6 border border-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.06)]"
+            >
+              <span
+                class="text-[10px] font-mono text-blue-600 font-black tracking-widest"
+                >01</span
+              >
+              <p class="font-black mt-3">Input</p>
+            </div>
+            <div
+              class="hidden md:flex items-center justify-center text-blue-600 font-black"
+            >
+              ➔
+            </div>
+            <div
+              class="bg-zinc-500/30 rounded-3xl p-6 border border-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.06)]"
+            >
+              <span
+                class="text-[10px] font-mono text-blue-600 font-black tracking-widest"
+                >02</span
+              >
+              <p class="font-black mt-3">Decision</p>
+            </div>
+            <div
+              class="hidden md:flex items-center justify-center text-blue-600 font-black"
+            >
+              ➔
+            </div>
+            <div
+              class="bg-zinc-500/30 rounded-3xl p-6 border border-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.06)]"
+            >
+              <span
+                class="text-[10px] font-mono text-blue-600 font-black tracking-widest"
+                >03</span
+              >
+              <p class="font-black mt-3">Action</p>
+            </div>
+            <div
+              class="hidden md:flex items-center justify-center text-blue-600 font-black"
+            >
+              ➔
+            </div>
+            <div
+              class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 shadow-[0_18px_45px_rgba(0,0,0,0.18)]"
+            >
+              <span
+                class="text-[10px] font-mono text-blue-400 font-black tracking-widest"
+                >04</span
+              >
+              <p class="font-black mt-3 text-white">Output</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: CUSTOM AUTOMATION -->
+      <section
+        id="custom-automation"
+        class="py-28 px-6 bg-[#fafafa] border-b border-zinc-100"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="section-label-simple">[ Custom Automation ]</span>
+            <h2
+              class="text-5xl md:text-6xl font-black tracking-tighter text-black mt-6 mb-8"
+            >
+              Do you have repetitive work<br />that keeps coming back?
+            </h2>
+            <div
+              class="max-w-3xl mx-auto text-zinc-500 text-lg leading-relaxed space-y-6"
+            >
+              <p>
+                You probably already know which tasks feel repetitive.<br />
+                The challenge is turning those tasks into a process <br />that
+                runs consistently without constant attention.
+              </p>
+
+              <p>
+                That's
+                <span class="text-blue-500 font-semibold italic"
+                  >where I come in</span
+                >
+                — with
+                <span class="text-blue-500 font-semibold italic"
+                  >automation</span
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="max-w-2xl mx-auto my-16">
+            <div
+              class="bg-[#0c0c11] rounded-[32px] border border-zinc-800 shadow-2xl px-10 py-12 text-center"
+            >
+              <p
+                class="text-white/70 font-mono text-[11px] uppercase tracking-[0.3em] mb-6"
+              >
+                Question
+              </p>
+
+              <p
+                class="text-3xl md:text-4xl font-black text-white leading-tight"
+              >
+                Most automations start<br />
+                with one question:
+              </p>
+
+              <p class="text-xl md:text-2xl text-white/80 mt-8 leading-relaxed">
+                "What keeps happening<br />
+                over and over again?"
+              </p>
+            </div>
+          </div>
+          <!-- Branching connector from question to cards -->
+          <div class="hidden lg:block relative max-w-6xl mx-auto h-[150px] mb-0 -mt-[64px]">
+            <!-- single line from question pill -->
+            <div class="absolute left-1/2 top-0 w-[2px] h-[70px] bg-blue-600 -translate-x-1/2"></div>
+
+            <!-- horizontal branch line -->
+            <div class="absolute left-[16.66%] right-[16.66%] top-[70px] h-[2px] bg-blue-600"></div>
+
+            <!-- branch down to left card -->
+            <div class="absolute left-[16.66%] top-[70px] w-[2px] h-[80px] bg-blue-600 -translate-x-1/2"></div>
+
+            <!-- branch down to center card -->
+            <div class="absolute left-1/2 top-[70px] w-[2px] h-[80px] bg-blue-600 -translate-x-1/2"></div>
+
+            <!-- branch down to right card -->
+            <div class="absolute left-[83.33%] top-[70px] w-[2px] h-[80px] bg-blue-600 -translate-x-1/2"></div>
+          </div>
+
+          <!-- Mobile connector -->
+          <div class="lg:hidden flex justify-center mb-10">
+            <div class="w-[2px] h-14 bg-blue-600"></div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div
+              class="bg-[#0c0c11] rounded-[28px] p-8 border border-zinc-800 shadow-2xl"
+            >
+              <span class="section-label-simple">Raw Data Processing</span>
+              <h3
+                class="text-3xl font-black tracking-tight mt-5 mb-6 text-white"
+              >
+                Raw data into usable output.
+              </h3>
+              <div
+                class="space-y-3 font-mono text-[11px] uppercase tracking-widest text-white"
+              >
+                <p>Raw Data</p>
+                <p class="text-blue-600">🡇</p>
+                <p>Processing Rules</p>
+                <p class="text-blue-600">🡇</p>
+                <p>Review Output</p>
+                <p class="text-blue-600">🡇</p>
+                <p>Clean Dataset</p>
+              </div>
+              <p class="text-zinc-400 text-sm leading-relaxed mt-8">
+                Transform, clean, and prepare large datasets for reporting,
+                tracking, or operational use.
+              </p>
+            </div>
+
+            <div
+              class="bg-[#0c0c11] rounded-[28px] p-8 border border-zinc-800 shadow-2xl"
+            >
+              <span class="section-label-simple">Routing Automation</span>
+              <h3
+                class="text-3xl font-black tracking-tight mt-5 mb-6 text-white"
+              >
+                Send the right thing to the right place.
+              </h3>
+              <div
+                class="space-y-3 font-mono text-[11px] uppercase tracking-widest text-white"
+              >
+                <p>New Request</p>
+                <p class="text-blue-400">🡇</p>
+                <p>Identify Category</p>
+                <p class="text-blue-400">🡇</p>
+                <p>Assign Destination</p>
+                <p class="text-blue-400">🡇</p>
+                <p>Notify Team</p>
+              </div>
+              <p class="text-zinc-400 text-sm leading-relaxed mt-8">
+                Automatically route requests, tasks, or information to the right
+                person, team, or system.
+              </p>
+              <div class="grid grid-cols-1 gap-2 mt-6 text-xs text-white/55">
+                <p>Customer inquiry → Support</p>
+                <p>Maintenance request → Vendor</p>
+                <p>Lead form → Sales</p>
+                <p>Bug report → Development</p>
+              </div>
+            </div>
+
+            <div
+              class="bg-[#0c0c11] rounded-[28px] p-8 border border-zinc-800 shadow-2xl"
+            >
+              <span class="section-label-simple">Custom Workflow</span>
+              <h3
+                class="text-3xl font-black tracking-tight mt-5 mb-6 text-white"
+              >
+                Built around the actual process.
+              </h3>
+              <div
+                class="space-y-3 font-mono text-[11px] uppercase tracking-widest text-white"
+              >
+                <p>Input</p>
+                <p class="text-blue-600">🡇</p>
+                <p>Business Logic</p>
+                <p class="text-blue-600">🡇</p>
+                <p>Processing</p>
+                <p class="text-blue-600">🡇</p>
+                <p>Final Output</p>
+              </div>
+              <p class="text-zinc-400 text-sm leading-relaxed mt-8">
+                Designed around the specific process you're trying to improve,
+                not a generic template.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: TOOLS & PLATFORMS -->
+      <section
+        id="tool-stack"
+        class="w-full bg-[#f5f5f3] py-32 px-6 border-b border-zinc-100"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6">
+            <span class="section-label-simple">Tool Stack</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2
+                class="text-[52px] leading-[0.95] tracking-[-0.04em] font-semibold text-black mb-8"
+              >
+                Built using tools<br />that already exist.
+              </h2>
+
+              <div
+                class="space-y-6 text-[17px] leading-[1.9] text-[#4d4d4d] max-w-xl"
+              >
+                <p>Not every solution requires custom software.</p>
+                <p>
+                  Many workflows can be built faster using existing automation
+                  platforms and integrations.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="grid grid-cols-2 gap-4 bg-white/80 rounded-[32px] border border-zinc-200 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+            >
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Make.com
+                </p>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Zapier
+                </p>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Google Apps Script
+                </p>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Notion
+                </p>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Airtable
+                </p>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Google Workspace
+                </p>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.06)]"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-blue-600 font-black"
+                >
+                  Slack
+                </p>
+              </div>
+              <div
+                class="bg-[#0c0c11] rounded-3xl p-6 border border-zinc-800 shadow-2xl"
+              >
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.24em] text-white font-black"
+                >
+                  Telegram
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CAPABILITIES -->
+      <section
+        id="capabilities"
+        class="py-28 px-6 bg-white border-b border-zinc-100"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="section-label-simple">[ Capabilities ]</span>
+            <h2 class="text-5xl font-black tracking-tighter text-black mt-6">
+              Practical automation for real operations.
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">Workflow Automation</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Repeatable flows for recurring operational tasks.
+              </p>
+            </div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">
+                Apps Script / Batch Scripts
+              </h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Small scripts for file, sheet, and process utilities.
+              </p>
+            </div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">Data Processing</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Cleaning, formatting, restructuring, and preparing data.
+              </p>
+            </div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">Reporting Systems</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Dashboards, summaries, and operational status views.
+              </p>
+            </div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">Telegram Integrations</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Alerts, updates, and lightweight bot-driven flows.
+              </p>
+            </div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">Task Routing</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Assigning requests to the right destination automatically.
+              </p>
+            </div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100">
+              <h3 class="text-xl font-black mb-4">AI-Assisted Workflows</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">
+                Using AI carefully to summarize, classify, or support workflows.
+              </p>
+            </div>
+            <div
+              class="bg-zinc-900 rounded-[24px] p-8 border border-zinc-800 shadow-2xl"
+            >
+              <h3 class="text-xl font-black mb-4 text-white">Process Design</h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Mapping the workflow before automating the wrong thing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: EXPECTATIONS -->
+      <section
+        id="expectations"
+        class="py-28 px-6 bg-[#fafafa] border-b border-zinc-100"
+      >
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="section-label-simple">Expectations</span>
+          <h2
+            class="text-5xl md:text-6xl font-black tracking-tighter text-black mt-6 mb-8 leading-tight"
+          >
+            Not every problem needs<br />a complex solution.
+          </h2>
+          <p class="text-zinc-500 text-lg leading-relaxed">
+            Many bottlenecks can be solved with simple automations, better
+            workflows, and the right tools working together.<br /><br />
+            The objective isn't to automate everything. It's to remove
+            unnecessary friction.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESULT -->
+      <section class="py-28 px-6 bg-white">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="section-label-simple">The Result</span>
+          <h2
+            class="text-5xl md:text-6xl font-black tracking-tighter text-black mt-6 mb-8 leading-tight"
+          >
+            Less manual work.<br />More consistency.
+          </h2>
+          <p class="text-zinc-500 text-lg leading-relaxed">
+            When repetitive processes are handled systematically, teams spend
+            less time moving information and more time moving work forward.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pt-32 pb-12 bg-white border-t border-zinc-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div
+          id="init-connect"
+          class="flex flex-col items-center text-center space-y-8 mb-24"
+        >
+          <div class="space-y-4">
+            <span class="section-label block mb-2 ml-[0.5em]"
+              >[ Initiate Connection ]</span
+            >
+            <h2
+              class="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.9]"
+            >
+              Ready for fewer <br />moving parts?
+            </h2>
+            <p
+              class="text-zinc-600 text-xl max-w-2xl mx-auto leading-relaxed font-medium antialiased"
+            >
+              Whether you need day-to-day support or better systems,<br />I can
+              help keep things moving without adding more complexity.
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-center gap-4 pt-4">
+            <button
+              data-tally-open="J9MoXd"
+              data-tally-layout="modal"
+              class="px-10 py-5 bg-blue-600 text-white font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:-translate-y-1 cursor-pointer"
+            >
+              START HERE
+            </button>
+            <button
+              data-tally-open="yPz1j4"
+              data-tally-layout="modal"
+              class="px-10 py-5 border-2 border-zinc-900 text-zinc-900 font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-zinc-900 hover:text-white transition-all hover:-translate-y-1 cursor-pointer"
+            >
+              Contact Me
+            </button>
+          </div>
+
+          <p
+            class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-zinc-400"
+          >
+            Based in Philippines • Available worldwide
+          </p>
+        </div>
+
+        <hr class="border-zinc-100 mb-16" />
+
+        <div
+          class="flex flex-col md:flex-row justify-between items-start gap-8"
+        >
+          <div class="text-center md:text-left space-y-3">
+            <div
+              class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4"
+            >
+              <p
+                class="text-black font-black uppercase tracking-widest text-sm"
+              >
+                Kenn Clark
+              </p>
+              <span class="hidden md:block text-zinc-200">|</span>
+              <div
+                class="flex items-center justify-center md:justify-start gap-3"
+              >
+                <button
+                  onclick="toggleEmailModal()"
+                  class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer"
+                >
+                  email
+                </button>
+                <span class="text-zinc-200 text-[10px]">•</span>
+                <button
+                  onclick="toggleLinkedInModal()"
+                  class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer"
+                >
+                  linkedin
+                </button>
+              </div>
+            </div>
+            <p
+              class="text-zinc-500 font-mono text-[10px] uppercase tracking-widest"
+            >
+              Automation Systems
+            </p>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <a
+              href="index.html#"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >Home</a
+            >
+            <span class="text-zinc-300 text-[10px]">•</span>
+            <a
+              href="index.html#work"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >Work</a
+            >
+            <span class="text-zinc-200 text-[10px]">•</span>
+            <a
+              href="about.html"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >About</a
+            >
+            <span class="text-zinc-200 text-[10px]">•</span>
+            <a
+              href="contact.html"
+              class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="mt-16 pt-8 border-t border-zinc-50 flex flex-col md:flex-row justify-center items-center gap-4"
+        >
+          <p
+            class="text-zinc-500 text-[11px] font-mono uppercase tracking-[0.2em]"
+          >
+            © 2026 Kenn Clark Belnas
+          </p>
+          <p
+            class="text-zinc-400 text-[11px] font-mono uppercase tracking-[0.2em] italic"
+          >
+            Built with Intent
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Email Modal -->
+    <div
+      id="email-modal"
+      class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="absolute inset-0 bg-zinc-950/60"
+        onclick="toggleEmailModal()"
+      ></div>
+      <div
+        id="email-modal-content"
+        class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out"
+      >
+        <button
+          onclick="toggleEmailModal()"
+          class="absolute top-6 right-6 text-zinc-400 hover:text-black text-xl"
+        >
+          ✕
+        </button>
+        <h3 class="text-2xl text-center font-bold tracking-tighter mb-6">
+          Contact Me Directly
+        </h3>
+        <div class="flex flex-col gap-4">
+          <p
+            id="email-text"
+            class="font-mono text-xs text-zinc-600 bg-zinc-50 p-4 border border-zinc-100 rounded-2xl text-center select-all"
+          >
+            kennclark.yb@gmail.com
+          </p>
+          <button
+            id="copy-btn"
+            onclick="copyEmail()"
+            class="bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl transition-all duration-300 hover:bg-zinc-700"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LinkedIn Modal -->
+    <div
+      id="linkedin-modal"
+      class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="absolute inset-0 bg-zinc-950/60"
+        onclick="toggleLinkedInModal()"
+      ></div>
+      <div
+        id="linkedin-modal-content"
+        class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out"
+      >
+        <div class="flex flex-col gap-6 text-center">
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold tracking-tighter">Exit System</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">
+              Redirecting to LinkedIn profile. This will open in a new terminal
+              window.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <button
+              onclick="toggleLinkedInModal()"
+              class="flex-1 border border-zinc-200 text-zinc-500 font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-50 transition-colors"
+            >
+              Cancel
+            </button>
+            <a
+              href="https://linkedin.com/in/engrkenn"
+              target="_blank"
+              onclick="toggleLinkedInModal()"
+              class="flex-1 bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-700 transition-colors text-center flex items-center justify-center"
+              >Proceed</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        let lastScroll = window.scrollY;
+        const backNav = document.getElementById("project-back-nav");
+        if (!backNav) return;
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            const currentScroll = window.scrollY;
+
+            if (currentScroll <= 50) {
+              backNav.classList.remove("nav-hidden");
+              return;
+            }
+
+            if (currentScroll > lastScroll && currentScroll > 150) {
+              backNav.classList.add("nav-hidden");
+            } else if (currentScroll < lastScroll) {
+              backNav.classList.remove("nav-hidden");
+            }
+
+            lastScroll = currentScroll;
+          },
+          { passive: true },
+        );
+      })();
+
+      function toggleEmailModal() {
+        const modal = document.getElementById("email-modal");
+        const content = document.getElementById("email-modal-content");
+        if (!modal || !content) return;
+
+        const isOpen = modal.classList.contains("opacity-100");
+
+        if (isOpen) {
+          modal.classList.remove("opacity-100", "pointer-events-auto");
+          modal.classList.add("opacity-0", "pointer-events-none");
+          content.classList.remove("scale-100");
+          content.classList.add("scale-95");
+        } else {
+          modal.classList.remove("opacity-0", "pointer-events-none");
+          modal.classList.add("opacity-100", "pointer-events-auto");
+          content.classList.remove("scale-95");
+          content.classList.add("scale-100");
+        }
+      }
+
+      function toggleLinkedInModal() {
+        const modal = document.getElementById("linkedin-modal");
+        const content = document.getElementById("linkedin-modal-content");
+        if (!modal || !content) return;
+
+        const isOpen = modal.classList.contains("opacity-100");
+
+        if (isOpen) {
+          modal.classList.remove("opacity-100", "pointer-events-auto");
+          modal.classList.add("opacity-0", "pointer-events-none");
+          content.classList.remove("scale-100");
+          content.classList.add("scale-95");
+        } else {
+          modal.classList.remove("opacity-0", "pointer-events-none");
+          modal.classList.add("opacity-100", "pointer-events-auto");
+          content.classList.remove("scale-95");
+          content.classList.add("scale-100");
+        }
+      }
+
+      function copyEmail() {
+        const emailText = document.getElementById("email-text");
+        const copyBtn = document.getElementById("copy-btn");
+        if (!emailText || !copyBtn) return;
+
+        navigator.clipboard.writeText(emailText.textContent.trim()).then(() => {
+          copyBtn.textContent = "Copied";
+          setTimeout(() => {
+            copyBtn.textContent = "Copy";
+          }, 1500);
+        });
+      }
+    </script>
+  </body>
+</html>

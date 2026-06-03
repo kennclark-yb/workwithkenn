@@ -1,0 +1,326 @@
+/* Custom smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hide items before GSAP animation kicks in */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.face-refinement {
+    /* Combined Filter: Brightness + Smoothing + Saturation */
+    filter:
+        brightness(1.08) contrast(1.02) saturate(1.05) blur(0.55px) !important;
+
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 98%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 98%);
+    transform: translateZ(0);
+    will-change: transform, filter;
+}
+
+.metrics-img-glow {
+    filter: drop-shadow(0 0 15px rgba(37, 99, 235, 0.2));
+    /* Subtle blue glow */
+    transition: all 0.5s ease;
+}
+
+.metrics-img-glow:hover {
+    filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.4));
+    transform: scale(1.02);
+}
+
+.portrait-bright {
+    filter: brightness(1.06) contrast(1.04) saturate(1.05);
+    /* Toned down per your request */
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 98%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 98%);
+
+    /* THE STABILITY FIX */
+    transform: translateZ(0);
+    will-change: transform, filter;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+
+/* Optimization for mobile: makes the pill a bit wider so links aren't cramped */
+@media (max-width: 640px) {
+    nav {
+        width: 95%;
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* ==========================================================================
+   PROJECT_03: COMPARISON SLIDER 
+   ========================================================================== */
+
+/* --- THE WRAPPER --- */
+/* --- RESET & STABILIZE --- */
+.comparison-slider-wrapper {
+    touch-action: none;
+    line-height: 0;
+    /* Fixes ghost spacing at bottom of images */
+}
+
+.comparison-slider {
+    display: block;
+    /* Ensures natural height flow */
+}
+
+/* --- THE IMAGE LAYERING --- */
+.image-before img {
+    width: 100%;
+    height: auto;
+    /* This keeps your original sun_dried dimensions */
+    display: block;
+}
+
+.image-after {
+    will-change: clip-path;
+}
+
+/* --- THE INPUT OVERLAY --- */
+.slider {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+/* This ensures the entire area of the photo is interactive */
+.slider::-webkit-slider-runnable-track {
+    height: 100%;
+}
+
+.slider::-moz-range-track {
+    height: 100%;
+}
+
+/* ==========================================================================
+   GLOBAL UI: NAVIGATION & INDICATORS
+   ========================================================================== */
+
+/* Force visibility for standalone pages (prevents white screen if GSAP lags) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    /* Fallback if script fails */
+}
+
+/* --- 1. BASE LAYOUT & WRAPPERS --- */
+main {
+    min-height: 100vh; /* Ensure nav doesn't hide content on short pages */
+}
+
+/* Centered Hide/Show Logic for the Nav Bar Container */
+.nav-hidden {
+    transform: translate(-50%, -150%) scale(0.9) !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- 2. GLOBAL NAV PILL BASE --- */
+.nav-pill {
+    position: relative;
+    padding: 0.6rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease; /* Smooth transition for color and weight */
+    color: rgba(26, 26, 26, 0.6); /* Default subtle state */
+    border-radius: 9999px;
+    z-index: 10;
+}
+
+/* The background element that animates in */
+.nav-pill-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+    background-color: rgba(37, 99, 235, 0.1); /* Base blue tint */
+}
+
+/* --- 3. HOVER STATE LOGIC --- */
+/* Occurs when the user interacts with any link */
+.nav-pill:hover {
+    color: #2563eb !important; /* Switch to brand blue on hover */
+}
+
+.nav-pill:hover .nav-pill-bg {
+    transform: scale(1);
+    opacity: 1;
+    background-color: rgba(37, 99, 235, 0.08); /* Slightly lighter for hover */
+}
+
+/* --- 4. ACTIVE STATE LOGIC --- */
+/* The permanent highlight for the current page anchor */
+.nav-pill.active-nav {
+    color: #ffffff !important; /* Solid dark text for "You are here" */
+    font-weight: 600; /* Medium-bold for clear wayfinding */
+}
+
+.nav-pill.active-nav .nav-pill-bg {
+    transform: scale(1);
+    opacity: 1 !important;
+    background-color: #2563eb !important; /* Strongest blue tint */
+}
+
+/* --- 5. MOBILE OVERRIDES (The final section) --- */
+@media (max-width: 640px) {
+    nav {
+        width: 95%;
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+    }
+    
+    /* Pro-Tip: You might also want to shrink the padding on the pills 
+       for mobile so they don't wrap to a second line. */
+    .nav-pill {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+}
+
+.work-title-reveal {
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    
+    /* 1. THE STROKE (THINNER) */
+    -webkit-text-stroke: 0px;
+    
+    /* 2. THE SECRET SAUCE: OUTSIDE STROKE */
+    paint-order: stroke fill;
+
+    /* LETTER SPACING */
+    /* Go down=thin, Go up=thicc */
+    letter-spacing: 0.08em; 
+
+    /* 4. CLEANER SHADOW */
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.work-bg-cover {
+    will-change: opacity, backdrop-filter;
+    transition: none; /* Ensure CSS transitions aren't fighting your GSAP code */
+}
+
+/* Make the 'Executive' line turn to your brand blue or a bright white on hover */
+.work-tile-group:hover .rev-up {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.grid-bg div {
+    /* Baseline: Small and subtle white dots */
+    background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
+    background-size: 24px 24px; /* Increased spacing slightly for the bigger dots */
+    transition: background 0.4s ease; /* Smooth color transition */
+}
+
+/* In your CSS file */
+.grid-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 24px 24px;
+}
+
+#triage-overlay {
+    will-change: opacity;
+    transform: translateZ(0);
+}
+
+@keyframes runway-pulse {
+    0%, 100% { opacity: 0.2; } /* Dim state */
+    50% { opacity: 1; }      /* Fully lit state */
+}
+
+.runway-arrow span {
+    animation: runway-pulse 1s infinite; /* Cut time in half */
+}
+
+/* Stagger proportionately */
+.runway-arrow span:nth-child(1) { animation-delay: 0.0s; }
+.runway-arrow span:nth-child(2) { animation-delay: 0.2s; }
+.runway-arrow span:nth-child(3) { animation-delay: 0.4s; }
+
+.font-helvetica {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Initial states for animations */
+.reveal-fade {
+    opacity: 0;
+}
+
+.reveal-slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-wipe-right {
+    opacity: 0;
+    /* clip-path is handled by GSAP fromTo */
+}
+
+.hover-trigger {
+    cursor: pointer;
+    font-style: italic;         /* Italicize */
+    color: rgb(110, 110, 110);           /* Your primary brand blue */
+    text-decoration: underline; /* Solid underline */
+    text-underline-offset: 4px; /* Space between text and line */
+    text-decoration-thickness: 2px;
+    transition: color 0.3s ease; /* Smooth transition if you want to hover-color change */
+}
+
+.hover-trigger:hover {
+    color: #2F4662ff;           /* Darker blue on hover for feedback */
+}
+
+.hover-image-container {
+    pointer-events: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 250px;
+    height: auto;
+    
+    /* State: Hidden */
+    display: none; 
+    
+    /* Alignment */
+    transform: translate(-50%, -115%);
+    
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* State: Visible (No transitions) */
+.hover-image-container.visible {
+    display: block;
+}
+
+#hover-img-target {
+    width: 100%;
+    display: block;
+}
+
+.hover-trigger.is-locked {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none; /* Optional: hide underline until active */
+}
+

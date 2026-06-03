@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <title>Creative Work | KC.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom scrollbar */
+        #overlayContent::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #overlayContent::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #overlayContent::-webkit-scrollbar-thumb {
+            background: #2563eb;
+            border-radius: 10px;
+        }
+
+        #overlayContent::-webkit-scrollbar-thumb:hover {
+            background: #1d4ed8;
+        }
+
+        #overlayContent {
+            scrollbar-width: thin;
+            scrollbar-color: #2563eb transparent;
+        }
+
+        /* Mode A: Centered (Current Style) */
+        .nav-pos-center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-pos-center.nav-hidden {
+            transform: translate(-50%, -150%) !important;
+            opacity: 0;
+        }
+
+        /* Mode B: Right-Aligned */
+        .nav-pos-right {
+            right: 2rem;
+            /* Adjust distance from edge */
+            left: auto;
+            transform: none;
+        }
+
+        .nav-pos-right.nav-hidden {
+            transform: translateY(-150%) !important;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-[#fafafa] text-[#1a1a1a]">
+    <!-- Vertical Sticky Nav -->
+    <aside class="fixed left-0 top-[40%] -translate-y-1/2 z-[90] hidden xl:flex group/sidebar">
+
+        <!-- 1. THE SLIDING CONTENT (Sibling) -->
+        <!-- This starts at -translate-x-full and ONLY slides when the parent group is hovered -->
+        <div
+            class="relative flex flex-col gap-2 bg-white/90 backdrop-blur-md border-y border-r border-zinc-200 p-5 pl-6 rounded-r-[2rem] shadow-2xl 
+                -translate-x-full group-hover/sidebar:translate-x-0 
+                transition-transform duration-500 ease-out pointer-events-none group-hover/sidebar:pointer-events-auto">
+
+            <!-- Navigation Links -->
+            <a href="#trend-recreation" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+                <span
+                    class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+                <span
+                    class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">
+                    [ Trend Recreation ]
+                </span>
+            </a>
+
+            <a href="#video-edit" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+                <span
+                    class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+                <span
+                    class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">
+                    [ Content Strategy ]
+                </span>
+            </a>
+
+            <a href="#color-grading" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+                <span
+                    class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+                <span
+                    class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">
+                    [ Color Grading ]
+                </span>
+            </a>
+
+            <a href="#init-connect" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+                <span
+                    class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+                <span
+                    class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">
+                    [ Initiate Connection ]
+                </span>
+            </a>
+
+            <!-- 2. THE TRIGGER (Attached to the edge of the sliding content) -->
+            <!-- This is the ONLY thing that sticks out into the 'hoverable' area -->
+            <div
+                class="absolute left-full top-1/2 -translate-y-1/2 flex items-center py-10 pr-12 cursor-pointer pointer-events-auto">
+
+                <!-- The Visible Blue Bar -->
+                <div
+                    class="w-3 h-20 bg-zinc-400 group-hover/sidebar:bg-blue-600 transition-all duration-500 rounded-r-full shadow-sm">
+                </div>
+
+                <!-- The Hint Text -->
+                <div
+                    class="ml-4 flex items-center gap-2 pointer-events-none transition-opacity duration-500 group-hover/sidebar:opacity-0 whitespace-nowrap">
+                    <span class="text-[9px] font-mono font-bold text-blue-600">←</span>
+                    <p
+                        class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-blue-600 leading-tight text-center">
+                        Navigate<br>to<br>sections
+                    </p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <nav id="project-back-nav" class="fixed top-6 z-[100] transition-all duration-500 nav-pos-center">
+        <a href="index.html#work"
+            class="group relative inline-flex items-center gap-2 px-6 py-2 bg-[#0a0a0a] border border-white/10 rounded-full shadow-2xl text-xs uppercase tracking-widest font-bold text-white overflow-hidden hover:scale-105 transition-all">
+
+            <!-- THE GRID BACKGROUND -->
+            <!-- Using your new CSS class for consistency -->
+            <div class="grid-bg absolute inset-0 opacity-20 pointer-events-none">
+                <div class="grid-dots"></div>
+            </div>
+
+            <!-- BUTTON CONTENT -->
+            <span class="relative z-10 group-hover:-translate-x-1 transition-transform">←</span>
+            <span class="relative z-10">Back to Selected Work</span>
+        </a>
+    </nav>
+
+    <main class="repx-8 pb-32 max-w-7xl mx-auto">
+        <header class="pt-20 pb-12 border-b border-zinc-200">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-12">
+
+                <!-- Text Content: Populated from your Bio context -->
+                <div class="flex flex-col items-start text-left">
+                    <span
+                        class="text-blue-600 font-mono text-xs uppercase tracking-[0.5em] italic underline underline-offset-8 decoration-blue-600/30 font-black">
+                        [ CREATIVE_WORK ]
+                    </span>
+                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mt-6 mb-6 leading-[0.9] text-black">
+                        Creative &<br>Editing Work
+                    </h1>
+                    <p class="mt-4 text-zinc-500 font-mono text-sm tracking-widest">
+                        Short-form video editing and photo enhancement, with <br>a strong understanding of trends, hooks,
+                        and <br>AI-assisted content creation.
+                    </p>
+                </div>
+
+                <!-- Software Logos: Horizontal stack with hover tooltips -->
+                <div class="hidden md:flex items-center gap-6 pb-2">
+                    <!-- DaVinci Resolve -->
+                    <div class="group relative">
+                        <img src="assets/logos/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve"
+                            class="w-12 h-12 object-contain rounded-lg transition-all duration-500">
+                        <span
+                            class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                            DaVinci Resolve
+                        </span>
+                    </div>
+
+                    <!-- Lightroom -->
+                    <div class="group relative">
+                        <img src="assets/logos/Adobe_Photoshop_Lightroom_Classic_CC_icon.png" alt="Adobe Lightroom"
+                            class="w-12 h-12 object-contain transition-all duration-500">
+                        <span
+                            class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                            Lightroom Classic
+                        </span>
+                    </div>
+
+                    <!-- Illustrator (NEW) -->
+                    <div class="group relative">
+                        <img src="assets/logos/Adobe_Illustrator_CC_icon.png" alt="Adobe Illustrator"
+                            class="w-12 h-12 object-contain transition-all duration-500">
+                        <span
+                            class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                            Adobe Illustrator
+                        </span>
+                    </div>
+
+                    <!-- Photoshop -->
+                    <div class="group relative">
+                        <img src="assets/logos/Adobe_Photoshop_CS6_icon.png" alt="Adobe Photoshop"
+                            class="w-12 h-12 object-contain transition-all duration-500">
+                        <span
+                            class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                            Photoshop
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 1st Block -->
+        <section id="trend-recreation" class="pt-12 pb-16 border-t border-zinc-200">
+            <div class="w-full">
+                <div class="flex flex-col items-center mb-16 text-center">
+                    <div class="space-y-2">
+                        <h3
+                            class="text-[11px] font-mono font-black uppercase tracking-[0.5em] text-blue-600 underline underline-offset-8 decoration-blue-600/40">
+                            [ AI Edit | Trend Recreation ]
+                        </h3>
+                        <h2 class="text-4xl font-semibold tracking-tight uppercase text-zinc-900">
+                            Tokyo Drift Scene Recreation
+                        </h2>
+                    </div>
+                </div>
+                <!-- 1st Block: Context Section -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+
+                    <div class="md:col-span-5 space-y-8">
+
+                        <div class="bg-zinc-900 rounded-[2rem] p-8 shadow-2xl border border-zinc-800 space-y-6">
+                            <div class="space-y-3">
+                                <div class="inline-flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[16px] font-mono font-black uppercase text-blue-400 tracking-widest">The
+                                        Task</span>
+                                </div>
+                                <p class="text-[13px] leading-relaxed text-zinc-300 font-medium">
+                                    Recreate a trending scene edit by replacing<br>
+                                    the vehicle in a well-known clip <span class="text-white font-bold">while
+                                        keeping</span> the result<br>
+                                    natural and visually consistent.
+                                </p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="inline-flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[16px] font-mono font-black uppercase text-blue-400 tracking-widest">What
+                                        I Did</span>
+                                </div>
+                                <p class="text-[13px] leading-relaxed text-zinc-300 font-medium">
+                                    I gathered key assets, including the replacement vehicle and scene references, then
+                                    used <span class="text-white font-bold">AI tools</span> to replace the car and
+                                    generate motion. The final edit was refined in
+                                    post and published as a short-form video using platform-native audio.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 1st Block: PROCESS SECTION -->
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 mb-2">
+                                <div class="h-[1px] flex-grow bg-zinc-200"></div>
+                                <p
+                                    class="text-s font-mono text-blue-600 uppercase tracking-widest whitespace-nowrap font-bold">
+                                    Process</p>
+                                <div class="h-[1px] flex-grow bg-zinc-200"></div>
+                            </div>
+                            <!-- Step 01 -->
+                            <div class="grid grid-cols-2 gap-6 relative">
+                                <div class="p-6 bg-white border border-zinc-200 rounded-3xl cursor-pointer hover:border-blue-500 hover:shadow-md transition-all group"
+                                    onclick="showWorkflowDetail('extract')">
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <span
+                                            class="w-8 h-8 flex-none aspect-square bg-blue-600 text-white text-[10px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">
+                                            01
+                                        </span>
+                                        <h4 class="text-sm font-black uppercase tracking-tight">
+                                            Asset Gathering
+                                        </h4>
+                                    </div>
+                                    <p class="text-[12px] text-zinc-600 leading-snug font-medium antialiased">
+                                        Clips, references, and source material preparation
+                                    </p>
+                                </div>
+                                <!-- Step 02 -->
+                                <div class="p-6 bg-white border border-zinc-200 rounded-3xl cursor-pointer hover:border-blue-500 hover:shadow-md transition-all group"
+                                    onclick="showWorkflowDetail('generate')">
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <span
+                                            class="w-8 h-8 flex-none aspect-square bg-black text-white text-[10px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">
+                                            02
+                                        </span>
+                                        <h4 class="text-sm font-black uppercase tracking-tight">
+                                            AI Scene Creation
+                                        </h4>
+                                    </div>
+                                    <p class="text-[12px] text-zinc-600 leading-snug font-medium antialiased">
+                                        Rebuilding the scene using AI and precise prompting
+                                    </p>
+                                </div>
+                                <!-- Spacer Arrow -->
+                                <div class="col-span-2 flex justify-center py-1">
+                                    <span class="text-2xl text-blue-600 font-bold">↓</span>
+                                </div>
+                                <!-- Step 03 -->
+                                <div class="p-6 bg-white border border-zinc-200 rounded-3xl cursor-pointer hover:border-blue-500 hover:shadow-md transition-all group"
+                                    onclick="showWorkflowDetail('synthesize')">
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <span
+                                            class="w-8 h-8 flex-none aspect-square bg-black text-white text-[10px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">
+                                            03
+                                        </span>
+                                        <h4 class="text-sm font-black uppercase tracking-tight leading-tight">
+                                            Video Assembly
+                                        </h4>
+                                    </div>
+                                    <p class="text-[12px] text-zinc-600 leading-snug font-medium antialiased">
+                                        Compositing, timing, and final edit refinement</p>
+                                </div>
+                                <!-- Step 04 -->
+                                <div class="p-6 bg-white border border-zinc-200 rounded-3xl cursor-pointer hover:border-blue-500 hover:shadow-md transition-all group"
+                                    onclick="showWorkflowDetail('deploy')">
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <span
+                                            class="w-8 h-8 flex-none aspect-square bg-black text-white text-[10px] flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">
+                                            04
+                                        </span>
+                                        <h4 class="text-sm font-black uppercase tracking-tight leading-tight">
+                                            Publishing & Optimization
+                                        </h4>
+                                    </div>
+                                    <p class="text-[12px] text-zinc-600 leading-snug font-medium antialiased">
+                                        Platform-ready export using trend-aware audio and formatting
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-7">
+                        <div
+                            class="relative bg-white p-3 rounded-3xl shadow-2xl border border-zinc-200 overflow-hidden group">
+                            <div class="aspect-video bg-black rounded-2xl overflow-hidden relative">
+                                <video class="w-full h-full object-cover" controls loop playsinline
+                                    poster="assets/projects/creative/tokyo-drift/hanBorrowedMyPatrol_thumbnail_landscape.png">
+                                    <source src="assets/projects/creative/tokyo-drift/TokyoDriftAiEdit.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 mt-4">
+                            <div class="aspect-video rounded-2xl overflow-hidden border border-zinc-200 relative cursor-pointer group"
+                                onclick="openLightbox('assets/projects/creative/tokyo-drift/originalCarReference.PNG')">
+                                <img src="assets/projects/creative/tokyo-drift/originalCarReference.PNG"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-x-0 bottom-3 flex justify-center">
+                                    <span
+                                        class="bg-black/70 backdrop-blur-md text-white text-[8px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-white/10">Original</span>
+                                </div>
+                            </div>
+
+                            <div class="aspect-video rounded-2xl overflow-hidden border border-zinc-200 relative cursor-pointer group"
+                                onclick="openLightbox('assets/projects/creative/tokyo-drift/input_hanOnCarReference.PNG')">
+                                <img src="assets/projects/creative/tokyo-drift/input_hanOnCarReference.PNG"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-x-0 bottom-3 flex justify-center">
+                                    <span
+                                        class="bg-black/70 backdrop-blur-md text-white text-[8px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-white/10">Character
+                                        Plate</span>
+                                </div>
+                            </div>
+
+                            <div class="aspect-video rounded-2xl overflow-hidden border border-zinc-200 relative cursor-pointer group"
+                                onclick="openLightbox('assets/projects/creative/tokyo-drift/output_carReplaced.PNG')">
+                                <img src="assets/projects/creative/tokyo-drift/output_carReplaced.PNG"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60">
+                                </div>
+                                <div class="absolute inset-x-0 bottom-3 flex justify-center">
+                                    <span
+                                        class="bg-white text-black text-[8px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg border border-zinc-200">Final
+                                        Output</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-6 px-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                                <p
+                                    class="text-[10px] uppercase tracking-widest opacity-60 text-zinc-500 font-bold font-mono">
+                                    REEL_INDEX: TOKYO_DRIFT_AI_V1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 2nd block -->
+        <section id="video-edit" class="pt-12 pb-12 bg-white">
+            <div class="w-full">
+                <div class="flex flex-col items-center mb-16 text-center">
+                    <div class="space-y-2 mb-6">
+                        <h2
+                            class="text-[11px] font-mono font-black uppercase tracking-[0.5em] text-blue-600 underline underline-offset-8 decoration-blue-600/30">
+                            [ Content Strategy | Multi-format Execution ]
+                        </h2>
+                        <h3 class="text-4xl font-semibold tracking-tight uppercase text-zinc-900">
+                            Short vs Long-Form Performance
+                        </h3>
+                    </div>
+                    <div
+                        class="w-full max-w-4xl bg-zinc-900 rounded-[2rem] p-8 md:p-10 text-left shadow-2xl border border-zinc-800">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div class="space-y-3">
+                                <div class="inline-flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[15px] font-mono font-black uppercase text-blue-400 tracking-widest">
+                                        The Objective
+                                    </span>
+                                </div>
+                                <p class="text-[13px] leading-relaxed text-zinc-300 font-medium">
+                                    Demonstrate that <span class="text-white font-bold">strong reach and
+                                        engagement</span> are achievable
+                                    without a large follower base or AI-assisted content through
+                                    <span class="text-white font-bold">precise timing</span>, <span
+                                        class="text-white font-bold">relevant concepts</span>, and
+                                    <span class="text-white font-bold">well-executed editing</span>.
+                                </p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="inline-flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[15px] font-mono font-black uppercase text-purple-400 tracking-widest">
+                                        The Challenge
+                                    </span>
+                                </div>
+                                <p class="text-[13px] leading-relaxed text-zinc-300 font-medium">
+                                    For short-form, I identified a <span class="text-white font-bold">timely
+                                        trend</span> and built a concept
+                                    around a familiar question, then introduced a <span
+                                        class="text-white font-bold">niche-specific twist</span>.
+                                    <br><br>
+                                    For long-form, I focused on <span class="text-white font-bold">editing
+                                        execution</span>, using pacing,
+                                    jump cuts, and light humor to <span class="text-white font-bold">maintain
+                                        engagement</span> throughout.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex flex-col items-center gap-8">
+                        <div class="relative group">
+                            <div
+                                class="absolute right-[-150px] top-1/2 -translate-y-1/2 w-[130px] opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-50 hidden lg:block">
+                                <p
+                                    class="text-[9px] font-mono leading-tight text-blue-600 font-bold uppercase tracking-tighter border-l-2 border-blue-600 pl-3">
+                                    Cant hear audio? <br>
+                                    <span class="text-zinc-500 font-medium uppercase">Click the video to toggle
+                                        sound.</span>
+                                </p>
+                            </div>
+
+                            <div
+                                class="relative aspect-[9/16] max-h-[570px] w-full max-w-[320px] rounded-[2.5rem] overflow-hidden bg-zinc-900 shadow-xl border-[6px] border-zinc-900 ring-1 ring-zinc-800 transition-all duration-500 hover:shadow-2xl">
+                                <img src="assets/projects/creative/feb-14-cycling/feb-14-140km-thumbnail.png"
+                                    id="thumb-cycling"
+                                    class="absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-500 opacity-100 pointer-events-none">
+                                <video
+                                    onmouseenter="this.play(); document.getElementById('thumb-cycling').style.opacity='0';"
+                                    onmouseleave="this.pause(); document.getElementById('thumb-cycling').style.opacity='1';"
+                                    onclick="this.muted = !this.muted" loop playsinline preload="auto"
+                                    class="w-full h-full object-cover relative z-10 cursor-pointer">
+                                    <source src="assets/projects/creative/feb-14-cycling/feb-14-140km-reel.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 w-full max-w-[320px] text-center px-2">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center border-b border-zinc-200 pb-1">
+                                    <span class="text-[10px] font-black uppercase text-zinc-500">Reach Velocity</span>
+                                    <span class="text-xs font-bold text-blue-600">3,695 Views (1,600%)</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-zinc-200 pb-1">
+                                    <span class="text-[10px] font-black uppercase text-zinc-500">Discovery Rate</span>
+                                    <span class="text-xs font-bold text-green-600">97% Non-Followers</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-black uppercase text-zinc-500">Retention</span>
+                                    <span class="text-xs font-bold">11s Avg Watch Time</span>
+                                </div>
+                            </div>
+                            <button onclick="showWorkflowDetail('growth_temporal')"
+                                class="group relative w-full py-3 bg-zinc-900 text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95">
+                                <div
+                                    class="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                </div>
+                                <span class="relative z-10 text-[10px] font-black uppercase tracking-[0.3em]">View Reel
+                                    Performance</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-8">
+                        <div class="relative group">
+                            <div
+                                class="absolute right-[-150px] top-1/2 -translate-y-1/2 w-[130px] opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-50 hidden lg:block">
+                                <p
+                                    class="text-[9px] font-mono leading-tight text-purple-600 font-bold uppercase tracking-tighter border-l-2 border-purple-600 pl-3">
+                                    Cant hear audio? <br>
+                                    <span class="text-zinc-500 font-medium uppercase">Click the video to toggle
+                                        sound.</span>
+                                </p>
+                            </div>
+
+                            <div
+                                class="relative aspect-[9/16] max-h-[570px] w-full max-w-[320px] rounded-[2.5rem] overflow-hidden bg-zinc-900 shadow-xl border-[6px] border-zinc-900 ring-1 ring-zinc-800 transition-all duration-500 hover:shadow-2xl">
+                                <img src="assets/projects/creative/day-trip/day-trip-thumbnail.png" id="thumb-day-trip"
+                                    class="absolute inset-0 w-full h-full object-cover z-20 transition-opacity duration-500 opacity-100 pointer-events-none">
+                                <video
+                                    onmouseenter="this.play(); document.getElementById('thumb-day-trip').style.opacity='0';"
+                                    onmouseleave="this.pause(); document.getElementById('thumb-day-trip').style.opacity='1';"
+                                    onclick="this.muted = !this.muted" loop playsinline preload="auto"
+                                    class="w-full h-full object-cover relative z-10 cursor-pointer">
+                                    <source src="assets/projects/creative/day-trip/cebu-duma-trip.MP4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 w-full max-w-[320px] text-center px-2">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center border-b border-zinc-200 pb-1">
+                                    <span class="text-[10px] font-black uppercase text-zinc-500">Content Length</span>
+                                    <span class="text-xs font-bold text-purple-600">3:00 Long-Form</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-zinc-200 pb-1">
+                                    <span class="text-[10px] font-black uppercase text-zinc-500">Audience
+                                        Balance</span>
+                                    <span class="text-xs font-bold text-green-600">50/50 Gender Balance</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-black uppercase text-zinc-500">Engagement Rate</span>
+                                    <span class="text-xs font-bold text-zinc-800">7.6% Engagement (FB)</span>
+                                </div>
+                            </div>
+                            <button onclick="showWorkflowDetail('growth_retention')"
+                                class="group relative w-full py-3 bg-zinc-900 text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95">
+                                <div
+                                    class="absolute inset-0 bg-purple-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                </div>
+                                <span class="relative z-10 text-[10px] font-black uppercase tracking-[0.3em]">View Reel
+                                    Insights</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3rd block -->
+        <section id="color-grading" class="pt-10 pb-12">
+            <!-- Project_03: Color Grading & Image Restoration Block -->
+            <div class="w-full py-20 bg-zinc-50">
+                <!-- Header -->
+                <div class="flex flex-col items-center mb-16 text-center space-y-8">
+                    <div class="space-y-2">
+                        <h2
+                            class="text-[11px] font-mono font-black uppercase tracking-[0.5em] text-blue-600 underline underline-offset-8 decoration-blue-600/30">
+                            [ Chromatic Precision ]
+                        </h2>
+                        <h3 class="text-4xl font-semibold tracking-tight uppercase text-zinc-900">
+                            Color Grading & Image Enhancement
+                        </h3>
+                    </div>
+                    <div
+                        class="w-full max-w-4xl bg-zinc-900 rounded-[2rem] p-8 md:p-10 text-left shadow-2xl border border-zinc-800">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div class="space-y-3">
+                                <div class="inline-flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[15px] font-mono font-black uppercase text-blue-400 tracking-widest">
+                                        The Challenge
+                                    </span>
+                                </div>
+                                <p class="text-[13px] leading-relaxed text-zinc-300 font-medium">
+                                    Many images either lack <span class="text-white font-bold">visual impact</span> or
+                                    become <span class="text-white font-bold">overprocessed</span> through presets.
+                                    The challenge is to <span class="text-white font-bold">enhance mood</span>,
+                                    <span class="text-white font-bold">clarity</span>, and <span
+                                        class="text-white font-bold">subject focus</span>
+                                    while maintaining a natural and believable look.
+                                </p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="inline-flex items-center gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[15px] font-mono font-black uppercase text-purple-400 tracking-widest">
+                                        The Approach
+                                    </span>
+                                </div>
+                                <p class="text-[13px] leading-relaxed text-zinc-300 font-medium">
+                                    A fully <span class="text-white font-bold">manual grading workflow</span> focused on
+                                    <span class="text-white font-bold">precise color correction</span>, <span
+                                        class="text-white font-bold">tonal balance</span>,
+                                    and <span class="text-white font-bold">selective masking</span> to <span
+                                        class="text-white font-bold">shape light</span>,
+                                    <span class="text-white font-bold">isolate subjects</span>, and <span
+                                        class="text-white font-bold">control depth</span>
+                                    without relying on LUTs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Container -->
+                <div class="max-w-6xl mx-auto px-6">
+
+                    <!-- Section Divider -->
+                    <div class="flex items-center gap-4 mb-2" data-aos="fade-up">
+                        <div class="h-[1px] flex-grow bg-zinc-400"></div>
+                        <p class="text-[18px] font-mono text-zinc-600 uppercase tracking-[0.4em] font-bold">
+                            Cinematic & Moody</p>
+                        <div class="h-[1px] flex-grow bg-zinc-400"></div>
+                    </div>
+
+                    <!-- Row 1: The Portrait Slider -->
+                    <div class="mb-20">
+                        <div class="grid grid-cols-1 lg:grid-cols-6 gap-8 items-center">
+                            <div class="lg:col-span-1 text-left lg:text-right order-2 lg:order-1" data-aos="fade-right">
+                                <h3 class="text-black text-2xl font-black uppercase tracking-tighter leading-tight">
+                                    CINEMATIC MOOD <br><span class="text-blue-600">Controlled Light & Contrast</span>
+                                </h3>
+                                <p class="text-zinc-600 text-[12px] italic leading-relaxed font-medium mt-2">
+                                    Creating depth and directing focus through intentional use of light and shadow
+                                </p>
+                            </div>
+
+                            <div class="lg:col-span-4 order-1 lg:order-2 flex justify-center" data-aos="zoom-in">
+                                <div class="comparison-slider-wrapper w-full max-w-[460px] rounded-[2rem] border-4 border-white shadow-2xl overflow-hidden relative"
+                                    style="--split: 50%;">
+                                    <div class="comparison-slider relative w-full bg-zinc-900">
+                                        <!-- BEFORE LAYER -->
+                                        <div class="image-before relative z-10">
+                                            <span
+                                                class="absolute top-6 left-6 z-30 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] pointer-events-none">Before</span>
+                                            <img src="assets/projects/creative/photos-b-and-a/basking_in_coffee_drinking_sun-before.jpg"
+                                                class="w-full h-auto block">
+                                        </div>
+                                        <!-- AFTER LAYER (With Clip-Path) -->
+                                        <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                            style="clip-path: inset(0 0 0 var(--split));">
+                                            <span
+                                                class="absolute top-6 right-6 z-30 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">After</span>
+                                            <img src="assets/projects/creative/photos-b-and-a/basking_in_coffee_drinking_sun.jpg"
+                                                class="w-full h-full object-cover">
+                                        </div>
+                                        <input type="range" min="0" max="100" value="50"
+                                            class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                            oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+                                        <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                            style="left: var(--split);">
+                                            <div
+                                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 text-xs">
+                                                ↔</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-1 order-3" data-aos="fade-left">
+                                <h4 class="text-blue-600 text-[12px] font-black uppercase tracking-widest mb-4">
+                                    PROCESS
+                                </h4>
+                                <ul class="text-zinc-500 text-[10px] uppercase space-y-3 font-bold tracking-tight">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-0.5 flex-none"></span>
+                                        <span>Manual Color Grading (No LUTs)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-0.5 flex-none"></span>
+                                        <span>Selective Light & Shadow Sculpting</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-0.5 flex-none"></span>
+                                        <span class="leading-relaxed">Refining tonal balance, isolating subjects, and
+                                            controlling depth to achieve a cinematic, intentional finish</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: The Landscape Hero -->
+                    <div class="mb-20 flex flex-col items-center" data-aos="fade-up">
+                        <div class="comparison-slider-wrapper w-full max-w-4xl rounded-[2rem] border-4 border-white shadow-2xl overflow-hidden relative"
+                            style="--split: 50%;">
+                            <div class="comparison-slider relative w-full">
+                                <div class="image-before relative z-10">
+                                    <span
+                                        class="absolute top-6 left-6 z-30 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] pointer-events-none">Before</span>
+                                    <img src="assets/projects/creative/photos-b-and-a/in_the_canyons-before.jpg"
+                                        class="w-full h-auto block">
+                                </div>
+                                <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                    style="clip-path: inset(0 0 0 var(--split));">
+                                    <span
+                                        class="absolute top-6 right-6 z-30 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">After</span>
+                                    <img src="assets/projects/creative/photos-b-and-a/in_the_canyons.jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <input type="range" min="0" max="100" value="50"
+                                    class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                    oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+                                <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                    style="left: var(--split);">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 font-bold">
+                                        ↔</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Grid Pairs -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                        <!-- Left Item -->
+                        <div class="group" data-aos="fade-right">
+                            <div class="comparison-slider-wrapper w-full rounded-[2rem] border-4 border-white shadow-xl overflow-hidden relative"
+                                style="--split: 50%;">
+                                <div class="comparison-slider relative w-full bg-zinc-900">
+                                    <div class="image-before relative z-10">
+                                        <span
+                                            class="absolute bottom-4 left-4 z-30 bg-black/50 backdrop-blur-sm text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest pointer-events-none">Before</span>
+                                        <img src="assets/projects/creative/photos-b-and-a/friends_and_canyon-before.jpg"
+                                            class="w-full h-auto block">
+                                    </div>
+                                    <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                        style="clip-path: inset(0 0 0 var(--split));">
+                                        <span
+                                            class="absolute bottom-4 right-4 z-30 bg-blue-600 text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">After</span>
+                                        <img src="assets/projects/creative/photos-b-and-a/friends_and_canyon.jpg"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                    <input type="range" min="0" max="100" value="50"
+                                        class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                        oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+                                    <!-- SLIDER LINE + INTERACTIVE HANDLE (↔) -->
+                                    <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                        style="left: var(--split);">
+                                        <div
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 text-[20px] font-black border-2 border-blue-50">
+                                            ↔
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Item -->
+                        <!-- Item: Image Restoration & Color Grading -->
+                        <div class="group" data-aos="fade-left">
+                            <div class="comparison-slider-wrapper w-full rounded-[2rem] border-4 border-white shadow-xl overflow-hidden relative"
+                                style="--split: 50%;">
+                                <div class="comparison-slider relative w-full bg-zinc-900">
+
+                                    <!-- BEFORE LAYER -->
+                                    <div class="image-before relative z-10">
+                                        <!-- Label vanishes as the slider moves left -->
+                                        <span
+                                            class="absolute bottom-4 left-4 z-30 bg-black/50 backdrop-blur-sm text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest pointer-events-none">
+                                            Before
+                                        </span>
+                                        <img src="assets/projects/creative/photos-b-and-a/im_fine-before.jpg"
+                                            class="w-full h-auto block">
+                                    </div>
+
+                                    <!-- AFTER LAYER (Clipped) -->
+                                    <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                        style="clip-path: inset(0 0 0 var(--split));">
+                                        <!-- Label vanishes as the slider moves right -->
+                                        <span
+                                            class="absolute bottom-4 right-4 z-30 bg-blue-600 text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">
+                                            After
+                                        </span>
+                                        <img src="assets/projects/creative/photos-b-and-a/im_fine.jpg"
+                                            class="w-full h-full object-cover">
+                                    </div>
+
+                                    <!-- INTERACTION LAYER -->
+                                    <input type="range" min="0" max="100" value="50"
+                                        class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                        oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+
+                                    <!-- SLIDER LINE + INTERACTIVE HANDLE (↔) -->
+                                    <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                        style="left: var(--split);">
+                                        <div
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 text-[20px] font-black border-2 border-blue-50">
+                                            ↔
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project_03: Sun Dried Restoration Block -->
+                    <div class="max-w-6xl mx-auto px-6 pt-14 pb-2" data-aos="fade-up">
+                        <div class="comparison-slider-wrapper rounded-[2.5rem] border-4 border-white shadow-2xl overflow-hidden relative"
+                            style="--split: 50%;">
+                            <div class="comparison-slider relative w-full bg-zinc-900">
+
+                                <!-- BEFORE LAYER -->
+                                <div class="image-before relative z-10">
+                                    <!-- This label stays pinned to the left; it vanishes as the "After" layer slides over it -->
+                                    <span
+                                        class="absolute top-6 left-6 z-30 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] pointer-events-none">
+                                        Before
+                                    </span>
+                                    <img src="assets/projects/creative/photos-b-and-a/sun_dried-before.png"
+                                        class="w-full h-auto block">
+                                </div>
+
+                                <!-- AFTER LAYER (Controlled by Clip-Path) -->
+                                <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                    style="clip-path: inset(0 0 0 var(--split));">
+                                    <!-- This label stays pinned to the right; it is hidden by the clip-path when the slider moves right -->
+                                    <span
+                                        class="absolute top-6 right-6 z-30 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">
+                                        After
+                                    </span>
+                                    <img src="assets/projects/creative/photos-b-and-a/sun_dried.jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+
+                                <!-- INTERACTION CONTROLS -->
+                                <input type="range" min="0" max="100" value="50"
+                                    class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                    oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+
+                                <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                    style="left: var(--split);">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 font-bold border-2 border-blue-50">
+                                        ↔
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SECTION 2.2: ADVANCED RESTORATION & COLOR GRADING -->
+            <div class="max-w-6xl mx-auto px-6">
+                <!-- Section Divider -->
+                <div class="flex items-center gap-4 mb-2" data-aos="fade-up">
+                    <div class="h-[1px] flex-grow bg-zinc-400"></div>
+                    <p class="text-[18px] font-mono text-zinc-600 uppercase tracking-[0.4em] font-bold">
+                        Clean & Professional</p>
+                    <div class="h-[1px] flex-grow bg-zinc-400"></div>
+                </div>
+                <!-- ROW 1: SOLO (As Above So Below) -->
+                <div class="grid grid-cols-1 lg:grid-cols-6 gap-6 items-center pt-4 pb-12 px-4 lg:px-8">
+                    <div class="lg:col-span-1 text-left lg:text-right">
+                        <h3 class="text-black text-2xl font-black uppercase tracking-tighter leading-tight">
+                            CLEAN AESTHETIC<br><span class="text-blue-600">NATURAL COLOR<br>CLARITY & BALANCE</span>
+                        </h3>
+                        <p class="text-zinc-600 text-[12px] leading-relaxed font-medium mt-2 italic">
+                            Preserving true-to-life tones while enhancing clarity, detail,
+                            and overall visual consistency for a polished, professional finish.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="comparison-slider-wrapper w-full max-w-[650px] rounded-[2rem] border-4 border-white shadow-2xl overflow-hidden relative"
+                            style="--split: 50%;">
+                            <div class="comparison-slider relative w-full aspect-video bg-zinc-900">
+                                <div class="image-before relative z-10">
+                                    <span
+                                        class="absolute top-6 left-6 z-30 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">Before</span>
+                                    <img src="assets/projects/creative/photos-b-and-a/as_above_so_below-before.jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                    style="clip-path: inset(0 0 0 var(--split));">
+                                    <span
+                                        class="absolute top-6 right-6 z-30 bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">After</span>
+                                    <img src="assets/projects/creative/photos-b-and-a/as_above_so_below.jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <input type="range" min="0" max="100" value="50"
+                                    class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                    oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+                                <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                    style="left: var(--split);">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 text-[10px]">
+                                        ↔</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1 order-3" data-aos="fade-left">
+                        <!-- Header: Consistent Blue Accent -->
+                        <h4 class="text-blue-600 text-[14px] font-black uppercase tracking-widest mb-4">
+                            PROCESS
+                        </h4>
+
+                        <!-- List: Mono font with balanced tracking -->
+                        <ul class="text-zinc-500 text-[12px] space-y-3 font-bold font-mono uppercase tracking-tight">
+                            <!-- Step 01: Global Adjustments -->
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1 flex-none shadow-[0_0_8px_rgba(37,99,235,0.3)]"></span>
+                                <span class="antialiased">Color Correction & Tone Balancing</span>
+                            </li>
+
+                            <!-- Step 02: Normalization (Bio-specific) -->
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1 flex-none shadow-[0_0_8px_rgba(37,99,235,0.3)]"></span>
+                                <span class="antialiased">White Balance & Exposure Normalization</span>
+                            </li>
+
+                            <!-- Step 03: Subject Focus -->
+                            <li class="flex items-start gap-3">
+                                <span
+                                    class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1 flex-none shadow-[0_0_8px_rgba(37,99,235,0.3)]"></span>
+                                <span class="antialiased">Subject Clarity & Detail Enhancement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ROW 2: SOLO (Between Roads and Giants) -->
+                <div class="max-w-6xl mx-auto px-6 pt-2 pb-12" data-aos="fade-up">
+                    <div class="comparison-slider-wrapper rounded-[2.5rem] border-4 border-white shadow-2xl overflow-hidden relative"
+                        style="--split: 50%;">
+                        <div class="comparison-slider relative w-full bg-zinc-900">
+
+                            <!-- BEFORE LAYER -->
+                            <div class="image-before relative z-10">
+                                <!-- This label stays pinned to the left; it vanishes as the "After" layer slides over it -->
+                                <span
+                                    class="absolute top-6 left-6 z-30 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] pointer-events-none">
+                                    Before
+                                </span>
+                                <img src="assets/projects/creative/photos-b-and-a/between_roads_and_giants-before.jpg"
+                                    class="w-full h-auto block">
+                            </div>
+
+                            <!-- AFTER LAYER (Controlled by Clip-Path) -->
+                            <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                style="clip-path: inset(0 0 0 var(--split));">
+                                <!-- This label stays pinned to the right; it is hidden by the clip-path when the slider moves right -->
+                                <span
+                                    class="absolute top-6 right-6 z-30 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">
+                                    After
+                                </span>
+                                <img src="assets/projects/creative/photos-b-and-a/between_roads_and_giants.jpg"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- INTERACTION CONTROLS -->
+                            <input type="range" min="0" max="100" value="50"
+                                class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+
+                            <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                style="left: var(--split);">
+                                <div
+                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 font-bold border-2 border-blue-50">
+                                    ↔
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Pairs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start justify-items-center">
+                    <!-- Left Item -->
+                    <div class="group flex flex-col items-center w-full" data-aos="fade-right">
+                        <div class="comparison-slider-wrapper w-full rounded-[2rem] border-4 border-white shadow-xl overflow-hidden relative"
+                            style="--split: 50%;">
+                            <div class="comparison-slider relative w-full bg-zinc-900">
+                                <div class="image-before relative z-10">
+                                    <span
+                                        class="absolute top-6 left-6 z-30 bg-black/50 backdrop-blur-sm text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest pointer-events-none">Before</span>
+                                    <img src="assets/projects/creative/photos-b-and-a/last_light-before.jpg"
+                                        class="w-full h-auto block">
+                                </div>
+                                <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                    style="clip-path: inset(0 0 0 var(--split));">
+                                    <span
+                                        class="absolute top-6 right-6 z-30 bg-blue-600 text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">After</span>
+                                    <img src="assets/projects/creative/photos-b-and-a/last_light.jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <input type="range" min="0" max="100" value="50"
+                                    class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                    oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+                                <!-- SLIDER LINE + INTERACTIVE HANDLE (↔) -->
+                                <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                    style="left: var(--split);">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 text-[20px] font-black border-2 border-blue-50">
+                                        ↔
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Item -->
+                    <!-- Item: Image Restoration & Color Grading -->
+                    <div class="group flex flex-col items-center w-full" data-aos="fade-left">
+                        <div class="comparison-slider-wrapper w-full max-w-[500px] rounded-[2rem] border-4 border-white shadow-xl overflow-hidden relative"
+                            style="--split: 50%;">
+                            <div class="comparison-slider relative w-full bg-zinc-900">
+
+                                <!-- BEFORE LAYER -->
+                                <div class="image-before relative z-10">
+                                    <!-- Label vanishes as the slider moves left -->
+                                    <span
+                                        class="absolute top-6 left-6 z-30 bg-black/50 backdrop-blur-sm text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest pointer-events-none">
+                                        Before
+                                    </span>
+                                    <img src="assets/projects/creative/photos-b-and-a/not_a_painting-before.jpg"
+                                        class="w-full h-auto block">
+                                </div>
+
+                                <!-- AFTER LAYER (Clipped) -->
+                                <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                    style="clip-path: inset(0 0 0 var(--split));">
+                                    <!-- Label vanishes as the slider moves right -->
+                                    <span
+                                        class="absolute top-6 right-6 z-30 bg-blue-600 text-white text-[8px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">
+                                        After
+                                    </span>
+                                    <img src="assets/projects/creative/photos-b-and-a/not_a_painting.jpg"
+                                        class="w-full h-full object-cover">
+                                </div>
+
+                                <!-- INTERACTION LAYER -->
+                                <input type="range" min="0" max="100" value="50"
+                                    class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                    oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+
+                                <!-- SLIDER LINE + INTERACTIVE HANDLE (↔) -->
+                                <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                    style="left: var(--split);">
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 text-[20px] font-black border-2 border-blue-50">
+                                        ↔
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 4: SOLO (Before the City Wakes) -->
+                <div class="max-w-6xl mx-auto px-6 pt-12 pb-6" data-aos="fade-up">
+                    <div class="comparison-slider-wrapper rounded-[2.5rem] border-4 border-white shadow-2xl overflow-hidden relative"
+                        style="--split: 50%;">
+                        <div class="comparison-slider relative w-full bg-zinc-900">
+
+                            <!-- BEFORE LAYER -->
+                            <div class="image-before relative z-10">
+                                <!-- This label stays pinned to the left; it vanishes as the "After" layer slides over it -->
+                                <span
+                                    class="absolute top-6 left-6 z-30 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em] pointer-events-none">
+                                    Before
+                                </span>
+                                <img src="assets/projects/creative/photos-b-and-a/before_the_city_wakes-before.jpg"
+                                    class="w-full h-auto block">
+                            </div>
+
+                            <!-- AFTER LAYER (Controlled by Clip-Path) -->
+                            <div class="image-after absolute inset-0 z-20 pointer-events-none"
+                                style="clip-path: inset(0 0 0 var(--split));">
+                                <!-- This label stays pinned to the right; it is hidden by the clip-path when the slider moves right -->
+                                <span
+                                    class="absolute top-6 right-6 z-30 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">
+                                    After
+                                </span>
+                                <img src="assets/projects/creative/photos-b-and-a/before_the_city_wakes.jpg"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- INTERACTION CONTROLS -->
+                            <input type="range" min="0" max="100" value="50"
+                                class="slider absolute inset-0 w-full h-full opacity-0 z-50 cursor-col-resize"
+                                oninput="this.parentElement.parentElement.style.setProperty('--split', this.value + '%')">
+
+                            <div class="slider-line absolute top-0 bottom-0 z-40 w-1 bg-white transform -translate-x-1/2 pointer-events-none"
+                                style="left: var(--split);">
+                                <div
+                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-blue-600 font-bold border-2 border-blue-50">
+                                    ↔
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="imageModal"
+        class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4 cursor-zoom-out"
+        onclick="this.classList.add('hidden')">
+        <img id="modalImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl">
+    </div>
+
+    <div id="workflowOverlay" class="fixed inset-0 z-[200] hidden flex-col items-center justify-center p-4 md:p-12">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer" onclick="closeOverlay()"></div>
+        <div
+            class="relative w-full max-w-5xl bg-white rounded-[2rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden pointer-events-auto">
+
+            <div class="p-6 border-b border-zinc-200 flex justify-between items-center bg-white">
+                <p class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Deep Dive</p>
+                <button onclick="closeOverlay()"
+                    class="text-[10px] font-bold uppercase tracking-widest border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition-all duration-300">
+                    Close View
+                </button>
+            </div>
+
+            <div id="overlayContent" class="overflow-y-auto p-8 md:p-12 text-black">
+            </div>
+        </div>
+    </div>
+    <script>
+        function openLightbox(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('imageModal').classList.remove('hidden');
+        }
+    </script>
+
+    <footer class="pt-32 pb-12 bg-white border-t border-zinc-100">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <!-- 1. Primary CTA Block -->
+            <div id="init-connect" class="flex flex-col items-center text-center space-y-8 mb-24" data-aos="fade-up">
+                <div class="space-y-4">
+                    <span
+                        class="text-blue-600 font-mono text-[10px] md:text-[12px] font-black uppercase tracking-[0.5em] block mb-2 ml-[0.5em]">
+                        [ Initiate Connection ]
+                    </span>
+                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.9]">
+                        Like what you see?<br>Let’s build yours
+                    </h2>
+                    <p class="text-zinc-600 text-xl max-w-2xl mx-auto leading-relaxed font-medium antialiased">
+                        From concept and editing to color and storytelling, I design visuals that are built to engage,
+                        retain and convert.
+                    </p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col md:flex-row items-center gap-4 pt-4">
+                    <!-- Ensure YOUR_FORM_ID is replaced with your actual Tally ID -->
+                    <button data-tally-open="rj265l" data-tally-layout="modal"
+                        class="px-10 py-5 bg-blue-600 text-white font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:-translate-y-1 cursor-pointer">
+                        Start a Project
+                    </button>
+                    <button data-tally-open="Np86Jp" data-tally-layout="modal"
+                        class="px-10 py-5 border-2 border-zinc-900 text-zinc-900 font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-zinc-900 hover:text-white transition-all hover:-translate-y-1 cursor-pointer">
+                        Contact Me
+                    </button>
+                </div>
+
+                <!-- Micro-Proof -->
+                <p class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-zinc-400">
+                    Based in Philippines • Available worldwide
+                </p>
+            </div>
+
+            <script>
+                (function () {
+                    let lastScroll = window.scrollY;
+                    const backNav = document.getElementById('project-back-nav');
+
+                    window.addEventListener('scroll', () => {
+                        const currentScroll = window.scrollY;
+
+                        if (currentScroll <= 50) {
+                            // At the top: Reset position
+                            backNav.style.transform = 'translate(-50%, 0)';
+                            backNav.style.opacity = '1';
+                            return;
+                        }
+
+                        if (currentScroll > lastScroll && currentScroll > 150) {
+                            // Scrolling Down: Hide
+                            backNav.style.transform = 'translate(-50%, -150%)';
+                            backNav.style.opacity = '0';
+                            backNav.style.pointerEvents = 'none';
+                        } else if (currentScroll < lastScroll) {
+                            // Scrolling Up: Show
+                            backNav.style.transform = 'translate(-50%, 0)';
+                            backNav.style.opacity = '1';
+                            backNav.style.pointerEvents = 'auto';
+                        }
+
+                        lastScroll = currentScroll;
+                    }, { passive: true });
+                })();
+            </script>
+
+            <!-- 2. Soft Divider -->
+            <hr class="border-zinc-100 mb-16">
+
+            <!-- 3. Redesigned Minimal Footer Content -->
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+
+                <!-- Left: Brand & Integrated Nav -->
+                <div class="text-center md:text-left space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                        <!-- Name -->
+                        <p class="text-black font-black uppercase tracking-widest text-sm">Kenn Clark</p>
+
+                        <!-- Vertical Divider (Hidden on Mobile) -->
+                        <span class="hidden md:block text-zinc-200">|</span>
+
+                        <!-- Inline Links -->
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <button onclick="toggleEmailModal()"
+                                class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer">
+                                email
+                            </button>
+                            <span class="text-zinc-200 text-[10px]">•</span>
+                            <button onclick="toggleLinkedInModal()"
+                                class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer">
+                                linkedin
+                            </button>
+                        </div>
+
+                        <!-- Email Modal -->
+                        <div id="email-modal"
+                            class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+                            <!-- Dark Cinematic Overlay -->
+                            <div class="absolute inset-0 bg-zinc-950/60" onclick="toggleEmailModal()"></div>
+
+                            <div id="email-modal-content"
+                                class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out">
+
+                                <button onclick="toggleEmailModal()"
+                                    class="absolute top-6 right-6 text-zinc-400 hover:text-black text-xl">✕</button>
+
+                                <h3 class="text-2xl text-center font-bold tracking-tighter mb-2">Contact Me Directly
+                                </h3>
+
+                                <div class="flex flex-col gap-4">
+                                    <p id="email-text"
+                                        class="font-mono text-xs text-zinc-600 bg-zinc-50 p-4 border border-zinc-100 rounded-2xl text-center select-all">
+                                        kennclark.yb@gmail.com
+                                    </p>
+
+                                    <button id="copy-btn" onclick="copyEmail()"
+                                        class="bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl transition-all duration-300 hover:bg-zinc-700">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn Modal -->
+                        <div id="linkedin-modal"
+                            class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+                            <!-- Dark Cinematic Overlay -->
+                            <div class="absolute inset-0 bg-zinc-950/60" onclick="toggleLinkedInModal()"></div>
+
+                            <div id="linkedin-modal-content"
+                                class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out">
+
+                                <div class="flex flex-col gap-6 text-center">
+                                    <div class="space-y-2">
+                                        <h3 class="text-2xl font-bold tracking-tighter">Exit System</h3>
+                                        <p class="text-zinc-500 text-sm leading-relaxed">
+                                            Redirecting to LinkedIn profile. This will open in a new terminal window.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <button onclick="toggleLinkedInModal()"
+                                            class="flex-1 border border-zinc-200 text-zinc-500 font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-50 transition-colors">
+                                            Cancel
+                                        </button>
+                                        <a href="https://linkedin.com/in/engrkenn" target="_blank"
+                                            onclick="toggleLinkedInModal()"
+                                            class="flex-1 bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-700 transition-colors text-center flex items-center justify-center">
+                                            Proceed
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subtext -->
+                    <p class="text-zinc-500 font-mono text-[10px] uppercase tracking-widest">
+                        Creative & Editing Work
+                    </p>
+                </div>
+
+                <!-- Bottom Row: Quiet Fallback Nav (FIXED PATHS) -->
+                <!-- Footer Nav in project-creative.html -->
+                <div class="flex items-center gap-6">
+                    <a href="index.html#"
+                        class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">Home</a>
+                    <span class="text-zinc-300 text-[10px]">•</span>
+                    <a href="index.html#work"
+                        class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">Work</a>
+                    <span class="text-zinc-200 text-[10px]">•</span>
+                    <a href="about.html"
+                        class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">About</a>
+                    <span class="text-zinc-200 text-[10px]">•</span>
+                    <a href="contact.html"
+                        class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">Contact</a>
+                </div>
+            </div>
+
+            <!-- Bottom Metadata -->
+            <div class="mt-16 pt-8 border-t border-zinc-50 flex flex-col md:flex-row justify-center items-center gap-4">
+                <p class="text-zinc-500 text-[11px] font-mono uppercase tracking-[0.2em]">© 2026 Kenn Clark Belnas</p>
+                <p class="text-zinc-400 text-[11px] font-mono uppercase tracking-[0.2em] italic">Built with Intent</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

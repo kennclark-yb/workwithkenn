@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <title>Property Ops Support | KC.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+      body { font-family: "Inter", sans-serif; scroll-behavior: smooth; }
+      .mono { font-family: "JetBrains Mono", monospace; }
+
+      .nav-pos-center { left: 50%; transform: translateX(-50%); }
+      .nav-pos-center.nav-hidden { transform: translate(-50%, -150%) !important; opacity: 0; }
+      .nav-pos-right { right: 2rem; left: auto; transform: none; }
+      .nav-pos-right.nav-hidden { transform: translateY(-150%) !important; opacity: 0; }
+
+      .property-grid {
+        background-image:
+          linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#fafafa] text-[#1a1a1a]">
+    <!-- Vertical Sticky Nav -->
+    <aside class="fixed left-0 top-[40%] -translate-y-1/2 z-[90] hidden xl:flex group/sidebar">
+      <div class="relative flex flex-col gap-2 bg-white/90 backdrop-blur-md border-y border-r border-zinc-200 p-5 pl-6 rounded-r-[2rem] shadow-2xl -translate-x-full group-hover/sidebar:translate-x-0 transition-transform duration-500 ease-out pointer-events-none group-hover/sidebar:pointer-events-auto">
+        <a href="#guest-journey" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+          <span class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">[ Guest Journey ]</span>
+        </a>
+        <a href="#communication-system" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+          <span class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">[ Communication System ]</span>
+        </a>
+        <a href="#operations-visibility" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+          <span class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">[ Operations Visibility ]</span>
+        </a>
+        <a href="#help-with" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+          <span class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">[ Help Scope ]</span>
+        </a>
+        <a href="#init-connect" class="nav-dot-link flex items-center gap-4 whitespace-nowrap group/link">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover/link:bg-blue-600 transition-colors"></span>
+          <span class="text-[10px] font-mono font-black uppercase tracking-widest text-zinc-400 group-hover/link:text-blue-600 transition-colors">[ Initiate Connection ]</span>
+        </a>
+
+        <div class="absolute left-full top-1/2 -translate-y-1/2 flex items-center py-10 pr-12 cursor-pointer pointer-events-auto">
+          <div class="w-3 h-[120px] bg-zinc-400 group-hover/sidebar:bg-blue-600 transition-all duration-500 rounded-r-full shadow-sm"></div>
+          <div class="ml-4 flex items-center gap-2 pointer-events-none transition-opacity duration-500 group-hover/sidebar:opacity-0 whitespace-nowrap">
+            <span class="text-[9px] font-mono font-bold text-blue-600">←</span>
+            <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-blue-600 leading-tight text-center">Navigate<br />to<br />sections</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Appear/Disappear Back Button -->
+    <nav id="project-back-nav" class="fixed top-6 z-[100] transition-all duration-500 nav-pos-center">
+      <a href="index.html#work" class="group relative inline-flex items-center gap-2 px-6 py-2 bg-[#0a0a0a] border border-white/10 rounded-full shadow-2xl text-xs uppercase tracking-widest font-bold text-white overflow-hidden hover:scale-105 transition-all">
+        <span class="relative z-10 group-hover:-translate-x-1 transition-transform">←</span>
+        <span class="relative z-10">Back to Selected Work</span>
+      </a>
+    </nav>
+
+    <main class="pb-32 max-w-7xl mx-auto">
+      <!-- SECTION 1: HERO -->
+      <header class="pt-24 pb-20 px-6 border-b border-zinc-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+          <div class="lg:col-span-6">
+            <span class="text-blue-600 font-mono text-xs uppercase tracking-[0.5em] italic underline underline-offset-8 decoration-blue-600/30 font-black">[ Property Operations ]</span>
+
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mt-6 mb-8 leading-[0.88] text-black">
+              Property operations,<br />without the chaos.
+            </h1>
+
+            <p class="text-zinc-500 font-mono text-sm tracking-widest leading-relaxed max-w-xl">
+              Guest communication, calendars, task tracking, documentation, and day-to-day coordination.<br /><br />
+              I help keep the operational side of short-term rentals organized and running smoothly.
+            </p>
+          </div>
+
+          <!-- Hero Mockup -->
+          <div class="lg:col-span-6">
+            <div class="bg-[#0c0c11] rounded-[32px] border border-white/5 shadow-2xl overflow-hidden">
+              <div class="flex items-center gap-2 px-6 py-4 border-b border-white/10">
+                <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+                <span class="mx-auto text-white/40 text-[10px] font-mono uppercase tracking-[0.28em]">Property Ops Snapshot</span>
+              </div>
+
+              <div class="p-8 relative overflow-hidden">
+                <div class="absolute inset-0 property-grid opacity-50"></div>
+                <div class="relative z-10 space-y-6">
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white rounded-3xl p-6">
+                      <p class="text-[10px] font-mono uppercase tracking-[0.25em] text-blue-600 font-black mb-3">Arrivals</p>
+                      <p class="text-4xl font-black text-black">03</p>
+                      <p class="text-xs text-zinc-400 mt-2">Today</p>
+                    </div>
+                    <div class="bg-[#17171f] rounded-3xl p-6 border border-white/10">
+                      <p class="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 font-black mb-3">Checkouts</p>
+                      <p class="text-4xl font-black text-white">02</p>
+                      <p class="text-xs text-white/30 mt-2">Tomorrow</p>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-[#17171f] rounded-2xl p-5 border border-white/10">
+                      <p class="text-[10px] font-mono uppercase tracking-widest text-white/35 mb-2">Open Tasks</p>
+                      <p class="text-white font-bold">7 active</p>
+                    </div>
+                    <div class="bg-[#17171f] rounded-2xl p-5 border border-white/10">
+                      <p class="text-[10px] font-mono uppercase tracking-widest text-white/35 mb-2">Messages</p>
+                      <p class="text-white font-bold">3 pending</p>
+                    </div>
+                    <div class="bg-[#17171f] rounded-2xl p-5 border border-white/10">
+                      <p class="text-[10px] font-mono uppercase tracking-widest text-white/35 mb-2">Maintenance</p>
+                      <p class="text-white font-bold">1 active</p>
+                    </div>
+                  </div>
+
+                  <div class="bg-white/5 rounded-3xl p-6 border border-white/10">
+                    <p class="text-[10px] font-mono uppercase tracking-[0.25em] text-blue-400 font-black mb-5">Today Queue</p>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between text-sm"><span class="text-white/70">Send arrival instructions</span><span class="text-blue-400 font-mono text-[10px]">DUE</span></div>
+                      <div class="flex items-center justify-between text-sm"><span class="text-white/70">Confirm cleaning handoff</span><span class="text-emerald-400 font-mono text-[10px]">READY</span></div>
+                      <div class="flex items-center justify-between text-sm"><span class="text-white/70">Restock toiletries</span><span class="text-amber-400 font-mono text-[10px]">OPEN</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECTION 2: GUEST JOURNEY -->
+      <section id="guest-journey" class="py-28 px-6 border-b border-zinc-100 bg-white">
+        <div class="max-w-5xl mx-auto text-center">
+          <h2 class="text-5xl md:text-6xl font-black tracking-tighter text-black mb-8">Every booking creates a workflow.</h2>
+          <p class="text-zinc-500 text-lg leading-relaxed max-w-2xl mx-auto mb-16">
+            Behind every reservation is a series of tasks, communications, and handoffs. The goal is making sure nothing gets missed.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-7 gap-4 items-stretch">
+            <div class="bg-zinc-50 rounded-3xl p-6 border border-zinc-100"><span class="text-[10px] font-mono text-blue-600 font-black tracking-widest">01</span><p class="font-black mt-3">Inquiry</p></div>
+            <div class="hidden md:flex items-center justify-center text-blue-600 font-black">➔</div>
+            <div class="bg-zinc-50 rounded-3xl p-6 border border-zinc-100"><span class="text-[10px] font-mono text-blue-600 font-black tracking-widest">02</span><p class="font-black mt-3">Booking</p></div>
+            <div class="hidden md:flex items-center justify-center text-blue-600 font-black">➔</div>
+            <div class="bg-zinc-50 rounded-3xl p-6 border border-zinc-100"><span class="text-[10px] font-mono text-blue-600 font-black tracking-widest">03</span><p class="font-black mt-3">Pre-arrival</p></div>
+            <div class="hidden md:flex items-center justify-center text-blue-600 font-black">➔</div>
+            <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-800"><span class="text-[10px] font-mono text-blue-400 font-black tracking-widest">04</span><p class="font-black mt-3 text-white">Check-in</p></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-4 max-w-3xl mx-auto">
+            <div class="bg-zinc-50 rounded-3xl p-6 border border-zinc-100"><span class="text-[10px] font-mono text-blue-600 font-black tracking-widest">05</span><p class="font-black mt-3">Stay</p></div>
+            <div class="hidden md:flex items-center justify-center text-blue-600 font-black">➔</div>
+            <div class="bg-zinc-50 rounded-3xl p-6 border border-zinc-100"><span class="text-[10px] font-mono text-blue-600 font-black tracking-widest">06</span><p class="font-black mt-3">Check-out</p></div>
+            <div class="hidden md:flex items-center justify-center text-blue-600 font-black">➔</div>
+            <div class="bg-zinc-50 rounded-3xl p-6 border border-zinc-100"><span class="text-[10px] font-mono text-blue-600 font-black tracking-widest">07</span><p class="font-black mt-3">Review</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: COMMUNICATION SYSTEM -->
+      <section id="communication-system" class="py-28 px-6 bg-[#fafafa] border-b border-zinc-100">
+        <div class="max-w-5xl mx-auto text-center">
+          <span class="text-xs font-mono font-black text-blue-600 uppercase tracking-[0.4em]">[ Communication System ]</span>
+          <h2 class="text-5xl font-bold tracking-tight text-black leading-tight mt-8 mb-6">Good communication starts<br />before check-in.</h2>
+
+          <div class="grid md:grid-cols-2 gap-12 mt-16 mb-20 text-left">
+            <div class="space-y-4 p-8 bg-white rounded-2xl border border-zinc-100 shadow-sm">
+              <h4 class="text-sm font-mono font-bold uppercase tracking-widest text-zinc-400">[ The Problem ]</h4>
+              <p class="text-zinc-600 leading-relaxed text-sm">
+                Guests ask the same questions repeatedly. Check-in details get buried. Messages arrive from multiple channels. Important information is often sent manually.
+              </p>
+            </div>
+            <div class="space-y-4 p-8 bg-blue-50/50 rounded-2xl border border-blue-100/50 shadow-sm">
+              <h4 class="text-sm font-mono font-bold uppercase tracking-widest text-blue-600">[ The Solution ]</h4>
+              <p class="text-zinc-600 leading-relaxed text-sm">
+                Create repeatable communication workflows. Templates, checklists, reminders, and documented processes help ensure every guest receives the right information at the right time.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#0c0c11] rounded-[32px] border border-white/5 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.35)] text-left">
+            <div class="px-8 py-6 border-b border-white/5 flex items-center justify-between">
+              <h3 class="text-white text-[20px] font-semibold tracking-[-0.03em]">Guest Communication Flow</h3>
+              <span class="text-white/30 text-[11px] uppercase tracking-[0.25em]">Repeatable System</span>
+            </div>
+
+            <div class="p-8 md:p-12 space-y-5">
+              <div class="bg-[#17171f] rounded-[24px] p-6 border border-white/5 flex items-center justify-between gap-6">
+                <div><p class="text-white text-lg font-semibold">Inquiry</p><p class="text-white/45 text-sm mt-1">Capture guest question and booking intent.</p></div>
+                <span class="bg-blue-500 text-white text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full font-semibold">Respond</span>
+              </div>
+              <div class="h-8 flex justify-center"><div class="w-[2px] h-full bg-white/10"></div></div>
+              <div class="bg-[#17171f] rounded-[24px] p-6 border border-white/5 flex items-center justify-between gap-6">
+                <div><p class="text-white text-lg font-semibold">Booking Confirmed</p><p class="text-white/45 text-sm mt-1">Send confirmation and basic expectations.</p></div>
+                <span class="bg-emerald-500 text-white text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full font-semibold">Confirm</span>
+              </div>
+              <div class="h-8 flex justify-center"><div class="w-[2px] h-full bg-white/10"></div></div>
+              <div class="bg-[#17171f] rounded-[24px] p-6 border border-white/5 flex items-center justify-between gap-6">
+                <div><p class="text-white text-lg font-semibold">Arrival Instructions</p><p class="text-white/45 text-sm mt-1">Provide access details, house rules, and directions.</p></div>
+                <span class="bg-amber-500 text-black text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full font-semibold">Prepare</span>
+              </div>
+              <div class="h-8 flex justify-center"><div class="w-[2px] h-full bg-white/10"></div></div>
+              <div class="bg-white rounded-[24px] p-8 text-center">
+                <span class="text-[11px] uppercase tracking-[0.24em] text-blue-500 font-semibold">Final Flow</span>
+                <h4 class="text-[28px] leading-[1.1] tracking-[-0.03em] font-semibold text-black mt-4">Check-in reminder → Stay support → Review request</h4>
+                <p class="text-[15px] text-black/60 leading-[1.8] max-w-lg mx-auto mt-4">A documented flow keeps guest support consistent without relying on memory every time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: OPERATIONS DASHBOARD -->
+      <section id="operations-visibility" class="w-full bg-[#f5f5f3] py-32 px-6 border-b border-zinc-100">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6">
+            <span class="text-[11px] tracking-[0.28em] uppercase text-[#2f6df6] font-semibold">Operations Visibility</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 class="text-[52px] leading-[0.95] tracking-[-0.04em] font-semibold text-black mb-8">
+                Build clarity across <br />properties and tasks.
+              </h2>
+
+              <div class="space-y-6 text-[17px] leading-[1.9] text-[#4d4d4d] max-w-xl">
+                <p>Operations become easier to manage when information lives in one place.</p>
+                <p>Dashboards help track arrivals, departures, maintenance, guest requests, and recurring tasks.</p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-10 max-w-xl">
+                <div class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"><p class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2">Track</p><p class="text-sm font-semibold text-black">Arrivals and checkouts</p></div>
+                <div class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"><p class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2">Monitor</p><p class="text-sm font-semibold text-black">Guest messages and tasks</p></div>
+                <div class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"><p class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2">Maintain</p><p class="text-sm font-semibold text-black">Open maintenance items</p></div>
+                <div class="bg-white rounded-2xl px-5 py-4 border border-black/[0.04] shadow-sm"><p class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#2f6df6] mb-2">Report</p><p class="text-sm font-semibold text-black">Operational status</p></div>
+              </div>
+            </div>
+
+            <!-- Dashboard Showpiece -->
+            <div class="bg-[#0c0c11] rounded-[28px] shadow-2xl overflow-hidden border border-black/5">
+              <div class="flex items-center gap-2 px-6 py-4 border-b border-white/5">
+                <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+                <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+                <div class="mx-auto"><span class="text-[#6b7280] text-[11px] tracking-[0.25em] uppercase">Property Operations Dashboard</span></div>
+              </div>
+
+              <div class="p-7 space-y-5 relative overflow-hidden">
+                <div class="absolute inset-0 property-grid opacity-50"></div>
+                <div class="relative z-10 grid grid-cols-2 gap-4">
+                  <div class="bg-white rounded-3xl p-5"><p class="text-[10px] font-mono uppercase tracking-[0.22em] text-blue-600 font-black mb-4">Arrivals Today</p><div class="space-y-2 text-sm font-bold"><p>Villa A</p><p>Villa B</p></div></div>
+                  <div class="bg-[#17171f] rounded-3xl p-5 border border-white/10"><p class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40 font-black mb-4">Checkouts</p><div class="space-y-2 text-sm font-bold text-white"><p>Unit 2</p><p>Unit 5</p></div></div>
+                  <div class="bg-[#17171f] rounded-3xl p-5 border border-white/10 col-span-2"><p class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40 font-black mb-4">Open Tasks</p><div class="grid sm:grid-cols-2 gap-3 text-sm"><p class="bg-white/5 rounded-2xl p-4 text-white/70">Replace lock battery</p><p class="bg-white/5 rounded-2xl p-4 text-white/70">Restock toiletries</p></div></div>
+                  <div class="bg-[#17171f] rounded-3xl p-5 border border-white/10"><p class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40 font-black mb-4">Messages</p><p class="text-3xl font-black text-white">3</p><p class="text-xs text-white/35 mt-1">awaiting response</p></div>
+                  <div class="bg-[#17171f] rounded-3xl p-5 border border-white/10"><p class="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40 font-black mb-4">Maintenance</p><p class="text-3xl font-black text-white">1</p><p class="text-xs text-white/35 mt-1">active issue</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: WHAT I CAN HELP WITH -->
+      <section id="help-with" class="py-28 px-6 bg-white border-b border-zinc-100">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="text-xs font-mono font-black text-blue-600 uppercase tracking-[0.4em]">[ What I Can Help With ]</span>
+            <h2 class="text-5xl font-black tracking-tighter text-black mt-6">Support for the moving parts.</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100"><h3 class="text-2xl font-black mb-4">Guest Communication</h3><p class="text-zinc-500 text-sm leading-relaxed">Templates, responses, arrival instructions, follow-ups.</p></div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100"><h3 class="text-2xl font-black mb-4">Calendar Coordination</h3><p class="text-zinc-500 text-sm leading-relaxed">Booking calendars, availability tracking, reservation management.</p></div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100"><h3 class="text-2xl font-black mb-4">Documentation</h3><p class="text-zinc-500 text-sm leading-relaxed">SOPs, property guides, internal procedures.</p></div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100"><h3 class="text-2xl font-black mb-4">Vendor Coordination</h3><p class="text-zinc-500 text-sm leading-relaxed">Supporting the handoff between guests, cleaners, contractors, and property stakeholders.</p></div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100"><h3 class="text-2xl font-black mb-4">Task Tracking</h3><p class="text-zinc-500 text-sm leading-relaxed">Cleaning schedules, maintenance requests, operational follow-ups.</p></div>
+            <div class="bg-zinc-50 rounded-[24px] p-8 border border-zinc-100"><h3 class="text-2xl font-black mb-4">Dashboards</h3><p class="text-zinc-500 text-sm leading-relaxed">Operational visibility and reporting systems.</p></div>
+            <div class="bg-zinc-900 rounded-[24px] p-8 border border-zinc-800 shadow-2xl"><h3 class="text-2xl font-black mb-4 text-white">Process Improvement</h3><p class="text-zinc-400 text-sm leading-relaxed">Reducing repetitive work through structure and automation.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: CLOSER -->
+      <section class="py-28 px-6 bg-[#fafafa]">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="text-[11px] tracking-[0.24em] uppercase text-[#2f6df6] font-semibold">The Result</span>
+          <h2 class="text-5xl md:text-6xl font-black tracking-tighter text-black mt-6 mb-8 leading-tight">Operations that stay organized<br />behind the scenes.</h2>
+          <p class="text-zinc-500 text-lg leading-relaxed">
+            The best property operations are often invisible.<br /><br />Guests enjoy a smooth experience. Teams know what needs to happen. Nothing falls through the cracks.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pt-32 pb-12 bg-white border-t border-zinc-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div id="init-connect" class="flex flex-col items-center text-center space-y-8 mb-24">
+          <div class="space-y-4">
+            <span class="text-blue-600 font-mono text-[10px] md:text-[12px] font-black uppercase tracking-[0.5em] block mb-2 ml-[0.5em]">[ Initiate Connection ]</span>
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.9]">Ready for smoother operations?</h2>
+            <p class="text-zinc-600 text-xl max-w-2xl mx-auto leading-relaxed font-medium antialiased">Whether you're managing one property or several, I can help keep things moving—from guest communication to operational coordination—without the constant follow-up.</p>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-center gap-4 pt-4">
+            <button data-tally-open="eqvYl0" data-tally-layout="modal" class="px-10 py-5 bg-blue-600 text-white font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:-translate-y-1 cursor-pointer">START HERE</button>
+            <button data-tally-open="9qMoyp" data-tally-layout="modal" class="px-10 py-5 border-2 border-zinc-900 text-zinc-900 font-mono font-black uppercase tracking-widest text-xs rounded-full hover:bg-zinc-900 hover:text-white transition-all hover:-translate-y-1 cursor-pointer">Contact Me</button>
+          </div>
+
+          <p class="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-zinc-400">Based in Philippines • Available worldwide</p>
+        </div>
+
+        <hr class="border-zinc-100 mb-16" />
+
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <!-- Left: Brand + Contact Links -->
+          <div class="text-center md:text-left space-y-3">
+            <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+              <p class="text-black font-black uppercase tracking-widest text-sm">Kenn Clark</p>
+              <span class="hidden md:block text-zinc-200">|</span>
+
+              <div class="flex items-center justify-center md:justify-start gap-3">
+                <button
+                  onclick="toggleEmailModal()"
+                  class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer"
+                >
+                  email
+                </button>
+                <span class="text-zinc-200 text-[10px]">•</span>
+                <button
+                  onclick="toggleLinkedInModal()"
+                  class="text-zinc-400 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest cursor-pointer"
+                >
+                  linkedin
+                </button>
+              </div>
+            </div>
+
+            <p class="text-zinc-500 font-mono text-[10px] uppercase tracking-widest">
+              Property Operations Support
+            </p>
+          </div>
+
+          <!-- Right: Footer Navigation -->
+          <div class="flex items-center gap-6">
+            <a href="index.html#" class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">Home</a>
+            <span class="text-zinc-300 text-[10px]">•</span>
+            <a href="index.html#work" class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">Work</a>
+            <span class="text-zinc-200 text-[10px]">•</span>
+            <a href="about.html" class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">About</a>
+            <span class="text-zinc-200 text-[10px]">•</span>
+            <a href="contact.html" class="nav-link text-zinc-300 hover:text-black transition-colors font-mono text-[10px] uppercase tracking-widest">Contact</a>
+          </div>
+        </div>
+
+        <!-- Email Modal -->
+        <div
+          id="email-modal"
+          class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+        >
+          <div
+            class="absolute inset-0 bg-zinc-950/60"
+            onclick="toggleEmailModal()"
+          ></div>
+
+          <div
+            id="email-modal-content"
+            class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out"
+          >
+            <button
+              onclick="toggleEmailModal()"
+              class="absolute top-6 right-6 text-zinc-400 hover:text-black text-xl"
+            >
+              ✕
+            </button>
+
+            <h3 class="text-2xl text-center font-bold tracking-tighter mb-2">
+              Contact Me Directly
+            </h3>
+
+            <div class="flex flex-col gap-4">
+              <p
+                id="email-text"
+                class="font-mono text-xs text-zinc-600 bg-zinc-50 p-4 border border-zinc-100 rounded-2xl text-center select-all"
+              >
+                kennclark.yb@gmail.com
+              </p>
+
+              <button
+                id="copy-btn"
+                onclick="copyEmail()"
+                class="bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-[0.2em] py-4 rounded-2xl transition-all duration-300 hover:bg-zinc-700"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LinkedIn Modal -->
+        <div
+          id="linkedin-modal"
+          class="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+        >
+          <div
+            class="absolute inset-0 bg-zinc-950/60"
+            onclick="toggleLinkedInModal()"
+          ></div>
+
+          <div
+            id="linkedin-modal-content"
+            class="relative bg-white w-[90%] max-w-sm rounded-3xl p-10 shadow-2xl border border-white/20 transform scale-95 transition-all duration-500 ease-out"
+          >
+            <div class="flex flex-col gap-6 text-center">
+              <div class="space-y-2">
+                <h3 class="text-2xl font-bold tracking-tighter">Exit System</h3>
+                <p class="text-zinc-500 text-sm leading-relaxed">
+                  Redirecting to LinkedIn profile. This will open in a new
+                  terminal window.
+                </p>
+              </div>
+
+              <div class="flex gap-3">
+                <button
+                  onclick="toggleLinkedInModal()"
+                  class="flex-1 border border-zinc-200 text-zinc-500 font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-50 transition-colors"
+                >
+                  Cancel
+                </button>
+                <a
+                  href="https://linkedin.com/in/engrkenn"
+                  target="_blank"
+                  onclick="toggleLinkedInModal()"
+                  class="flex-1 bg-zinc-900 text-white font-mono text-[10px] uppercase tracking-widest py-4 rounded-2xl hover:bg-zinc-700 transition-colors text-center flex items-center justify-center"
+                >
+                  Proceed
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-zinc-50 flex flex-col md:flex-row justify-center items-center gap-4">
+          <p class="text-zinc-500 text-[11px] font-mono uppercase tracking-[0.2em]">© 2026 Kenn Clark Belnas</p>
+          <p class="text-zinc-400 text-[11px] font-mono uppercase tracking-[0.2em] italic">Built with Intent</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        let lastScroll = window.scrollY;
+        const backNav = document.getElementById("project-back-nav");
+        if (!backNav) return;
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            const currentScroll = window.scrollY;
+
+            if (currentScroll <= 50) {
+              backNav.classList.remove("nav-hidden");
+              return;
+            }
+
+            if (currentScroll > lastScroll && currentScroll > 150) {
+              backNav.classList.add("nav-hidden");
+            } else if (currentScroll < lastScroll) {
+              backNav.classList.remove("nav-hidden");
+            }
+
+            lastScroll = currentScroll;
+          },
+          { passive: true },
+        );
+      })();
+    </script>
+
+    <script>
+      function toggleEmailModal() {
+        const modal = document.getElementById("email-modal");
+        const content = document.getElementById("email-modal-content");
+        if (!modal || !content) return;
+
+        const isOpen = modal.classList.contains("opacity-100");
+
+        if (isOpen) {
+          modal.classList.remove("opacity-100", "pointer-events-auto");
+          modal.classList.add("opacity-0", "pointer-events-none");
+          content.classList.remove("scale-100");
+          content.classList.add("scale-95");
+        } else {
+          modal.classList.remove("opacity-0", "pointer-events-none");
+          modal.classList.add("opacity-100", "pointer-events-auto");
+          content.classList.remove("scale-95");
+          content.classList.add("scale-100");
+        }
+      }
+
+      function toggleLinkedInModal() {
+        const modal = document.getElementById("linkedin-modal");
+        const content = document.getElementById("linkedin-modal-content");
+        if (!modal || !content) return;
+
+        const isOpen = modal.classList.contains("opacity-100");
+
+        if (isOpen) {
+          modal.classList.remove("opacity-100", "pointer-events-auto");
+          modal.classList.add("opacity-0", "pointer-events-none");
+          content.classList.remove("scale-100");
+          content.classList.add("scale-95");
+        } else {
+          modal.classList.remove("opacity-0", "pointer-events-none");
+          modal.classList.add("opacity-100", "pointer-events-auto");
+          content.classList.remove("scale-95");
+          content.classList.add("scale-100");
+        }
+      }
+
+      function copyEmail() {
+        const emailText = document.getElementById("email-text");
+        const copyBtn = document.getElementById("copy-btn");
+        if (!emailText || !copyBtn) return;
+
+        navigator.clipboard.writeText(emailText.textContent.trim()).then(() => {
+          copyBtn.textContent = "Copied";
+          setTimeout(() => {
+            copyBtn.textContent = "Copy";
+          }, 1500);
+        });
+      }
+    </script>
+
+  </body>
+</html>
