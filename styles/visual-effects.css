@@ -1,0 +1,35 @@
+/* Approved shader atmosphere. The original site.css radials remain underneath. */
+.site-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  mask-image: radial-gradient(ellipse 95% 90% at 72% 24%, #000 5%, rgb(0 0 0 / 85%) 45%, transparent 95%); /* taste-skill-ignore: preserve the explicitly approved atmosphere mask unchanged. */
+}
+.site-atmosphere[data-ready="true"] { opacity: var(--atmosphere-opacity); }
+.site-atmosphere canvas { display: block; width: 100%; height: 100%; pointer-events: none; }
+body[data-shader-background="ready"]::before { animation: none; transform: none; }
+
+/* The real home-link text stays readable without JavaScript or WebGL. */
+.identity.kc-letterform {
+  position: relative;
+  font-weight: 700;
+  -webkit-text-stroke: .5px currentColor;
+  padding-inline: 2px;
+}
+.kc-material {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask: url('../assets/branding/kc-logo/kc-mask-bold.png') center / 100% 100% no-repeat;
+  opacity: var(--kc-opacity, .95);
+}
+.kc-material canvas { display: block; width: 100%; height: 100%; }
+.kc-material[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  .kc-material { display: none; }
+}
+@media (forced-colors: active) {
+  .site-atmosphere { display: none; }
+}

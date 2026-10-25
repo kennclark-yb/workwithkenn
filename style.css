@@ -1,3 +1,5 @@
+@import url('styles/cursors.css');
+
 /* Custom smooth scrolling */
 html {
     scroll-behavior: smooth;

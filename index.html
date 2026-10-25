@@ -9,20 +9,26 @@
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/visual-effects.css">
+  <link rel="stylesheet" href="styles/interaction-showcase.css">
+  <link rel="stylesheet" href="styles/hero-motion.css">
+  <link rel="modulepreload" href="js/vendor/ascii-reveal/core.js">
+  <link rel="stylesheet" href="styles/cursors.css">
+  <script type="module" src="js/hero-motion.js"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="site-nav" aria-label="Primary navigation">
-      <a class="identity" href="#top" aria-label="Kenn Belnas, home">KC.</a>
+      <a class="identity kc-letterform" href="#top" aria-label="Kenn Belnas, home">KC.</a>
       <ul class="nav-links">
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="nav-resume" href="assets/Kenneth_Belnas_Resume.pdf">Resume <span aria-hidden="true">↗</span></a>
+      <a class="nav-resume" href="assets/Kenneth_Belnas_Resume.pdf?v=4bb92879">Resume <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
@@ -31,13 +37,13 @@
       <p class="hero-kicker metadata">PROFESSIONAL EXPERIENCE / REAL PROJECTS</p>
       <h1 id="hero-title" class="hero-name"><span class="hero-given">Kenn</span> <span class="editorial hero-surname">Belnas.</span></h1>
       <figure class="hero-portrait">
-        <img src="assets/branding/portraitNoBg.webp" width="1024" height="1536" alt="Portrait of Kenn Belnas" fetchpriority="high">
+        <img src="assets/branding/portraitNoBg.webp" width="1024" height="1536" alt="Portrait of Kenn Belnas" fetchpriority="high" data-ascii="media">
       </figure>
       <div class="hero-role-zone">
         <p class="hero-role">Virtual Assistant • Executive Support • Workflow Automation</p>
         <div class="actions">
           <a class="button button-primary" href="#work">Explore Work <span aria-hidden="true">↓</span></a>
-          <a class="text-link" href="assets/Kenneth_Belnas_Resume.pdf">Resume <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="assets/Kenneth_Belnas_Resume.pdf?v=4bb92879">Resume <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="hero-copy-zone">
@@ -46,39 +52,169 @@
     </section>
 
     <!-- Pass 1 establishes section order and anchors. Later passes fill these shells. -->
-    <section id="credibility" class="section-shell" aria-labelledby="credibility-title">
+    <section id="credibility" class="section-shell credibility-band" aria-labelledby="credibility-title">
       <div class="section-heading">
-        <p class="metadata">01 / Background</p>
+        <p class="metadata">01 / BACKGROUND</p>
         <h2 id="credibility-title">Credibility Snapshot</h2>
       </div>
-      <ul class="outline-list outline-columns">
-        <li>Professional experience</li>
-        <li>Real personal projects</li>
-        <li>Technical &amp; systems capability</li>
-      </ul>
+      <div class="credibility-proofs">
+        <div class="credibility-proof">
+          <p class="credibility-anchor">2022—2025</p>
+          <h3 class="metadata credibility-label">PROFESSIONAL EXPERIENCE</h3>
+          <p class="credibility-detail"><span class="metadata credibility-row-label">CORE WORK</span>Software development · Operations reporting · Coordination<br>Testing · Process support</p>
+          <p class="credibility-secondary"><span class="metadata credibility-row-label">PROCESS</span>Workflow improvement · Process documentation · Operational support</p>
+        </div>
+        <div class="credibility-proof">
+          <p class="credibility-anchor">SHIPPED + ACTIVE</p>
+          <h3 class="metadata credibility-label">REAL SYSTEMS</h3>
+          <p class="credibility-detail"><span class="metadata credibility-row-label">BUILT + RUNNING</span>Shipped Custom Software · Live Personal Automation in Daily Use</p>
+          <p class="credibility-secondary"><span class="metadata credibility-row-label">SYSTEMIZED</span>Task/project tracker + personal command center built in Notion</p>
+        </div>
+        <div class="credibility-proof">
+          <p class="credibility-anchor">TECHNICAL + SUPPORT READY</p>
+          <h3 class="metadata credibility-label">TOOLS WITH CONTEXT</h3>
+          <p class="credibility-detail"><span class="metadata credibility-row-label">CAPABILITIES</span>Workflow optimization · Automation · Tracking/reporting · Documentation</p>
+          <p class="credibility-secondary"><span class="metadata credibility-row-label">TOOLSET</span>Excel / VBA · Apps Script · Java · Python · C2 English</p>
+        </div>
+      </div>
+      <p class="credibility-close editorial">Organize the work. Improve the workflow. Automate what shouldn’t stay manual.</p>
     </section>
 
     <section id="work" class="section-shell" aria-labelledby="work-title">
       <div class="section-heading">
-        <p class="metadata">02 / Selected projects</p>
+        <p class="metadata">02 / Selected Work</p>
         <h2 id="work-title">Featured Work</h2>
       </div>
-      <div class="project-outline">
-        <article aria-labelledby="yoink-title">
-          <p class="metadata evidence-label">Shipped Personal Project</p>
-          <h3 id="yoink-title">Y.O.I.N.K.</h3>
-          <p>Your Oversized Interactions, Nicely Kept.</p>
-        </article>
-        <article aria-labelledby="jihyo-title">
-          <p class="metadata evidence-label">Active Personal Project</p>
-          <h3 id="jihyo-title">Personal Secretary Automation</h3>
-          <p>Codename: Jihyo</p>
-        </article>
+      <!-- Essential evidence stays visible until the complete data-driven render succeeds. -->
+      <div data-featured-work class="featured-work">
+        <div class="work-fallback-primary">
+          <article class="work-feature work-fallback-item" data-work-id="jihyo" data-media-side="left" data-kind="project" data-layout="showcase" aria-labelledby="work-jihyo-title">
+            <header class="work-masthead">
+              <div class="work-masthead-meta">
+                <p class="metadata work-number">01 / FEATURED WORK — ACTIVE PERSONAL PROJECT</p>
+              </div>
+              <h3 class="work-item-title" id="work-jihyo-title">Personal Smart Secretary</h3>
+              <p class="work-subtitle">Codename: Secretary Jihyo</p>
+              <p class="work-summary">A personal automation that brings Gmail and Google Calendar into Telegram. It organizes email, tracks unread follow-ups, sends event reminders, and creates calendar events with explicit confirmation. An on-demand /briefme command brings unread mail and the day’s schedule together.</p>
+              <div class="work-runtime-highlight">
+                <p class="work-runtime-title">Rule-based automation.</p>
+                <p>No paid AI API.</p>
+                <p>No self-hosted server.</p>
+              </div>
+              <div class="work-technology-marks" role="img" aria-label="Gmail + Google Calendar + Telegram + Google Apps Script">
+                <img src="assets/projects/jihyo/technology/gmail.svg" width="32" height="32" alt="" aria-hidden="true">
+                <span aria-hidden="true">+</span>
+                <img src="assets/projects/jihyo/technology/google-calendar.svg" width="32" height="32" alt="" aria-hidden="true">
+                <span aria-hidden="true">+</span>
+                <img src="assets/projects/jihyo/technology/telegram.svg" width="32" height="32" alt="" aria-hidden="true">
+                <span aria-hidden="true">+</span>
+                <img src="assets/projects/jihyo/technology/google-apps-script.png" width="32" height="32" alt="" aria-hidden="true">
+              </div>
+            </header>
+            <figure class="work-media interaction-showcase" data-scene="briefing">
+              <div class="interaction-layout">
+                <div class="interaction-story">
+                  <p class="interaction-headline">Your day, in one reply.</p>
+                  <p class="interaction-description">Unread mail, today’s calendar, and what’s next. A read-only snapshot, on demand.</p>
+                </div>
+                <div class="interaction-panel" id="interaction-1-panel" tabindex="0">
+                  <div class="conversation-canvas" data-ui="">
+                    <div class="conversation-header">
+                      <span class="conversation-avatar" aria-hidden="true">J</span>
+                      <div>
+                        <p class="conversation-name">Secretary Jihyo</p>
+                        <p class="conversation-channel">Personal secretary · Telegram preview</p>
+                      </div>
+                    </div>
+                    <div class="conversation-body">
+                      <p class="conversation-context">An on-demand briefing</p>
+                      <ol class="conversation-thread" aria-label="Illustrative conversation">
+                        <li class="conversation-message conversation-message--user conversation-message--command">
+                          <span class="conversation-speaker">You</span>
+                          <div class="conversation-bubble">
+                            <p class="conversation-message-text">/briefme</p>
+                          </div>
+                        </li>
+                        <li class="conversation-message conversation-message--assistant conversation-message--structured">
+                          <span class="conversation-speaker">Jihyo</span>
+                          <div class="conversation-bubble">
+                            <p class="conversation-message-title">💌 Here's your brief~</p>
+                            <p class="conversation-copy"><strong>📬 Gmail</strong>
+2 unread messages retrieved
+• Sample alerts — Remote operations
+• Newsletter — A calmer workday</p>
+                            <p class="conversation-copy"><strong>📅 Today</strong>
+Nothing scheduled today~</p>
+                            <p class="conversation-copy"><strong>⏰ Next up</strong>
+Tomorrow
+• Planning session
+2:00 PM–2:30 PM
+📅 Main/Personal Calendar</p>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                  <p class="interaction-takeaway">A bounded, read-only snapshot. Requested by you, right when you need it.</p>
+                </div>
+              </div>
+              <div class="interaction-footer">
+                <figcaption class="interaction-illustration-label">Illustrative interaction — based on implemented behavior.</figcaption>
+                <p class="interaction-signature editorial">She checks the inbox so I don’t have to pretend I was going to.</p>
+              </div>
+              <details class="interaction-evidence">
+                <summary>Behind the scenes</summary>
+                <div class="interaction-evidence-copy">
+                  <div>
+                    <p class="interaction-evidence-title">How it works</p>
+                    <p>Google Apps Script connects Gmail, Google Calendar, and Telegram, with workflows designed to operate within the platform's available free usage quotas. Scheduled checks track unread follow-ups, while Calendar changes require explicit confirmation. The current system follows defined rules without relying on an AI model.</p>
+                  </div>
+                  <div>
+                    <p class="interaction-evidence-title">What's next</p>
+                    <p>Planned: Gemini-powered natural-language understanding through the Gemini API, richer email intelligence, task integration, and more capable automated briefings. The goal is to stay within available free-tier AI usage without operating a separate AI server, while protecting sensitive information and retaining confirmation and validation safeguards. Privacy requirements, API limits, and pricing will be evaluated before integration.</p>
+                  </div>
+                </div>
+              </details>
+            </figure>
+            <div class="work-details">
+              <p class="metadata work-stack-label">BUILT WITH</p>
+              <ul class="work-technologies" aria-label="Technologies and evidence">
+                <li>Google Apps Script</li>
+                <li>Gmail</li>
+                <li>Google Calendar</li>
+                <li>Telegram Bot API</li>
+              </ul>
+            </div>
+          </article>
+          <article class="work-fallback-item" aria-labelledby="work-yoink-title">
+            <header class="work-masthead">
+            <div class="work-masthead-meta"><p class="metadata work-number">02 / FEATURED WORK</p><p class="metadata evidence-label">SHIPPED PERSONAL PROJECT</p></div>
+            <h3 id="work-yoink-title">Y.O.I.N.K.</h3>
+            <p class="work-subtitle">Your Oversized Interactions, Nicely Kept.</p>
+            </header>
+            <p class="work-summary">A portable Windows app that turns long shared ChatGPT conversations into clean, split, copyable context—built to make project handoffs and fresh-chat continuation less painful.</p>
+            <p class="metadata work-status">v1.0.0 RELEASED</p>
+            <a class="text-link" href="https://github.com/kennclark-yb/YOINK">Public GitHub repository</a>
+            <div class="work-note"><p class="metadata">PLANNED FEATURE</p><p class="work-note-copy">Local-LLM-assisted workflow for turning oversized project conversations into useful project records and handoffs.</p></div>
+          </article>
+        </div>
+        <section class="work-supporting" aria-labelledby="work-supporting-title">
+          <h3 id="work-supporting-title" class="work-supporting-heading">Supporting Work</h3>
+          <div class="work-supporting-grid">
+            <article class="work-supporting-item" aria-labelledby="work-operations-reporting-title">
+              <p class="metadata evidence-label">PROFESSIONAL EXPERIENCE</p>
+              <h4 id="work-operations-reporting-title" class="work-item-title">Operations Reporting &amp; Coordination</h4>
+              <p class="work-summary">Project reporting, follow-up coordination, and documentation control—tracking submissions, consolidating updates, and supporting compliance follow-through.</p>
+              <p class="work-note">Tracked completion improved from roughly 40% to full compliance.</p>
+            </article>
+            <article class="work-supporting-item" aria-labelledby="work-notion-system-title">
+              <p class="metadata evidence-label">ACTIVE PERSONAL PROJECT</p>
+              <h4 id="work-notion-system-title" class="work-item-title">Personal Notion System</h4>
+              <p class="work-summary">A working second-brain and project/application tracking system built around relational databases, status telemetry, and lightweight reporting.</p>
+            </article>
+          </div>
+        </section>
       </div>
-      <ul class="outline-list outline-columns">
-        <li>Operations &amp; Reporting</li>
-        <li>Personal Notion system</li>
-      </ul>
     </section>
 
     <section id="experience" class="section-shell" aria-labelledby="experience-title">
@@ -142,7 +278,7 @@
         <h2 id="contact-title">Contact / Resume / LinkedIn</h2>
       </div>
       <div class="actions">
-        <a class="button button-primary" href="assets/Kenneth_Belnas_Resume.pdf">Resume <span aria-hidden="true">↗</span></a>
+        <a class="button button-primary" href="assets/Kenneth_Belnas_Resume.pdf?v=4bb92879">Resume <span aria-hidden="true">↗</span></a>
         <a class="text-link" href="https://www.linkedin.com/in/engrkenn">LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </section>

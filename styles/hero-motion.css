@@ -1,0 +1,7 @@
+/* No initial hiding: the original core controls only its marked portrait during a run. */
+.hero .hero-portrait img { position: relative; }
+.hero .hero-portrait { --ascii-glyph: var(--text-secondary); --ascii-skeleton: var(--text-secondary); }
+.hero .portrait-loading { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hero .hero-portrait:has(.portrait-loading) img { visibility: hidden; }
+.hero .portrait-loading .ars, .hero .portrait-loading .ars-block { height: 100%; }
+.hero .portrait-loading .ars-block { background: transparent; border-radius: 0; }
