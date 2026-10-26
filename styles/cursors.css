@@ -1,6 +1,6 @@
 /* Original Workwithkenn arrow and approved outlined hand. Native contextual fallbacks. */
 @media (hover: hover) and (pointer: fine) and (forced-colors: none) and (prefers-contrast: no-preference) {
-  html, body { cursor: url('../assets/cursors/original-arrow.svg') 4 3, url('../assets/cursors/original-arrow.png') 4 3, default; }
+  html, body { cursor: url('../assets/cursors/initial-custom-clean.svg?v=tilted-36') 4 4, url('../assets/cursors/initial-custom-clean.png?v=tilted-36') 4 4, default; }
   html :where(p, h1, h2, h3, h4, h5, h6, li, dt, dd, blockquote, figcaption, pre, code) { cursor: text; }
   html :is(a[href], button, summary, [role="button"], [role="tab"], [role="link"], [role="switch"], [role="checkbox"], [role="menuitem"], label[for], select,
     [onclick], .cursor-pointer, .hover-trigger, input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"], input[type="file"], input[type="color"], input[type="image"], input[type="range"]) {

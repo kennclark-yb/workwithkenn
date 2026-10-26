@@ -1,3 +1,4 @@
+import { renderApplicationShowcase } from './application-showcase.js';
 import { renderInteractionShowcase } from './interaction-showcase.js';
 
 // DOM construction keeps content as text and layouts independent of project identity.
@@ -210,6 +211,7 @@ function renderDetails(item) {
 }
 
 function renderItem(item, primary, position) {
+  if (primary && item.media?.type === 'application-showcase') return renderApplicationShowcase(item);
   const splitMasthead = ['system', 'showcase'].includes(item.homepage.layout);
   const article = element('article', primary ? 'work-feature' : 'work-supporting-item');
   article.dataset.workId = item.id;

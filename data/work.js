@@ -1,16 +1,147 @@
 // Portfolio content and homepage placement live here, independently of renderers.
 export const work = [
   {
-    id: 'yoink', kind: 'project', classification: 'SHIPPED PERSONAL PROJECT',
-    title: 'Y.O.I.N.K.', subtitle: 'Your Oversized Interactions, Nicely Kept.',
-    summary: 'A portable Windows app that turns long shared ChatGPT conversations into clean, split, copyable context—built to make project handoffs and fresh-chat continuation less painful.',
-    status: 'v1.0.0 RELEASED',
-    technologies: ['Python', 'PySide6', 'Playwright', 'Portable Windows App'],
-    homepage: { show: true, tier: 'primary', order: 2, mediaSide: 'right' },
-    media: { type: 'image', src: 'assets/projects/yoink/successcreen.png', alt: 'Y.O.I.N.K. application showing a successful conversation extraction split into two copyable parts.' },
-    links: [{ label: 'Public GitHub repository', href: 'https://github.com/kennclark-yb/YOINK' }],
-    note: 'Local-LLM-assisted workflow for turning oversized project conversations into useful project records and handoffs.',
-    noteLabel: 'PLANNED FEATURE',
+    "id": "yoink",
+    "kind": "project",
+    "classification": "SHIPPED PERSONAL PROJECT",
+    "title": "Y.O.I.N.K.",
+    "subtitle": "Your Oversized Interactions, Nicely Kept.",
+    "summary": "A portable Windows app that turns long ChatGPT shared conversations (for now—Claude and Gemini are on the wishlist) into reviewable, copyable Markdown.",
+    "status": "v1.0.0 RELEASED",
+    "technologies": [
+      "Python",
+      "PySide6",
+      "Playwright",
+      "Portable Windows App"
+    ],
+    "homepage": {
+      "show": true,
+      "tier": "primary",
+      "order": 2,
+      "mediaSide": "right"
+    },
+    "media": {
+      "type": "application-showcase",
+      "defaultState": "results",
+      "states": [
+        {
+          "id": "input",
+          "label": "Input",
+          "image": "startup",
+          "title": "Start with a shared link.",
+          "copy": "Paste a ChatGPT shared conversation URL into the Windows app.",
+          "src": "assets/projects/yoink/startup.png",
+          "alt": "Y.O.I.N.K. Input Windows application capture using synthetic conversation content from the published development fixture.",
+          "width": 395,
+          "height": 441
+        },
+        {
+          "id": "setup",
+          "label": "Extraction setup",
+          "image": "configured",
+          "title": "Choose what to extract.",
+          "copy": "A.I., User or Both. Split by character limit, number of parts or messages per part. Configuration shown; no live extraction here.",
+          "src": "assets/projects/yoink/configured.png",
+          "alt": "Y.O.I.N.K. Extraction setup Windows application capture using synthetic conversation content from the published development fixture.",
+          "width": 400,
+          "height": 445
+        },
+        {
+          "id": "results",
+          "label": "Results",
+          "image": "results",
+          "title": "A long thread. In parts.",
+          "copy": "Review the extracted message counts. Copy individual parts or Copy All as Markdown-formatted text.",
+          "src": "assets/projects/yoink/results.png",
+          "alt": "Y.O.I.N.K. Results Windows application capture using synthetic conversation content from the published development fixture.",
+          "width": 782,
+          "height": 445
+        },
+        {
+          "id": "preview",
+          "label": "Preview",
+          "image": "preview",
+          "title": "Read before you carry.",
+          "copy": "Preview the entire thread. All, A.I. and User filters change this view independently of the extraction output.",
+          "src": "assets/projects/yoink/preview.png",
+          "alt": "Y.O.I.N.K. Preview Windows application capture using synthetic conversation content from the published development fixture.",
+          "width": 822,
+          "height": 732
+        },
+        {
+          "id": "scratchpad",
+          "label": "Scratchpad",
+          "image": "scratchpad",
+          "title": "Keep the useful bits.",
+          "copy": "Type or paste selected context into a separate Scratchpad. Copy it before closing the app or extracting another thread.",
+          "src": "assets/projects/yoink/scratchpad.png",
+          "alt": "Y.O.I.N.K. Scratchpad Windows application capture using synthetic conversation content from the published development fixture.",
+          "width": 642,
+          "height": 492
+        }
+      ]
+    },
+    "links": [
+      {
+        "label": "Public GitHub repository",
+        "displayLabel": "View source ↗",
+        "href": "https://github.com/kennclark-yb/YOINK"
+      },
+      {
+        "label": "Windows releases",
+        "displayLabel": "Windows releases ↗",
+        "href": "https://github.com/kennclark-yb/YOINK/releases"
+      }
+    ],
+    "presentation": {
+      "projectType": "Shipped personal software · Windows",
+      "intro": {
+        "before": "A portable Windows app that turns long ChatGPT shared conversations",
+        "aside": "(for now—Claude and Gemini are on the wishlist)",
+        "after": "into reviewable, copyable Markdown."
+      },
+      "problem": {
+        "lines": [
+          "The chat gets longer.",
+          "The context is worth keeping."
+        ],
+        "copy": "Useful decisions get buried in long threads. I built Y.O.I.N.K. to make retrieving them less of a scrolling-and-copying exercise."
+      },
+      "workflow": {
+        "title": "A fresh chat. The same project.",
+        "copy": "Y.O.I.N.K. extracts the conversation. I choose the useful messages, copy them into my own context notes, and bring those notes alongside a separately prepared project handoff when starting fresh."
+      },
+      "distribution": "Portable Windows app",
+      "roadmap": {
+        "title": "What’s next for Y.O.I.N.K.",
+        "status": "PLANNED V2 · NOT YET RELEASED",
+        "items": [
+          {
+            "title": "01 — Select context more precisely",
+            "copy": "Choose message ranges, recent portions, or specific excerpts through a visual context picker."
+          },
+          {
+            "title": "02 — Build a project knowledge base",
+            "copy": "Organize conversation sources, project records, and reusable documents."
+          },
+          {
+            "title": "03 — Summarize at three levels",
+            "copy": "Turn extracted conversations into a quick TL;DR, a high-level summary, or a detailed summary covering decisions, history, and important context.",
+            "summaryIcon": true
+          },
+          {
+            "title": "04 — Generate and maintain documents",
+            "copy": "Use optional local AI to draft handoffs, PRDs, technical documentation, and propose carefully reviewed updates."
+          }
+        ],
+        "href": "https://github.com/kennclark-yb/YOINK/blob/main/ROADMAP_V2.md",
+        "linkLabel": "Read the approved V2 roadmap ↗",
+        "notes": [
+          "Claude and Gemini support is deferred beyond V2.",
+          "Not yet released. No V2 release date has been announced."
+        ]
+      }
+    }
   },
   {
     id: 'jihyo', kind: 'project', classification: 'ACTIVE PERSONAL PROJECT',
