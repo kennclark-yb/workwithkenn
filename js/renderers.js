@@ -1,5 +1,6 @@
 import { renderApplicationShowcase } from './application-showcase.js';
 import { renderInteractionShowcase } from './interaction-showcase.js';
+import { renderSupportingWork } from './supporting-work.js';
 
 // DOM construction keeps content as text and layouts independent of project identity.
 function element(tag, className, text) {
@@ -226,11 +227,7 @@ function renderItem(item, primary, position) {
   if (primary) {
     const masthead = element('header', 'work-masthead');
     const metadata = element('div', 'work-masthead-meta');
-    if (splitMasthead) {
-      metadata.append(element('p', 'metadata work-number', `${String(position).padStart(2, '0')} / FEATURED WORK — ${item.classification}`));
-    } else {
-      metadata.append(element('p', 'metadata work-number', `${String(position).padStart(2, '0')} / FEATURED WORK`), element('p', 'metadata evidence-label', item.classification));
-    }
+    metadata.append(element('p', 'metadata work-number', item.featuredLabel || `Featured ${String(position).padStart(2, '0')} — ${item.title}`), element('p', 'metadata evidence-label', item.classification));
     masthead.append(metadata, title);
     if (item.subtitle) masthead.append(element('p', 'work-subtitle', item.subtitle));
     if (splitMasthead) masthead.append(element('p', 'work-summary', item.summary));
@@ -275,7 +272,7 @@ function renderItem(item, primary, position) {
   return article;
 }
 
-export function renderFeaturedWork(items, target) {
+export function renderFeaturedWork(items, target, supportingSection) {
   if (!Array.isArray(items) || !(target instanceof Element)) throw new TypeError('Invalid work collection or target');
   const visible = items.filter(item => item.homepage?.show === true)
     .sort((a, b) => a.homepage.order - b.homepage.order);
@@ -296,14 +293,7 @@ export function renderFeaturedWork(items, target) {
   if (primary.childElementCount) fragment.append(primary);
   const supportingItems = visible.filter(item => item.homepage.tier === 'supporting');
   if (supportingItems.length) {
-    const section = element('section', 'work-supporting');
-    section.setAttribute('aria-labelledby', 'work-supporting-title');
-    const heading = element('h3', 'work-supporting-heading', 'Supporting Work');
-    heading.id = 'work-supporting-title';
-    const entries = element('div', 'work-supporting-grid');
-    for (const item of supportingItems) entries.append(renderItem(item, false));
-    section.append(heading, entries);
-    fragment.append(section);
+    fragment.append(renderSupportingWork(supportingItems, supportingSection));
   }
   // No live DOM changes until the entire collection has successfully rendered.
   target.replaceChildren(fragment);

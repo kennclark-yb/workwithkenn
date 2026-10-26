@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles/visual-effects.css">
   <link rel="stylesheet" href="styles/interaction-showcase.css">
   <link rel="stylesheet" href="styles/yoink-showcase.css">
+  <link rel="stylesheet" href="styles/supporting-work.css">
   <link rel="stylesheet" href="styles/hero-motion.css">
   <link rel="modulepreload" href="js/vendor/ascii-reveal/core.js">
   <link rel="stylesheet" href="styles/cursors.css">
@@ -55,7 +56,7 @@
     <!-- Pass 1 establishes section order and anchors. Later passes fill these shells. -->
     <section id="credibility" class="section-shell credibility-band" aria-labelledby="credibility-title">
       <div class="section-heading">
-        <p class="metadata">01 / BACKGROUND</p>
+        <p class="metadata">01 / Background</p>
         <h2 id="credibility-title">Credibility Snapshot</h2>
       </div>
       <div class="credibility-proofs">
@@ -92,7 +93,7 @@
           <article class="work-feature work-fallback-item" data-work-id="jihyo" data-media-side="left" data-kind="project" data-layout="showcase" aria-labelledby="work-jihyo-title">
             <header class="work-masthead">
               <div class="work-masthead-meta">
-                <p class="metadata work-number">01 / FEATURED WORK — ACTIVE PERSONAL PROJECT</p>
+                <p class="metadata work-number">Featured 01 — Secretary Jihyo</p><p class="metadata evidence-label">ACTIVE PERSONAL PROJECT</p>
               </div>
               <h3 class="work-item-title" id="work-jihyo-title">Personal Smart Secretary</h3>
               <p class="work-subtitle">Codename: Secretary Jihyo</p>
@@ -189,6 +190,7 @@ Tomorrow
           </article>
           <!-- Y.O.I.N.K. static fallback: same data contract as the enhanced renderer. -->
 <article id="yoink" class="yoink-feature" data-work-id="yoink" data-kind="project" data-classification="SHIPPED PERSONAL PROJECT" aria-labelledby="work-yoink-title">
+  <p class="metadata yoink-featured-number">Featured 02 — Y.O.I.N.K.</p>
   <header class="yoink-heading">
     <div class="yoink-identity"><h3 id="work-yoink-title">Y.O.I.N.K.</h3><p class="yoink-subtitle editorial">Your Oversized Interactions, Nicely Kept.</p><p class="yoink-project-type">Shipped personal software · Windows</p></div>
     <div class="yoink-intro"><p>A portable Windows app that turns long ChatGPT shared conversations <span class="yoink-wishlist">(for now—Claude and Gemini are on the wishlist)</span> into reviewable, copyable Markdown.</p><div class="yoink-links"><a href="https://github.com/kennclark-yb/YOINK">View source ↗</a><a href="https://github.com/kennclark-yb/YOINK/releases">Windows releases ↗</a></div></div>
@@ -214,22 +216,17 @@ Tomorrow
   </div>
 </article>
         </div>
-        <section class="work-supporting" aria-labelledby="work-supporting-title">
-          <h3 id="work-supporting-title" class="work-supporting-heading">Supporting Work</h3>
-          <div class="work-supporting-grid">
-            <article class="work-supporting-item" aria-labelledby="work-operations-reporting-title">
-              <p class="metadata evidence-label">PROFESSIONAL EXPERIENCE</p>
-              <h4 id="work-operations-reporting-title" class="work-item-title">Operations Reporting &amp; Coordination</h4>
-              <p class="work-summary">Project reporting, follow-up coordination, and documentation control—tracking submissions, consolidating updates, and supporting compliance follow-through.</p>
-              <p class="work-note">Tracked completion improved from roughly 40% to full compliance.</p>
-            </article>
-            <article class="work-supporting-item" aria-labelledby="work-notion-system-title">
-              <p class="metadata evidence-label">ACTIVE PERSONAL PROJECT</p>
-              <h4 id="work-notion-system-title" class="work-item-title">Personal Notion System</h4>
-              <p class="work-summary">A working second-brain and project/application tracking system built around relational databases, status telemetry, and lightweight reporting.</p>
-            </article>
-          </div>
-        </section>
+        <section class="sw-section" id="supporting" aria-labelledby="work-supporting-title"><div class="sw-section-heading"><h3 id="work-supporting-title">Supporting Work</h3><p>Reporting, coordination and personal systems in practice.</p></div><div class="sw-panels"><article class="sw-panel sw-operations" data-work-id="operations-reporting" data-kind="professional-experience" aria-labelledby="work-operations-reporting-title"><header class="sw-entry-heading"><p class="sw-classification">PROFESSIONAL EXPERIENCE</p><h4 id="work-operations-reporting-title">Operations Reporting &amp; Coordination</h4><p class="sw-summary">I kept required internal submissions organized, accurate and visible to management.</p></header>
+<aside class="sw-evidence sw-outcome" aria-label="Required submission completion outcome"><p class="sw-evidence-label">Tracked required submissions</p><p class="sw-result"><span>≈40%</span><span class="sw-arrow" aria-hidden="true">→</span><span class="sw-sr-only">to</span><span>100%</span></p><p class="sw-unit">completion</p><p class="sw-attribution">My coordination and follow-up helped tracked required submissions improve from approximately 40% completion to full completion.</p></aside>
+<div class="sw-process"><p class="sw-detail-heading">From submission to report</p><ol aria-label="Conceptual operations process"><li><strong>Track &amp; verify</strong><span>Check required submissions, records and supporting documentation.</span></li><li><strong>Coordinate follow-ups</strong><span>Follow up with teams on missing or incorrect items.</span></li><li><strong>Compile &amp; report</strong><span>Compile Excel/VBA-based reports for management visibility and compliance follow-through.</span></li></ol></div></article>
+<article class="sw-panel sw-notion" data-work-id="notion-system" data-kind="project" aria-labelledby="work-notion-system-title"><header class="sw-entry-heading"><p class="sw-classification">ACTIVE PERSONAL PROJECT</p><h4 id="work-notion-system-title">Personal Notion System</h4><p class="sw-summary">I use connected Notion databases to manage projects, tasks, job applications and knowledge in one workspace.</p></header>
+<div class="sw-workflows"><p class="sw-detail-heading">What I manage</p><dl><div><dt>Projects &amp; tasks</dt><dd>Connect actions to projects and spot stale or pending work.</dd></div><div><dt>Applications &amp; knowledge</dt><dd>Track job applications and organize notes and references.</dd></div><div><dt>Status reporting</dt><dd>Use lightweight views to review progress and what needs attention.</dd></div></dl></div>
+<figure class="sw-evidence sw-notion-media sw-authentic-evidence" aria-label="Authentic Notion workspace evidence">
+  <div class="ne-overview"><picture><source media="(max-width:1000px)" srcset="assets/projects/notion/command-center-task-queue.webp" width="420" height="420"><img src="assets/projects/notion/command-center-overview.webp" width="1210" height="500" alt="Notion Command Center task queue with In Progress and Queued status tags and captured task titles." loading="lazy" decoding="async"></picture><p class="ne-caption"><span>Command Center</span><span>Task queue &amp; status visibility</span></p></div>
+  <div class="ne-detail"><picture><source media="(max-width:1000px)" srcset="assets/projects/notion/project-status-detail-compact.webp" width="325" height="180"><img src="assets/projects/notion/project-status-detail.webp" width="665" height="180" alt="Command Center Dashboard and Website Portfolio records showing Completed and Paused statuses, elapsed time and action-item counts." loading="lazy" decoding="async"></picture><p class="ne-caption"><span>Project tracking</span><span>Project status &amp; action items</span></p></div>
+  <figcaption>Actual personal workspace. Selected crops from the captured Command Center.</figcaption>
+  <a class="sw-view-workspace" href="assets/projects/executive/command-center-dashboard.webp" target="_blank" rel="noopener" data-notion-viewer data-viewer-title="Notion Command Center" data-viewer-alt="Full-page authentic Notion Command Center: quick links, task queue, session area, operations controls, project timeline and project cards. Captured task, session and project records are visible; the Website Portfolio card retains its Paused status." data-viewer-width="1875" data-viewer-height="2898"><span class="sw-view-copy"><span class="sw-view-label">Explore Command Center</span><span class="sw-view-hint">Static Notion workspace preview</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M3 3l6 6m12-6-6 6M3 21l6-6m12 6-6-6"/></svg><span class="sw-sr-only"> — open authentic screenshot; opens an image in a new tab without JavaScript</span></a>
+</figure></article></div></section>
       </div>
     </section>
 
@@ -282,7 +279,7 @@ Tomorrow
 
     <section id="about" class="section-shell" aria-labelledby="about-title">
       <div class="section-heading">
-        <p class="metadata">08 / The person</p>
+        <p class="metadata">08 / The Person</p>
         <h2 id="about-title">About / <span class="editorial">Personal</span></h2>
       </div>
       <p class="shell-label">Background, interests &amp; personal perspective</p>

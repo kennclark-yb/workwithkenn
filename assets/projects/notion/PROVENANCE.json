@@ -1,0 +1,136 @@
+{
+  "source": {
+    "path": "assets/projects/executive/command-center-dashboard.webp",
+    "width": 1875,
+    "height": 2898,
+    "bytes": 598774,
+    "sha256": "771e1dd6524dcb80ec54922d266284920e4fa4f466343f5928b7dadd8c7072f1",
+    "authorship": "Owner personally captured the screenshot; owner confirms it is still representative. Confirmation supplied directly in Phase 3C.5.",
+    "captureDate": "Not independently specified; interface dates are not treated as capture dates."
+  },
+  "coordinates": "Source-pixel coordinates, origin at top left. Crop width/height define each exact extract. All redaction arrays are empty in Phase 3D.2.",
+  "regions": [
+    {
+      "id": "command-center",
+      "file": "assets/projects/notion/command-center-overview.webp",
+      "crop": {
+        "left": 340,
+        "top": 320,
+        "width": 1210,
+        "height": 500
+      },
+      "redactions": [],
+      "caption": "Command Center",
+      "alt": "Owner-built Notion Command Center with quick links, task queue, status tags and an active-session record.",
+      "output": {
+        "width": 1210,
+        "height": 500,
+        "bytes": 121694,
+        "sha256": "8f27401d675a18117221942b70c189f49e667b67108c50f8f22a2d2304cb011c",
+        "encoding": "Lossless WebP; exact source pixel extract, no redaction, resizing, sharpening or reconstruction; metadata stripped."
+      }
+    },
+    {
+      "id": "project-tracking",
+      "file": "assets/projects/notion/project-status-detail.webp",
+      "crop": {
+        "left": 434,
+        "top": 1895,
+        "width": 665,
+        "height": 180
+      },
+      "redactions": [],
+      "caption": "Project tracking",
+      "alt": "Command Center Dashboard and Website Portfolio records showing Completed and Paused statuses, elapsed time and action-item counts.",
+      "output": {
+        "width": 665,
+        "height": 180,
+        "bytes": 44914,
+        "sha256": "45a8fa441b1a6bb4b8d4905fcfb5db1e6594ff2ddab4710f0b950fafcbd7a8fe",
+        "encoding": "Lossless WebP; exact source pixel extract, no redaction, resizing, sharpening or reconstruction; metadata stripped."
+      }
+    },
+    {
+      "id": "command-center-compact",
+      "file": "assets/projects/notion/command-center-task-queue.webp",
+      "crop": {
+        "left": 700,
+        "top": 320,
+        "width": 420,
+        "height": 420
+      },
+      "redactions": [],
+      "caption": "Command Center — compact responsive crop",
+      "alt": "Notion Command Center task queue with In Progress and Queued status tags and captured task titles.",
+      "output": {
+        "width": 420,
+        "height": 420,
+        "bytes": 45920,
+        "sha256": "db756faf23dc1e14a920d21e2e0fc9fdea90a09e90743ac66ca29bf2333c10a8",
+        "encoding": "Lossless WebP; exact source pixel extract, no redaction, resizing, sharpening or reconstruction; metadata stripped."
+      }
+    },
+    {
+      "id": "project-tracking-compact",
+      "file": "assets/projects/notion/project-status-detail-compact.webp",
+      "crop": {
+        "left": 434,
+        "top": 1895,
+        "width": 325,
+        "height": 180
+      },
+      "redactions": [],
+      "caption": "Project tracking — compact responsive crop",
+      "alt": "Command Center Dashboard record showing Completed status, elapsed time and action-item counts.",
+      "output": {
+        "width": 325,
+        "height": 180,
+        "bytes": 23988,
+        "sha256": "7e11942c41c54fd3b2d47809ceeb40c89f465e27b1aa6c6f2ef149ec537d76cf",
+        "encoding": "Lossless WebP; exact source pixel extract, no redaction, resizing, sharpening or reconstruction; metadata stripped."
+      }
+    }
+  ],
+  "totalDerivativeBytes": 236516,
+  "exclusions": "Inline extracts retain the approved crop rectangles. Expanded viewer displays the entire original source canvas without redaction.",
+  "responsiveSelection": "Above 1000px: contextual overview and two project-card records. At 1000px and below: task-queue overview and one project card, maintaining readable UI scale. Each viewport displays two images; four files supply art-directed crops.",
+  "approval": "Phase 3D.2: owner personally captured the screenshot and explicitly authorized displaying all captured content without redaction: “Do not redact, it’s fine.” This supersedes previous masking preferences.",
+  "display": {
+    "desktop": [
+      "command-center-overview.webp",
+      "project-status-detail.webp"
+    ],
+    "tabletMobile": [
+      "command-center-task-queue.webp",
+      "project-status-detail-compact.webp"
+    ],
+    "expandedViewer": [
+      "assets/projects/executive/command-center-dashboard.webp"
+    ],
+    "expandedViewerMobile": [
+      "assets/projects/executive/command-center-dashboard.webp"
+    ],
+    "fullResolutionLinks": [
+      "assets/projects/executive/command-center-dashboard.webp"
+    ]
+  },
+  "fullPage": {
+    "file": "assets/projects/executive/command-center-dashboard.webp",
+    "sourceCanvasPreserved": true,
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 1875,
+      "height": 2898
+    },
+    "redactions": [],
+    "output": {
+      "width": 1875,
+      "height": 2898,
+      "bytes": 598774,
+      "sha256": "771e1dd6524dcb80ec54922d266284920e4fa4f466343f5928b7dadd8c7072f1",
+      "encoding": "Existing original WebP used directly, unchanged."
+    },
+    "review": "Entire screenshot inspected for exposed credentials, authentication tokens and clearly confidential third-party material; none identified. Owner explicitly authorizes the captured task, session, timeline and personal project content without redaction in Phase 3D.2."
+  }
+}

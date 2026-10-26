@@ -502,3 +502,8 @@ section { scroll-margin-top: var(--space-sm); }
   .work-feature[data-layout="system"] .work-media { grid-column: 1; grid-row: 2; }
   .work-feature[data-layout="system"] .work-details { grid-column: 1; grid-row: 3; }
 }
+
+/* Main-section navigation is neutral; featured identifiers and classifications use cobalt. */
+#main .section-heading > .metadata{font:400 14px/1.5 var(--font-primary);color:var(--text-secondary);letter-spacing:0;text-transform:none}
+.work-masthead-meta > .metadata,.yoink-featured-number{font:500 14px/1.5 var(--font-primary);color:var(--accent-blue-soft);letter-spacing:0;text-transform:none}
+.yoink-featured-number{margin:0 0 16px}

@@ -5,6 +5,7 @@ export const work = [
     "kind": "project",
     "classification": "SHIPPED PERSONAL PROJECT",
     "title": "Y.O.I.N.K.",
+    "featuredLabel": "Featured 02 — Y.O.I.N.K.",
     "subtitle": "Your Oversized Interactions, Nicely Kept.",
     "summary": "A portable Windows app that turns long ChatGPT shared conversations (for now—Claude and Gemini are on the wishlist) into reviewable, copyable Markdown.",
     "status": "v1.0.0 RELEASED",
@@ -145,6 +146,7 @@ export const work = [
   },
   {
     id: 'jihyo', kind: 'project', classification: 'ACTIVE PERSONAL PROJECT',
+    featuredLabel: 'Featured 01 — Secretary Jihyo',
     title: 'Personal Smart Secretary', subtitle: 'Codename: Secretary Jihyo',
     summary: 'A personal automation that brings Gmail and Google Calendar into Telegram. It organizes email, tracks unread follow-ups, sends event reminders, and creates calendar events with explicit confirmation. An on-demand /briefme command brings unread mail and the day’s schedule together.',
     status: '', stackLabel: 'BUILT WITH',
@@ -220,27 +222,127 @@ export const work = [
     links: [], note: '',
   },
   {
-    id: 'operations-reporting', kind: 'professional-experience', classification: 'PROFESSIONAL EXPERIENCE',
-    title: 'Operations Reporting & Coordination', subtitle: '',
-    summary: 'Project reporting, follow-up coordination, and documentation control—tracking submissions, consolidating updates, and supporting compliance follow-through.',
-    status: '',
-    technologies: ['Excel / VBA', 'Compliance Tracking', 'Resource Reporting', 'Process Coordination'],
-    homepage: { show: true, tier: 'supporting', order: 3, mediaSide: 'right' },
-    media: { type: 'process', steps: [
-      { label: 'Reporting', detail: 'Submissions' },
-      { label: 'Follow-up', detail: 'Consolidated updates' },
-      { label: 'Documentation', detail: 'Compliance follow-through' },
-    ] },
-    links: [], note: 'Tracked completion improved from roughly 40% to full compliance.',
+    "id": "operations-reporting",
+    "kind": "professional-experience",
+    "classification": "PROFESSIONAL EXPERIENCE",
+    "title": "Operations Reporting & Coordination",
+    "subtitle": "",
+    "summary": "I kept required internal submissions organized, accurate and visible to management.",
+    "status": "",
+    "technologies": [],
+    "homepage": {
+      "show": true,
+      "tier": "supporting",
+      "order": 3,
+      "mediaSide": "right"
+    },
+    "presentation": {
+      "variant": "operations",
+      "processTitle": "From submission to report",
+      "steps": [
+        {
+          "label": "Track & verify",
+          "detail": "Check required submissions, records and supporting documentation."
+        },
+        {
+          "label": "Coordinate follow-ups",
+          "detail": "Follow up with teams on missing or incorrect items."
+        },
+        {
+          "label": "Compile & report",
+          "detail": "Compile Excel/VBA-based reports for management visibility and compliance follow-through."
+        }
+      ],
+      "outcome": {
+        "label": "Tracked required submissions",
+        "from": "≈40%",
+        "to": "100%",
+        "unit": "completion",
+        "attribution": "My coordination and follow-up helped tracked required submissions improve from approximately 40% completion to full completion."
+      }
+    },
+    "media": null,
+    "links": [],
+    "note": ""
   },
   {
-    id: 'notion-system', kind: 'project', classification: 'ACTIVE PERSONAL PROJECT',
-    title: 'Personal Notion System', subtitle: '',
-    summary: 'A working second-brain and project/application tracking system built around relational databases, status telemetry, and lightweight reporting.',
-    status: '',
-    technologies: ['Relational Databases', 'Project Tracking', 'Application Tracking', 'Status Telemetry', 'Reporting'],
-    homepage: { show: true, tier: 'supporting', order: 4, mediaSide: 'right' },
-    media: null,
-    links: [], note: '',
+    "id": "notion-system",
+    "kind": "project",
+    "classification": "ACTIVE PERSONAL PROJECT",
+    "title": "Personal Notion System",
+    "subtitle": "",
+    "summary": "I use connected Notion databases to manage projects, tasks, job applications and knowledge in one workspace.",
+    "status": "",
+    "technologies": [],
+    "homepage": {
+      "show": true,
+      "tier": "supporting",
+      "order": 4,
+      "mediaSide": "right"
+    },
+    "presentation": {
+      "variant": "notion",
+      "workflowTitle": "What I manage",
+      "workflows": [
+        {
+          "label": "Projects & tasks",
+          "detail": "Connect actions to projects and spot stale or pending work."
+        },
+        {
+          "label": "Applications & knowledge",
+          "detail": "Track job applications and organize notes and references."
+        },
+        {
+          "label": "Status reporting",
+          "detail": "Use lightweight views to review progress and what needs attention."
+        }
+      ]
+    },
+    "media": {
+      "type": "image-composition",
+      "regions": [
+        {
+          "className": "ne-overview",
+          "src": "assets/projects/notion/command-center-overview.webp",
+          "width": 1210,
+          "height": 500,
+          "compactSrc": "assets/projects/notion/command-center-task-queue.webp",
+          "compactWidth": 420,
+          "compactHeight": 420,
+          "label": "Command Center",
+          "description": "Task queue & status visibility",
+          "alt": "Notion Command Center task queue with In Progress and Queued status tags and captured task titles."
+        },
+        {
+          "className": "ne-detail",
+          "src": "assets/projects/notion/project-status-detail.webp",
+          "width": 665,
+          "height": 180,
+          "compactSrc": "assets/projects/notion/project-status-detail-compact.webp",
+          "compactWidth": 325,
+          "compactHeight": 180,
+          "label": "Project tracking",
+          "description": "Project status & action items",
+          "alt": "Command Center Dashboard and Website Portfolio records showing Completed and Paused statuses, elapsed time and action-item counts."
+        }
+      ],
+      "caption": "Actual personal workspace. Selected crops from the captured Command Center.",
+      "viewer": {
+        "title": "Notion Command Center",
+        "src": "assets/projects/executive/command-center-dashboard.webp",
+        "width": 1875,
+        "height": 2898,
+        "alt": "Full-page authentic Notion Command Center: quick links, task queue, session area, operations controls, project timeline and project cards. Captured task, session and project records are visible; the Website Portfolio card retains its Paused status.",
+        "ctaLabel": "Explore Command Center",
+        "ctaHint": "Static Notion workspace preview"
+      }
+    },
+    "links": [],
+    "note": ""
   },
 ];
+
+export const supportingWorkSection = {
+  "title": "Supporting Work",
+  "intro": "Reporting, coordination and personal systems in practice."
+};

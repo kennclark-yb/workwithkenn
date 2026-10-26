@@ -17,6 +17,7 @@ export function applicationShowcaseMarkup(item) {
   const icon = '<svg class="yoink-summary-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M3 4h14M3 10h10M3 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
   const fullsizeName = state => `Open full-resolution ${state.label} screenshot of Y.O.I.N.K. with synthetic sample content`;
   return `<article id="${escape(item.id)}" class="yoink-feature" data-work-id="${escape(item.id)}" data-kind="${escape(item.kind)}" data-classification="${escape(item.classification)}" aria-labelledby="work-${escape(item.id)}-title">
+  <p class="metadata yoink-featured-number">${escape(item.featuredLabel)}</p>
   <header class="yoink-heading">
     <div class="yoink-identity"><h3 id="work-${escape(item.id)}-title">${escape(item.title)}</h3><p class="yoink-subtitle editorial">${escape(item.subtitle)}</p><p class="yoink-project-type">${escape(p.projectType)}</p></div>
     <div class="yoink-intro"><p>${escape(p.intro.before)} <span class="yoink-wishlist">${escape(p.intro.aside)}</span> ${escape(p.intro.after)}</p><div class="yoink-links">${item.links.map(link => `<a href="${escape(link.href)}">${escape(link.displayLabel || link.label)}</a>`).join('')}</div></div>
