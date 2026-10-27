@@ -298,4 +298,3 @@ export {
   grainGradientFragmentShader,
   grainGradientMeta
 };
-//# sourceMappingURL=grain-gradient.js.map

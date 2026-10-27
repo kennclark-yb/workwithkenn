@@ -1,0 +1,26 @@
+/* External Experience-only refinement; shared palette/type remain inherited. */
+.pe-experience{--pe-ink:var(--text-primary);--pe-muted:var(--text-secondary);--pe-accent:var(--accent-blue-soft);--pe-rule:rgba(205,215,231,.18);--pe-wash:rgba(195,212,241,.025);color:var(--pe-ink);background:transparent}
+.pe-opening h2{font:600 48px/1.06 var(--font-primary);letter-spacing:-.045em;margin:0}
+.pe-introduction{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin:36px 0 56px}
+.pe-thesis{font:400 36px/1.1 var(--font-editorial);margin:0;letter-spacing:-.015em}
+.pe-introduction>p:last-child{font-size:17px;line-height:1.65;max-width:53ch;margin:0}
+.pe-pillars{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+/* taste-skill-ignore: Owner explicitly requests subtle separators for these two editorial pillars. */
+.pe-pillar{padding:28px 0 32px;border-top:1px solid var(--pe-rule);/* taste-skill-ignore: owner-requested subtle separator */display:grid;grid-template-rows:auto auto auto 1fr;align-content:start;background:transparent}
+.pe-label{font:500 14px/1.5 var(--font-primary);color:var(--pe-muted);margin:0 0 20px}
+.pe-operations>.pe-label{color:var(--pe-accent)}
+.pe-pillar h3{font:500 clamp(32px,3.1vw,44px)/1.05 var(--font-primary);letter-spacing:-.04em;margin:0 0 24px}
+.pe-summary{font-size:17px;line-height:1.6;margin:0 0 30px;max-width:48ch}
+.pe-capabilities{display:grid;gap:22px;list-style:none;padding:0;margin:0;font-size:16px;line-height:1.55}
+.pe-capabilities strong{display:block;font-weight:500;margin-bottom:4px}
+.pe-capabilities span{display:block;color:var(--pe-muted);max-width:45ch}
+/* taste-skill-ignore: Owner-approved subtle separator integrates the tertiary foundation and resume ending. */
+.pe-foundation{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;border-top:1px solid var(--pe-rule);/* taste-skill-ignore: owner-requested subtle separator */padding:28px 32px;margin-top:12px;background:var(--pe-wash)}
+.pe-foundation .pe-label{margin-bottom:8px}.pe-foundation p:last-child{font-size:16px;line-height:1.6;margin:0;max-width:50ch}
+.pe-resume{justify-self:end;display:grid;gap:8px;min-height:60px;padding:12px 0 12px 24px;color:var(--pe-ink);text-decoration:none;font-size:18px;line-height:1.4}
+.pe-resume>span{display:flex;gap:44px;align-items:center;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}.pe-resume small{font-size:14px;color:var(--pe-muted)}
+.pe-resume:hover{color:var(--pe-accent)}.pe-resume:focus-visible{outline:2px solid var(--pe-accent);outline-offset:6px}
+@media(max-width:900px){.pe-introduction,.pe-pillars,.pe-foundation{gap:36px}.pe-pillar h3{font-size:34px}.pe-foundation{padding:24px}.pe-introduction{align-items:start}.pe-resume{padding-left:0}.pe-resume>span{gap:24px}}
+@media(max-width:600px){.pe-opening h2{font-size:34px;line-height:1.08;max-width:15ch}.pe-introduction{grid-template-columns:1fr;gap:20px;margin:28px 0 36px}.pe-thesis{font-size:28px}.pe-introduction>p:last-child,.pe-summary{font-size:16px}.pe-pillars{grid-template-columns:1fr;gap:16px}.pe-pillar{padding:24px 0 28px}.pe-label{margin-bottom:16px}.pe-pillar h3{font-size:36px;margin-bottom:20px}.pe-summary{margin-bottom:24px}.pe-capabilities{gap:20px}.pe-foundation{grid-template-columns:1fr;gap:24px;padding:24px 20px;margin-top:8px}.pe-resume{justify-self:start}.pe-resume>span{gap:40px}}
+@media(forced-colors:active){.pe-pillar,.pe-foundation{border-color:CanvasText}.pe-resume:focus-visible{outline-color:Highlight}}
+

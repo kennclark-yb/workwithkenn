@@ -53,7 +53,7 @@ if (hero && !document.hidden && scrollY < 80 && ['', '#top', '#home'].includes(l
 }
 
 async function enhancePortrait(image) {
-  if (!image || reduced.matches) return;
+  if (!image || reduced.matches || document.hidden || !['', '#top', '#home'].includes(location.hash)) return;
   const figure = image.closest('.hero-portrait');
   const box = figure.getBoundingClientRect();
   if (box.bottom < 0 || box.top > innerHeight) return;

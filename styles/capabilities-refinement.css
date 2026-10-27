@@ -1,0 +1,29 @@
+/* Capabilities-only refinement. Approved section introduction stays inherited. */
+.sb-capabilities{--sb-highlight:rgba(77,124,254,.20);--sb-highlight-edge:rgba(155,181,255,.48);--sb-pill:rgba(31,35,44,.66);--sb-soft-blue:#9bb5ff}
+.sb-capabilities .sb-skills{max-width:960px;margin-inline:auto;padding:8px 0 18px;border-radius:12px;background:rgba(17,20,27,.12)}
+.sb-capabilities .sb-skills-control{padding:8px 18px 6px;gap:16px;min-height:0}
+.sb-capabilities .sb-skills-control p{font-size:14px;max-width:none}
+.sb-capabilities .sb-track{padding:0 18px;margin-top:8px}
+.sb-capabilities .sb-track-group{gap:8px;animation-play-state:running}
+.sb-capabilities .sb-track-group li{padding:6px 13px;border:1px solid transparent;font-size:15px;line-height:1.4;background:var(--sb-pill);transition:background-color 780ms ease-out,border-color 780ms ease-out,color 780ms ease-out;transition-delay:0s}
+.sb-capabilities .sb-track-group li:hover{background:var(--sb-highlight);border-color:var(--sb-highlight-edge);color:var(--sb-soft-blue);transition-duration:30ms}
+.sb-capabilities .sb-has-motion .sb-track{padding:0;display:flex;overflow:hidden}
+.sb-capabilities .sb-has-motion .sb-track-group{min-width:0;justify-content:flex-start;gap:8px;padding-right:8px;animation:sb-roll var(--sb-duration,60s) linear infinite;animation-delay:var(--sb-delay,0s);animation-play-state:running}
+.sb-capabilities .sb-context{grid-template-columns:1.1fr 1fr 1fr;gap:40px;margin-top:36px}
+.sb-capabilities .sb-context h3{font:600 18px/1.3 var(--font-primary);letter-spacing:-.02em;margin:0 0 16px}
+.sb-capabilities .sb-context ul{list-style:disc;padding:0 0 0 17px;margin:0;display:grid;gap:9px;font-size:16px;line-height:1.55;color:var(--text-secondary)}
+.sb-capabilities .sb-context li{padding-left:3px}
+.sb-capabilities .sb-context li::marker{color:var(--sb-soft-blue);font-size:.7em}
+@media(max-width:900px){.sb-capabilities .sb-context{gap:24px}.sb-capabilities .sb-context h3{font-size:17px}}
+@media(max-width:600px){.sb-capabilities .sb-context{grid-template-columns:1fr;gap:28px;margin-top:28px}.sb-capabilities .sb-context h3{font-size:18px;margin-bottom:10px}.sb-capabilities .sb-skills-control{padding-inline:12px;gap:8px}.sb-capabilities .sb-skills-control p{max-width:25ch;font-size:13px}.sb-capabilities .sb-track-group li{font-size:14px;padding:6px 12px}}
+@media(prefers-reduced-motion:reduce){.sb-capabilities .sb-track-group li{transition:none}.sb-capabilities .sb-track{mask-image:none}}
+@media(forced-colors:active){.sb-capabilities .sb-track-group li{border-color:CanvasText}.sb-capabilities .sb-track-group li:hover{color:Highlight;border-color:Highlight}}
+
+/* Independent measured speeds; reverse keeps the same three identical sequences. */
+.sb-capabilities .sb-has-motion [data-sb-direction="right"] .sb-track-group{animation-direction:reverse}
+.sb-capabilities .sb-skills{position:relative;isolation:isolate;overflow:hidden}
+/* Owner-requested stationary optical edge glints, clipped inside the existing radius. */
+.sb-capabilities .sb-skills::before,.sb-capabilities .sb-skills::after{content:"";position:absolute;top:8px;bottom:8px;width:18px;z-index:1;pointer-events:none;background:linear-gradient(to bottom,transparent 8%,rgba(218,230,255,.35) 50%,transparent 92%) left center/1px 100% no-repeat,radial-gradient(ellipse at left center,rgba(190,209,255,.14),rgba(145,179,255,.035) 45%,transparent 74%)} /* taste-skill-ignore: Owner-requested stationary optical edge gradients only. */
+.sb-capabilities .sb-skills::before{left:0}
+.sb-capabilities .sb-skills::after{right:0;transform:scaleX(-1)}
+@media(forced-colors:active){.sb-capabilities .sb-skills::before,.sb-capabilities .sb-skills::after{display:none}}

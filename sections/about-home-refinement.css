@@ -1,0 +1,24 @@
+/* Section 07 only. Existing Dark Editorial Systems tokens and joke enhancement retained. */
+#about.ca-about { display: block; }
+#about.ca-about > .sprint-number { margin-bottom: 32px; }
+#about.ca-about .ca-about-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(40px, 6vw, 88px); align-items: center; }
+#about.ca-about .sp-about-home-copy { gap: 22px; min-width: 0; }
+#about.ca-about .sp-about-home-copy > p { max-width: 60ch; color: var(--text-primary); }
+#about.ca-about p.sp-lazy-line { font-size: 30px; line-height: 1.3; margin-bottom: 4px; }
+#about.ca-about .sp-about-home-media { align-self: center; min-width: 0; }
+#about.ca-about .sp-about-home-media img { height: 500px; object-position: 50% 34%; }
+#about.ca-about .sp-about-home-media figcaption { font-size: 14px; }
+#about.ca-about p.ca-about-bridge { color: var(--text-secondary); font-size: 16px; }
+@media (max-width: 900px) {
+  #about.ca-about .ca-about-layout { grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr); gap: 32px; align-items: start; }
+  #about.ca-about .sp-about-home-media img { height: 450px; }
+  #about.ca-about p.sp-lazy-line { font-size: 26px; }
+}
+@media (max-width: 600px) {
+  #about.ca-about > .sprint-number { margin-bottom: 24px; }
+  #about.ca-about .ca-about-layout { grid-template-columns: 1fr; gap: 32px; }
+  #about.ca-about .sp-about-home-copy { gap: 20px; }
+  #about.ca-about p.sp-lazy-line { font-size: 26px; }
+  #about.ca-about .sp-about-home-media { width: 100%; }
+  #about.ca-about .sp-about-home-media img { height: 360px; object-position: 50% 30%; }
+}

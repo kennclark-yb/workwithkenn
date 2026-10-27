@@ -1,0 +1,3 @@
+/* Owner-authorized eyebrow-only correction. Years keep their inherited color. */
+.pe-experience .pe-pillar>.pe-label{color:#9bb5ff}
+@media(forced-colors:active){.pe-experience .pe-pillar>.pe-label{color:CanvasText}}

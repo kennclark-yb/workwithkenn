@@ -268,4 +268,3 @@ export {
   DitheringTypes,
   ditheringFragmentShader
 };
-//# sourceMappingURL=dithering.js.map

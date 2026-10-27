@@ -1,0 +1,12 @@
+/* Section 05 only. Existing typography, genuine UI and Dark Editorial Systems tokens are inherited. */
+#building .sb-lab-layout{margin-bottom:40px}
+#building .sb-console figcaption{font-size:14px;line-height:1.55;max-width:62ch;margin-top:14px}
+#building .sb-development-note{display:grid;grid-template-columns:1fr 1fr;gap:72px;padding-top:8px}
+#building .sb-development-note>div{min-width:0}
+#building .sb-development-note h3{font:500 21px/1.25 var(--font-primary);letter-spacing:-.025em;color:var(--text-primary);margin:0 0 12px}
+#building .sb-development-note p{font:400 16px/1.65 var(--font-primary);color:var(--text-secondary);max-width:54ch;margin:0}
+@media(max-width:900px){#building .sb-development-note{gap:36px}#building .sb-lab-layout{margin-bottom:32px}}
+@media(max-width:560px){#building .sb-development-note{grid-template-columns:1fr;gap:26px;padding-top:0}#building .sb-development-note h3{font-size:20px;margin-bottom:8px}#building .sb-console figcaption{font-size:14px}#building .sb-lab-layout{margin-bottom:30px}}
+
+/* Private, noninteractive evidence strip; approved copy and notes unchanged. */
+#building .sb-ocr-evidence{margin:40px 0 44px}#building .sb-ocr-evidence h3{font:500 28px/1.2 var(--font-primary);letter-spacing:-.025em;margin:0 0 14px;max-width:36ch}#building .sb-ocr-evidence>p{font:400 16px/1.6 var(--font-primary);color:var(--text-secondary);margin:0 0 24px;max-width:72ch}#building .sb-evidence-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}#building .sb-evidence-pair figure{margin:0;min-width:0}#building .sb-evidence-pair figcaption{font-size:14px;line-height:1.5;margin-bottom:12px}#building .sb-evidence-pair img{display:block;width:100%;height:auto;transition:filter 180ms}#building .sb-evidence-pair img:hover{filter:brightness(1.04)}#building p.sb-evidence-limit{font-size:13px;margin-top:16px;max-width:100ch} @media(max-width:600px){#building .sb-evidence-pair{grid-template-columns:1fr;gap:24px}#building .sb-ocr-evidence{margin-block:32px}#building .sb-ocr-evidence h3{font-size:24px}}@media(prefers-reduced-motion:reduce){#building .sb-evidence-pair img{transition:none}}

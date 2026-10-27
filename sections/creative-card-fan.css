@@ -1,0 +1,83 @@
+/* Six owner-ranked photographs, together as a tactile print fan. */
+.cf-creative{color:var(--text-primary);font-family:var(--font-primary);min-width:0}
+.cf-creative [hidden]{display:none!important}
+.cf-creative .cf-opening{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end}
+.cf-creative h2{font-size:48px;font-weight:500;line-height:1.06;letter-spacing:-.045em;margin:0}
+.cf-creative .cf-opening p{margin:0;font-size:18px;line-height:1.55;max-width:39ch;color:var(--text-secondary)}
+.cf-creative .cf-fan{--cw:210px;--rest:150px;--spread:168px;position:relative;width:100%;height:430px;margin:60px auto 16px;isolation:isolate}
+.cf-creative .cf-card{position:absolute;top:14px;left:50%;width:var(--cw);box-sizing:border-box;display:block;background:var(--bg-soft);color:var(--text-primary);text-decoration:none;padding:8px 8px 16px;transform-origin:50% 100%;transform:translateX(calc(-50% + var(--slot)*var(--rest))) rotate(calc(var(--slot)*2.1deg));transition:transform 360ms cubic-bezier(.22,.7,.25,1);z-index:var(--z)}
+.cf-creative .cf-card img{display:block;width:100%;height:242px;object-fit:cover}
+.cf-creative .cf-card-caption{display:grid;gap:6px;max-width:136px;padding:14px 6px 0}
+.cf-creative .cf-card-caption strong{font-size:17px;font-weight:500;line-height:1.2}
+.cf-creative .cf-card-caption>span{font-size:13px;line-height:1.45;color:var(--text-secondary)}
+.cf-creative .cf-card-caption .cf-card-action{font-size:14px;color:var(--accent-blue-soft);padding-top:4px}
+.cf-creative .cf-fan[data-expanded=true] .cf-card{transform:translateX(calc(-50% + var(--slot)*var(--spread))) rotate(calc(var(--slot)*3deg))}
+.cf-creative .cf-fan[data-expanded=true] .cf-card:is(:hover,:focus-visible){z-index:10;transform:translateX(calc(-50% + var(--slot)*var(--spread))) translateY(-10px) rotate(calc(var(--slot)*2deg))}
+.cf-creative :is(a,button,input):focus-visible{outline:3px solid var(--accent-blue-soft);outline-offset:5px}
+.cf-creative .cf-nojs{font-size:14px;line-height:1.7}.cf-creative .cf-nojs a{color:var(--accent-blue-soft);padding:8px}
+.cf-creative:not(.cf-ready) .cf-fan{height:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cf-creative:not(.cf-ready) .cf-card{position:relative;left:auto;top:auto;width:100%;transform:none}
+.cf-creative .cf-dialog{border:0;padding:0;background:var(--bg-raised);color:var(--text-primary);width:fit-content;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);border-radius:22px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.cf-creative .cf-dialog::backdrop{background:rgb(0 0 0 / .88)}
+.cf-creative .cf-dialog[data-phase=opening]::backdrop{animation:cf-backdrop-in 260ms ease-out both}
+.cf-creative .cf-dialog[data-phase=closing]::backdrop{animation:cf-backdrop-out 180ms ease-in both}
+.cf-creative .cf-shell{padding:12px;background:var(--bg-raised);box-sizing:border-box;border-radius:inherit}
+.cf-creative .cf-dialog-top{display:flex;justify-content:flex-end;min-height:44px;margin-bottom:8px}
+.cf-creative .cf-close{font:inherit;color:var(--text-primary);background:none;border:0;min-width:80px;min-height:44px;padding:6px 10px;border-radius:999px}
+.cf-creative .cf-close span{font-size:23px;margin-left:8px;vertical-align:middle}
+.cf-creative .cf-images{position:relative;width:min(calc(max(180px,100dvh - 224px)*var(--cf-photo-ratio,.5625)),calc(100vw - 56px),1100px);aspect-ratio:var(--cf-photo-ratio,.5625);overflow:hidden;border-radius:14px;background:var(--bg-deep);--cf-split:50%}
+.cf-creative .cf-images img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
+.cf-creative .cf-graded{clip-path:inset(0 calc(100% - var(--cf-split)) 0 0)}
+.cf-creative .cf-dialog[data-mode=original] .cf-graded{clip-path:inset(0 100% 0 0)}
+.cf-creative .cf-dialog[data-mode=graded] .cf-graded{clip-path:inset(0)}
+.cf-creative .cf-images[data-switching] .cf-graded{transition:clip-path 180ms ease-out}
+.cf-creative .cf-divider{position:absolute;inset:0 auto 0 var(--cf-split);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none;z-index:3}
+.cf-creative .cf-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:rgb(9 10 12 / .8);border:1px solid #f4f4ef;display:grid;place-items:center;color:#fff;font-size:24px}
+.cf-creative .cf-image-label{position:absolute;top:12px;z-index:2;padding:4px 9px;border-radius:999px;background:rgb(0 0 0 / .65);color:#fff;font-size:13px;pointer-events:none}
+.cf-creative .cf-label-graded{left:12px}.cf-creative .cf-label-original{right:12px}
+.cf-creative .cf-dialog[data-mode=original] .cf-label-graded,.cf-creative .cf-dialog[data-mode=graded] .cf-label-original{display:none}
+.cf-creative #cf-reveal{position:absolute;inset:0;z-index:4;width:100%;height:100%;margin:0;opacity:0;touch-action:none}
+.cf-creative #cf-reveal:focus-visible{outline:none}
+.cf-creative .cf-images:has(#cf-reveal:focus-visible){outline:3px solid var(--accent-blue-soft);outline-offset:5px}
+.cf-creative .cf-load-status{position:absolute;inset:50% 12px auto;text-align:center;margin:0;z-index:5;background:rgb(0 0 0 / .75);font-size:14px;color:#fff;pointer-events:none}
+.cf-creative .cf-viewer-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;min-height:96px}
+.cf-creative .cf-mode{font:inherit;font-size:14px;min-height:44px;padding:8px 14px;border:0;border-radius:999px;background:var(--bg-soft);color:var(--text-primary)}
+.cf-creative .cf-mode[aria-pressed=true]{background:var(--accent-blue-soft);color:var(--bg-main)}
+.cf-creative .cf-return-slot{grid-column:1/-1;min-height:44px;display:grid;place-items:center}
+.cf-creative .cf-back{font:inherit;font-size:14px;color:var(--accent-blue-soft);border:0;background:none;min-height:44px;padding:6px 12px}
+.cf-creative .cf-hint{margin:0;font-size:13px;color:var(--text-secondary);text-align:center}
+.cf-creative .cf-dialog[data-phase=closing] .cf-shell{pointer-events:none}
+@keyframes cf-backdrop-in{from{opacity:0}to{opacity:1}}@keyframes cf-backdrop-out{to{opacity:0}}
+
+@media(max-width:1099px){
+ .cf-creative .cf-fan,.cf-creative.cf-ready .cf-fan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px;height:auto;margin-top:40px;padding:8px 0}
+ .cf-creative .cf-card{position:relative;top:auto;left:auto;width:100%;transform:rotate(calc(var(--slot,0)*.7deg))!important;padding:8px 8px 16px}
+ .cf-creative .cf-card img{height:224px}
+ .cf-creative .cf-card-caption{max-width:none;padding:14px 6px 0}
+ /* Static tablet prints keep their position when keyboard focus is restored. */
+}
+@media(max-width:767px){.cf-creative .cf-opening{grid-template-columns:1fr;gap:24px}.cf-creative .cf-fan{margin-top:32px}}
+@media(max-width:600px){
+ .cf-creative h2{font-size:34px}.cf-creative .cf-opening p{font-size:16px}
+ .cf-creative .cf-fan,.cf-creative.cf-ready .cf-fan,.cf-creative:not(.cf-ready) .cf-fan{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px;margin:30px auto 16px}
+ .cf-creative .cf-card{padding:5px 5px 12px;transform:none!important}
+ .cf-creative .cf-card img{height:172px}
+ .cf-creative .cf-card-caption{padding:10px 5px 0;gap:7px}
+ .cf-creative .cf-card-caption strong{font-size:16px;min-height:38px}
+ .cf-creative .cf-card-caption>span,.cf-creative .cf-card-caption .cf-card-action{font-size:13px}
+ .cf-creative .cf-card-description{min-height:38px}
+ .cf-creative .cf-dialog{border-radius:18px}
+ .cf-creative .cf-images{border-radius:12px}
+ .cf-creative .cf-mode{padding:8px 10px}
+}
+@media(prefers-reduced-motion:reduce){
+ .cf-creative .cf-card,.cf-creative .cf-images[data-switching] .cf-graded{transition:none}
+ .cf-creative .cf-dialog::backdrop{animation:none!important}
+ .cf-creative .cf-fan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;height:auto;padding-block:12px 24px}
+ .cf-creative .cf-card{position:relative;left:auto;top:auto;width:100%;transform:none!important}
+ .cf-creative .cf-card-caption{max-width:none}
+}
+@media(max-width:600px) and (prefers-reduced-motion:reduce){.cf-creative .cf-fan{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}}
+
+/* Very short viewports keep a readable image; the dialog provides native scrolling. */
+@media(max-height:420px){.cf-creative .cf-images{width:min(540px,calc(100vw - 80px))}}

@@ -630,4 +630,3 @@ export {
   liquidMetalFragmentShader,
   toProcessedLiquidMetal
 };
-//# sourceMappingURL=liquid-metal.js.map

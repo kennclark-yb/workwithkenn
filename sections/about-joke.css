@@ -1,0 +1,4 @@
+/* About joke only; final readable state is ordinary CSS, never a hidden fallback. */
+#about [data-sp-lazy] .sp-lazy-word::after { display: none; animation: none; }
+#about [data-sp-lazy] .sp-efficient { animation: none; opacity: 1; transform: none; }
+#about [data-sp-lazy] .sp-lazy-strike { position: absolute; left: -3%; width: 106%; height: 2px; top: 56%; background: currentColor; transform: scaleX(1); transform-origin: left center; pointer-events: none; }

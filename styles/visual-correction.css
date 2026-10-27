@@ -1,0 +1,6 @@
+/* Owner-requested surface correction: outer panels only. All inner evidence styles remain inherited. */
+.sw-section{--sw-surface:transparent}
+/* Years sit on the existing label baseline. Text, headings, layout and ordering are preserved. */
+.pe-experience .pe-label{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.pe-year{color:var(--text-secondary);font:400 14px/1.5 var(--font-primary);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:0}
+@media(forced-colors:active){.pe-year{color:CanvasText}}
